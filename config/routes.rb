@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :festivals, only: [:index, :show]
   resources :wishlist
+  resources :trips, only: :show
 end
