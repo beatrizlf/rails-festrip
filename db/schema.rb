@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_184201) do
+ActiveRecord::Schema.define(version: 2021_03_01_205614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "festivals", force: :cascade do |t|
+    t.string "name"
+    t.date "date"
+    t.string "location"
+    t.integer "price"
+    t.string "category"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lineups", force: :cascade do |t|
+    t.bigint "festival_id", null: false
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["artist_id"], name: "index_lineups_on_artist_id"
+    t.index ["festival_id"], name: "index_lineups_on_festival_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +53,17 @@ ActiveRecord::Schema.define(version: 2021_03_01_184201) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wishlists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "festival_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["festival_id"], name: "index_wishlists_on_festival_id"
+    t.index ["user_id"], name: "index_wishlists_on_user_id"
+  end
+
+  add_foreign_key "lineups", "artists"
+  add_foreign_key "lineups", "festivals"
+  add_foreign_key "wishlists", "festivals"
+  add_foreign_key "wishlists", "users"
 end
