@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  get 'festivals/index'
+  get 'festivals/show'
   devise_for :users
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :festivals, only: [:index, :show]
+  resources :wishlist
+  resources :trips, only: :show
 end
