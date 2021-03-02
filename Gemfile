@@ -33,6 +33,8 @@ gem 'devise'
 
 gem 'faker'
 
+gem 'omniauth-spotify'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
