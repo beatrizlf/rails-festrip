@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :wishlist, dependent: :destroy
+
+  has_one_attached :photo
 end
