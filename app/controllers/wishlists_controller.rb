@@ -12,7 +12,7 @@ class WishlistsController < ApplicationController
   end
 
   def create
-
+    @wishlist = Wishlist.new(wishlist_params)
   end
 
   def edit
