@@ -1,1 +1,52 @@
 // Specific CSS for your home-page
+#background-home {
+  background-position: center;
+}
+
+body {
+  background-color: $black;
+  text-align: center;
+}
+
+h1 {
+  font-size: 80px;
+  color: $ivory;
+  font-weight: 400;
+  font-style: normal;
+}
+.name-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  top: 350px;
+}
+
+a {
+  color: $ivory;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 0px 10px;
+}
+
+a:hover {
+  color: $ivory;
+  text-decoration: none;
+}
+
+// .btn{
+//   text-decoration: none;
+//   transition: none;
+// }
+
+// .btn-outline-info:hover {
+//   text-decoration: none !important;
+// }
+
+#text {
+  font-size: 30px;
+  top: 665px;
+  text-decoration: none !important;
+
+}
