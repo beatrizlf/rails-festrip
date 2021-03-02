@@ -6,11 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require 'json'
 
 if Rails.env.development?
   User.destroy_all
-  Artist.destroy_all
+  Lineup.destroy_all
   Festival.destroy_all
+  Artist.destroy_all
 end
 
 my_user = User.create!(
@@ -46,7 +48,7 @@ puts 'Creating 30 new festivals...'
     name: "#{Faker::Book.title}",
     date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
     location: "#{Faker::Address.country}",
-    price: [150..500].to_a.sample,
+    price: Faker::Number.between(from: 150, to: 350),
     category: "#{Faker::Music.genre}",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
   )
@@ -61,3 +63,4 @@ puts 'Creating 30 new festivals...'
 end
 
 puts 'Festivals created!'
+
