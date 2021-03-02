@@ -1,10 +1,7 @@
 class FestivalsController < ApplicationController
-<<<<<<< HEAD
-  before_action :set_festival, only: [:show, :edit, :update, :destroy, :favourite_festival]
-=======
+
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_festival, only: [:show, :edit, :update, :destroy]
->>>>>>> origin
+  before_action :set_festival, only: [:show, :edit, :update, :destroy, :favourite_festival]
 
   def index
     @festivals = policy_scope(Festival).order(created_at: :desc)
