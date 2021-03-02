@@ -5,3 +5,62 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+require 'json'
+
+if Rails.env.development?
+  User.destroy_all
+  Lineup.destroy_all
+  Festival.destroy_all
+  Artist.destroy_all
+end
+
+my_user = User.create!(
+  email: "teste@teste.com",
+  password: "123456"
+)
+
+puts 'Creating 10 users...'
+
+10.times do
+  new_user = User.create!(
+    email: "#{Faker::Internet.email}",
+    password: "#{Faker::Internet.password}"
+  )
+end
+
+puts 'Users created!'
+
+puts 'Creating 50 new artists...'
+
+50.times do
+  new_artist = Artist.create!(
+    name: "#{Faker::Music.band}"
+  )
+end
+
+puts 'Artists created!'
+
+puts 'Creating 30 new festivals...'
+
+30.times do
+  new_festival = Festival.create!(
+    name: "#{Faker::Book.title}",
+    date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
+    location: "#{Faker::Address.country}",
+    price: Faker::Number.between(from: 150, to: 350),
+    category: "#{Faker::Music.genre}",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+  )
+  rand(10..30).times do
+    possible_artist = Artist.all.sample
+    possible_artist = Artist.all.sample while new_festival.artists.include?(possible_artist)
+    Lineup.create!(
+      festival: new_festival,
+      artist: possible_artist
+    )
+  end
+end
+
+puts 'Festivals created!'
+
