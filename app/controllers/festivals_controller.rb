@@ -1,17 +1,17 @@
 class FestivalsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_festival, only: [:show, :edit, :update, :destroy]
 
   def index
-    @festivals = Festival.all
-    authorize @festivals
+    @festivals = policy_scope(Festival).order(created_at: :desc)
   end
 
   def show
-    authorize @festival
   end
 
   def new
     @festival = Festival.new
+    authorize @festival
   end
 
   def create
@@ -33,6 +33,7 @@ class FestivalsController < ApplicationController
 
   def set_festival
     @festival = Festival.find(params[:id])
+    authorize @festival
   end
 
   def festival_params

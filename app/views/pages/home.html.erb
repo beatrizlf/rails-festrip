@@ -1,9 +1,16 @@
-<div id="background-home" style="height: 100vh;">
-
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
-
+<div class="container-home">
+  <div id="background-home" style="height: 100vh;">
+    <div class="name-button">
+      <h1>Festrip</h1>s
+        <%= button_to "#", method: :get, class: "btn btn-outline-danger" do %>
+        <i class="fab fa-spotify"></i> Log in with Spotify
+        <% end %>
+    </div>
+    <div id="text">
+    <%= link_to ">>> Skip to Homepage", "#" %>
+    </div>
   </div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.trunk.min.js"></script>
@@ -19,8 +26,9 @@
     scaleMobile: 1.00,
     color: 0xde752c,
     backgroundColor: 0x0,
-    spacing: 4.00,
+    spacing: 1.00,
     chaos: 4.50
   })
 
 </script>
+
