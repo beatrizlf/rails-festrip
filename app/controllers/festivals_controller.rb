@@ -1,5 +1,5 @@
 class FestivalsController < ApplicationController
-  before_action :set_festival, only: [:show, :edit, :update, :destroy]
+  before_action :set_festival, only: [:show, :edit, :update, :destroy, :favourite_festival]
 
   def index
     @festivals = Festival.all
@@ -27,6 +27,12 @@ class FestivalsController < ApplicationController
 
   def destroy
     @festival.destroy
+  end
+
+  def favourite_festival
+    @festival.set_favourite_festival
+    @festival.save
+    redirect_to wishlists_path
   end
 
   private
