@@ -1,0 +1,17 @@
+<div class="containerindex">
+  <div class="p-4">
+    <main class="page-content">
+        <% @festivals.each do |festival| %>
+          <div class="card">
+            <div class="content">
+              <h2 class="title"><%= festival.name %></h2>
+                <p class="copy">
+                  <p><%= festival.location %></p></p>
+                  <button class="btn2">See details</button>
+            </div>
+          </div>
+        <% end %>
+    </main>
+  </div>
+</div>
+
