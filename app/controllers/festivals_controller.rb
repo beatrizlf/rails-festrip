@@ -4,6 +4,8 @@ class FestivalsController < ApplicationController
 
   def index
     @festivals = policy_scope(Festival).order(created_at: :desc)
+    @festivals = @festivals.global_search(params[:query]) if params[:query].present?
+    @festivals = @festivals.where(category: params[:category]) if params[:category].present?
   end
 
   def show
