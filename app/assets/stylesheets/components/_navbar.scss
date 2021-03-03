@@ -1,10 +1,14 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: $transparent;
+  background: transparent;
   position: sticky;
   top: 0;
   z-index:1;
   height: 60px;
+  background: rgba(24,22,22,0.2) !important;
+  z-index: 2;
+  backdrop-filter: blur(3px) saturate(125%);                   /* Blur the background */
+  -webkit-backdrop-filter: blur(3px) saturate(125%);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -45,4 +49,9 @@
 
 .nav-item li {
   font-size: 15px;
+}
+
+.container-form {
+  display: flex;
+  justify-content: flex-start;
 }

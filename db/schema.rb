@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_212920) do
+ActiveRecord::Schema.define(version: 2021_03_03_181446) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(version: 2021_03_02_212920) do
     t.index ["festival_id"], name: "index_lineups_on_festival_id"
   end
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
   create_table "trips", force: :cascade do |t|
     t.bigint "wishlist_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -79,6 +88,11 @@ ActiveRecord::Schema.define(version: 2021_03_02_212920) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "admin", default: false, null: false
+    t.string "uid"
+    t.string "username"
+    t.string "top_artists", default: [], array: true
+    t.string "spotify_token"
+    t.string "spotify_photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
