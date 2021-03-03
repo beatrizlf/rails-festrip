@@ -1,0 +1,24 @@
+<!-- Container principal da pagina de Wishlist
+  ------------------------------------------->
+<div class="container_wishlist m-4">
+
+<!--Para editar todas as informacoes sobre a sua wishlist campo
+------------------- Mochilist-------------------------------->
+  <div class="text"><h1><strong>Here is your Mochilist..</strong></h1>
+    <div class="my_wishlist row py-4 my-4 bg-dark">
+      <div class="mb-3">
+        <% @wishlists.each do |wishlist|  %>
+        <%= link_to wishlist_path(wishlist),method: :delete do %>
+            <i class="fas fa-minus-circle"></i>
+          <% end %>
+        <p><%= wishlist.festival.name %></p>
+        <p><%= wishlist.festival.date %></p>
+        <p><%= wishlist.festival.location %></p>
+        <p><%= wishlist.festival.category %></p>
+        <p><%= wishlist.festival.price %></p>
+        <hr>
+        <% end  %>
+      </div>
+    </div>
+  </div>
+

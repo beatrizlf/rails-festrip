@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def mochilist
+    @wishlists = policy_scope(Wishlist).where(user:current_user).order(created_at: :desc)
+  end
 end

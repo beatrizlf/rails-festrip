@@ -5,6 +5,17 @@
     <p>Find me in app/views/festivals/index.html.erb</p>
 
     <% @festivals.each do |festival| %>
+      <% if current_user %>
+        <% if current_user.wishlists.where(festival:festival).empty? %>
+          <%= link_to festival_wishlists_path(festival),method: :post do %>
+             <i class="far fa-heart"></i>
+            <% end %>
+          <% else %>
+            <%= link_to wishlist_path(Wishlist.where(user:current_user, festival: festival).first), method: :delete do %>
+              <i class="fas fa-heart"></i>
+          <% end %>
+        <% end %>
+      <% end %>
       <p><%= festival.name %></p>
       <p><%= festival.description %></p>
       <p><%= festival.date %></p>
