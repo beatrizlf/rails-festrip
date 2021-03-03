@@ -1,10 +1,12 @@
 class WishlistsController < ApplicationController
+  skip_before_action :authenticate_user!
+  before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
+
   def index
-    @wishlists = Wishlist.all
+    @whishlists = policy_scope(Wishlist).order(created_at: :desc)
   end
 
   def show
-    @wishlist = Wishlist.find(params[:id])
   end
 
   def new
@@ -27,6 +29,16 @@ class WishlistsController < ApplicationController
   private
 
   def wishlist_name
+  end
 
+  private
+
+  def set_wishlist
+    @wishlist = Wishlist.find(params[:id])
+    authorize @wishlist
+  end
+
+  def festival_params
+    params.require(:wishlist).permit()
   end
 end
