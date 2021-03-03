@@ -5,8 +5,9 @@
 body {
   background-color: $black;
   text-align: center;
+  place-items: center !important;
+  display: block !important;
 }
-
 
 body p {
   color: $ivory;
