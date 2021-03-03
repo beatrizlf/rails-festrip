@@ -15,6 +15,8 @@ class WishlistsController < ApplicationController
 
   def create
     @wishlist = Wishlist.new(wishlist_params)
+    @wishlist.user = current_user
+    @wishlist.festival = set_favourite_festival
   end
 
   def edit
