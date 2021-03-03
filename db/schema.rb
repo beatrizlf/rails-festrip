@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_165844) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "favourite", default: false
   end
 
   create_table "lineups", force: :cascade do |t|

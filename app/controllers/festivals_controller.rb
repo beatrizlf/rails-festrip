@@ -1,6 +1,7 @@
 class FestivalsController < ApplicationController
+
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_festival, only: [:show, :edit, :update, :destroy]
+  before_action :set_festival, only: [:show, :edit, :update, :destroy, :favourite_festival]
 
   def index
     @festivals = policy_scope(Festival).order(created_at: :desc)
@@ -29,6 +30,12 @@ class FestivalsController < ApplicationController
 
   def destroy
     @festival.destroy
+  end
+
+  def favourite_festival
+    @festival.set_favourite_festival
+    @festival.save
+    redirect_to wishlists_path
   end
 
   private
