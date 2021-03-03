@@ -19,8 +19,8 @@
         </li>
 
         <li class="nav-item dropdown mt-2">
-          <% if current_user.photo.attached? %>
-            <img class="avatar dropdown-toggle mr-3" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src=<%=cl_image_path current_user.photo.key  %> />
+          <% if current_user.spotify_photo? %>
+            <img class="avatar dropdown-toggle mr-3" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src=<%= current_user.spotify_photo %> />
           <% else %>
             <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://res.cloudinary.com/diarvpaib/image/upload/v1614719727/114-1149847_avatar-unknown-dp_ebcs8s.jpg"/>
           <% end %>
