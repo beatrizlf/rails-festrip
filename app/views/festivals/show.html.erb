@@ -5,3 +5,8 @@
 <%= @festival.description %>
 <%= @festival.date %>
 <%= @festival.location %>
+<p>Line-Up:
+  <% @festival.artists.each do |artist| %>
+    <%= artist.name %> ---
+  <% end %>
+</p>
