@@ -18,9 +18,11 @@
           <%= render 'shared/flashes' %>
           <%= yield %>
         </div>
-        <footer id="footer">
-          <%= render 'shared/footer' %>
-        </footer>
+        <% unless params[:action] == "home" %>
+          <footer id="footer">
+            <%= render 'shared/footer' %>
+          </footer>
+        <% end %>
     </div>
   </body>
 </html>
