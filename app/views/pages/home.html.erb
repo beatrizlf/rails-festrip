@@ -5,9 +5,12 @@
       <%= button_to "#", method: :get, class: "btn btn-outline-danger" do %>
         <i class="fab fa-spotify"></i> Log in with Spotify
       <% end %>
+      
+        <%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path, method: :post %>
+
     </div>
     <div id="text">
-    <%= link_to ">>> Skip to Homepage", new_user_session_path %>
+    <%= link_to ">>> Skip to Homepage", festivals_path %>
     </div>
   </div>
 </div>
