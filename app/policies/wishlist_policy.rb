@@ -1,4 +1,4 @@
-class FestivalPolicy < ApplicationPolicy
+class WishlistPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -10,22 +10,22 @@ class FestivalPolicy < ApplicationPolicy
   end
 
   def new?
-    user.admin?
+    true
   end
 
   def create?
-    new?
+    true
   end
 
   def edit?
-    user.admin?
+    true
   end
 
   def update?
-    edit?
+    true
   end
 
   def destroy?
-    user.admin?
+    true
   end
 end

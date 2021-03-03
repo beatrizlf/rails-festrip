@@ -12,6 +12,15 @@
   </head>
 
   <body>
-    <%= yield %>
+     <div id="page-container">
+        <div id="content-wrap">
+          <!-- all other page content -->
+          <%= render 'shared/flashes' %>
+          <%= yield %>
+        </div>
+        <footer id="footer">
+          <%= render 'shared/footer' %>
+        </footer>
+    </div>
   </body>
 </html>

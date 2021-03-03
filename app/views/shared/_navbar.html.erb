@@ -1,35 +1,72 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+<% if current_user %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <p class="ml-3">
+     <%= link_to 'FESTRIP', root_path %></p>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+    </form>
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+          <%#= link_to 'Wishlist', wishlist_path(@wishlist), class: "nav-link" %>
         </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
+
+        <li class="nav-item dropdown mt-2">
+          <% if current_user.photo.attached? %>
+            <img class="avatar dropdown-toggle mr-3" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src=<%=cl_image_path current_user.photo.key  %> />
+          <% else %>
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://res.cloudinary.com/diarvpaib/image/upload/v1614719727/114-1149847_avatar-unknown-dp_ebcs8s.jpg"/>
+          <% end %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to 'Edit Info', edit_user_registration_path, class: "dropdown-item", id: "listnav" %>
+              <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "dropdown-item", id: "listnav" %>
+           </div>
         </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
+      </ul>
+    </div>
   </div>
-</div>
+
+<% else %>
+
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="container-form">
+    <p class="ml-3 mt-3"><strong>FESTRIP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+
+      <form class="form-inline my-2 my-lg-0">
+          <%= form_tag festivals_path, method: :get do %>
+            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a festival by name" %>
+            &nbsp;&nbsp;<%= submit_tag "Search", class: "btn btn-outline-warning" %>
+          <% end %>
+      </form>
+    </div>
+
+
+    <div class="container-links">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to 'Festivals', festivals_path, class: "nav-link" %>
+          </li>
+            <li class="nav-item">
+              <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item mr-3">
+              <%= link_to 'Login', new_user_session_path, class: "nav-link" %>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>

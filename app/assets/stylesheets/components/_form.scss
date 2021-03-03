@@ -1,0 +1,35 @@
+.form-login {
+  background: #181616;
+  padding: 10px 20px;
+  margin-top: 50px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  border-style: solid;
+  border-color: $tangerine;
+  border-width: thin;
+  h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    margin-top: 27px;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 10px;
+    background: $tangerine;
+  }
+
+  a {
+    color: $ivory;
+  }
+}
+
+body {
+  background-color: #181616 !important;
+}
+
+.form-check-input.is-valid ~ .form-check-label {
+  color: $ivory;
+}
