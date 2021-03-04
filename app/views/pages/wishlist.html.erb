@@ -14,6 +14,9 @@
         <p><%= artist.name %></p>
         <% end %>
       </div>
+  <div class="text"><h1><strong>Here is your Mochilist..</strong></h1>
+    <div class="my_wishlist row py-4 my-4 bg-dark">
+      <div class="mb-3">
         <% @wishlists.each do |wishlist|  %>
         <%= link_to wishlist_path(wishlist),method: :delete do %>
             <i class="fas fa-minus-circle"></i>
@@ -28,4 +31,7 @@
       </div>
     </div>
   </div>
+
+
+<%= link_to "Checkout", trips_path(wishlist: @wishlists.to_a) %>
 

@@ -28,7 +28,11 @@ import "bootstrap";
 
 // Internal imports, e.g:
 
+// import { initSelect2 } from '../components/init_select2';
+import { inputForTrip } from '../components/insert_trip';
+
 import { owlCarousel } from '../components/carousel';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
