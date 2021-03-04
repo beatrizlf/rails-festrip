@@ -1,4 +1,5 @@
 <%= render 'shared/navbar' %>
+<%= render 'shared/advanced_search' %>
 <div class="container">
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/diarvpaib/image/upload/v1614808273/pexels-annam-w-1120162_jebmhu.jpg);">
   <div class="container">
@@ -7,7 +8,6 @@
     <a class="btn btn-flat" href="#">Apply now</a>
   </div>
 </div>
-
 
   <div class="contentindex">
     <div class="textbox">
@@ -18,6 +18,7 @@
 
     <div class="p-1">
       <main class="page-content">
+        <% if @festivals.present? %>
         <% @festivals.each do |festival| %>
           <div class="card">
             <div class="content">
@@ -37,6 +38,9 @@
               <button class="btn2">See details</button>
             </div>
           </div>
+        <% end %>
+        <% else %>
+        <h2>Nao foram encontrados os seus festivais!</h2>
         <% end %>
       </main>
     </div>
