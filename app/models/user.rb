@@ -9,7 +9,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers => [:spotify]
 
-  has_one :wishlist, dependent: :destroy
+  has_many :wishlists, dependent: :destroy
   has_one_attached :photo
 
   #after_create :get_top_artists
