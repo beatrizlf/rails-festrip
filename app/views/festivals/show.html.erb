@@ -24,17 +24,20 @@
     <%= @festival.description %>
   </div>
 
-  <div class='first-card'>
-    <%#= aqui vai entrar o video do festival %>
-  </div>
+  <div class='fest-cards'>
+    <div class='first-card'>
+      <p>Line-Up:
+        <% @festival.artists.each do |artist| %>
+          <%= artist.name %> ---
+        <% end %>
+      </p>
+    </div>
 
 
-  <div class='second-card p-2'>
-    <p>Line-Up:
-      <% @festival.artists.each do |artist| %>
-        <%= artist.name %> ---
-      <% end %>
-    </p>
+    <div class='second-card'>
+      <%#= aqui vai entrar o video do festival %>
+      <p>teste teste teste</p>
+    </div>
   </div>
 
 
