@@ -6,6 +6,6 @@ class PagesController < ApplicationController
   end
 
   def mochilist
-    @wishlists = policy_scope(Wishlist).where(user:current_user).order(created_at: :desc)
+    @wishlists = policy_scope(Wishlist).where(user: current_user).order(created_at: :desc)
   end
 end

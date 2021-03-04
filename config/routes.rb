@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     resources :wishlists, only: [ :create ]
   end
   resources :wishlists, only: [ :destroy ]
-  resources :trips, only: :show
+  resources :trips, only: :index
 end
