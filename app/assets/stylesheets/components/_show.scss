@@ -1,14 +1,65 @@
+.container {
+  position: relative;
+  border-style: solid;
+  border-color: $tangerine;
+  border-width: thin;
+  padding-right: 0px;
+  padding-left: 0px;
+  background-color: $black;
+  height: 480px;
+}
+
+.banner {
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+  background-color: green;
+}
+
 .fest-cards {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  border-style: solid;
+  border-color: red;
+}
+
+.fest-description {
+  border-style: solid;
+  border-color: red;
+  position: absolute;
+  top: 300px;
 }
 
 .first-card {
-  order: 1;
+  border-style: solid;
+  border-color: $tangerine;
+  border-width: thin;
+  position: absolute;
+  top: 402px;
+  width: 50%;
+  font-size: 15px;
 }
 
 .second-card {
-  order: 2;
-  
+  border-style: solid;
+  border-color: red;
+  position: absolute;
+  right:0;
+  bottom: 0;
+  width: 50%;
+  top: 360px;
+}
+
+.heart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  justify-content: flex-end;
+  align-items: center;
+  border-style: solid;
+  border-color: red;
+  width: 50px;
+  height: 30px;
+}
+
+.heart-div {
+
 }

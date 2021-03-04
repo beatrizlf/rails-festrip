@@ -1,34 +1,40 @@
 <%= render 'shared/navbar' %>
-<div class="container mt-3 p-4">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @festival.photo.key if @festival.photo.attached? %>');">
-  <div class="container">
-    <h1><%= @festival.name %></h1>
-    <p><%= @festival.location %>, <%= @festival.date %></p>
-    <a class="btn btn-flat" href="#"></a>
-  </div>
 
-  <%# add to wishlist logic %>
-    <% if current_user %>
-          <% if current_user.wishlists.where(festival:@festival).empty? %>
-            <%= link_to festival_wishlists_path(@festival),method: :post do %>
-              <i class="far fa-heart"></i>
+<div class="container mt-5">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @festival.photo.key if @festival.photo.attached? %>');">
+    <div class="heart-div">
+      <div class="heart">
+      <% if current_user %>
+            <% if current_user.wishlists.where(festival:@festival).empty? %>
+              <%= link_to festival_wishlists_path(@festival),method: :post do %>
+                <i class="far fa-heart"></i>
+                <% end %>
+              <% else %>
+                <%= link_to wishlist_path(@festival.wishlists.where(user:current_user).first),method: :delete do %>
+                  <i class="fas fa-heart"></i>
               <% end %>
-            <% else %>
-              <%= link_to wishlist_path(@festival.wishlists.where(user:current_user).first),method: :delete do %>
-                <i class="fas fa-heart"></i>
             <% end %>
           <% end %>
-        <% end %>
-  
-  <div class='fest-description p-3'>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1><%= @festival.name %></h1>
+      <p><%= @festival.location %>, <%= @festival.date %></p>
+      <a class="btn btn-flat" href="#"></a>
+    </div>
+  </div>
+
+  <div class='fest-description'>
     <%= @festival.description %>
   </div>
 
   <div class='fest-cards'>
     <div class='first-card'>
       <p>Line-Up:
+        <br>
         <% @festival.artists.each do |artist| %>
-          <%= artist.name %> ---
+          <%= artist.name %> |
         <% end %>
       </p>
     </div>
@@ -39,6 +45,4 @@
       <p>teste teste teste</p>
     </div>
   </div>
-
-
 </div>
