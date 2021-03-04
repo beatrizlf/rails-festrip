@@ -1,0 +1,14 @@
+.fest-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.first-card {
+  order: 1;
+}
+
+.second-card {
+  order: 2;
+  
+}
