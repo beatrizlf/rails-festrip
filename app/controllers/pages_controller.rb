@@ -5,7 +5,7 @@ class PagesController < ApplicationController
     redirect_to festivals_path if user_signed_in?
   end
 
-  def mochilist
+  def wishlist
     @wishlists = policy_scope(Wishlist).where(user:current_user).order(created_at: :desc)
   end
 end

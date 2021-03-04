@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get '/mochilist', to: "pages#mochilist", as: :mochilist
+  get '/wishlist', to: "pages#wishlist", as: :wishlist
   resources :festivals do
     resources :wishlists, only: [ :create ]
   end

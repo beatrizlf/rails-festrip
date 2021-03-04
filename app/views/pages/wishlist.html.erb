@@ -6,9 +6,12 @@
 
 <!--Para editar todas as informacoes sobre a sua wishlist campo
 ------------------- Mochilist-------------------------------->
-  <div class="text"><h1><strong>Here is your Mochilist..</strong></h1>
+  <div class="text"><h1><strong>Here is your wishlist</strong></h1>
     <div class="my_wishlist row py-4 my-4 bg-dark">
       <div class="mb-3">
+      <% current_user.top_artists.each do |artist| %>
+        <p><%= artist.name %></p>
+        <% end %>
         <% @wishlists.each do |wishlist|  %>
         <%= link_to wishlist_path(wishlist),method: :delete do %>
             <i class="fas fa-minus-circle"></i>
