@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, :current_user
+  before_action :authenticate_user!
+  before_action :persist_last_visited_path, except: [:create, :destroy]
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   include Pundit
@@ -14,11 +15,6 @@ class ApplicationController < ActionController::Base
   #   flash[:alert] = "You are not authorized to perform this action."
   #   redirect_to(root_path)
   # end
-  def current_user
-    if session[:user_id]
-      @user = User.find(session[:user_id])
-    end
-  end
 
   private
 
@@ -37,4 +33,10 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [])
   end
+
+  def persist_last_visited_path
+
+    session[:last_visited_path] = request.path
+  end
+
 end
