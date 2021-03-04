@@ -1,36 +1,23 @@
 <%= render 'shared/navbar' %>
-<div class="container">
-
-
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/diarvpaib/image/upload/v1614808273/pexels-annam-w-1120162_jebmhu.jpg);">
+    <div class="container">
+      <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+      <p>Change your life and learn to code at one of our campuses around the world.</p>
+      <a class="btn btn-flat" href="#">Apply now</a>
+
+    </div>
+  </div>
+
   <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+    <div class="contentindex">
+      <div class="textbox">
+        <h5>Top festivals close to you</h5>
+        <p>Check out this festivals</p>
+      </div>
+
+
+        <div class="w-100">
+          <%= render 'shared/cardindex' %>
+        </div>
 
   </div>
-</div>
-
-
-  <div class="contentindex">
-    <div class="textbox">
-      <h5>Top festivals close to you</h5>
-      <p>Check out this festivals</p>
-    </div>
-
-
-    <div class="p-1">
-      <main class="page-content">
-        <% @festivals.each do |festival| %>
-          <div class="card">
-            <div class="content">
-              <h2 class="title"><%= festival.name %></h2>
-              <p class="copy"><%= festival.location %></p>
-              <button class="btn2">See details</button>
-            </div>
-          </div>
-        <% end %>
-      </main>
-    </div>
-  </div>
-</div>
