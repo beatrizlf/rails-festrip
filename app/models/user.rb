@@ -33,16 +33,5 @@ class User < ApplicationRecord
     response['items'].first(10).each do |item|
       TopArtist.create(name: item['name'], user: user)
     end
-   # uri = URI.parse('https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=10&offset=5')
-    # request = Net::HTTP::Get.new(uri)
-    # request['Content-Type'] = 'application/json'
-    # request['Accept'] = 'application/json'
-    # request['Authorization'] = 'Bearer #{@token}'
-    # req_options = {
-    #   use_ssl: uri.scheme == 'https'}
-    # response = Net::HTTP.start(uri.hostname, uri.port, req_options) do |http|
-    #   http.request(request)
-    # end
-    # puts response
   end
 end
