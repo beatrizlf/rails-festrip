@@ -42,9 +42,15 @@
 .navbar a {
   color: $tangerine;
   font-family: 'Quicksand', sans-serif;
-  font-size: 15px;
+  font-size: 30px;
+  margin-top: auto;
+  text-align: center;
   margin-top: 5px;
   text-decoration: none;
+}
+
+.navbar a:hover {
+  color: $tangerine;
 }
 
 .nav-item li {
