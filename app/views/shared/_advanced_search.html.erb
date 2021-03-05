@@ -1,0 +1,8 @@
+<div class="container">
+  <%= simple_form_for :search, method: :get, :url => { action: "index" } do |f| %>
+    <%= f.input :category, collection: @festivals_category.map { |festival| festival.category }.uniq.sort %>
+    <%= f.input :date, include_blank: true, as: :date, discard_day: true,order: [:month, :year] %>
+    <%= f.input :location, collection: @festivals_category.map { |festival| festival.location }.uniq.sort %>
+    <%= f.submit "Filter" %>
+  <% end %>
+</div>

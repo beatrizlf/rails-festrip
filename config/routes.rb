@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   resources :festivals do
     resources :wishlists, only: [ :create ]
   end
-    resources :wishlists, only: [ :destroy ]
-  resources :trips, only: :show
-
+  resources :wishlists, only: [ :destroy ]
+  resources :trips, only: :index
 end
