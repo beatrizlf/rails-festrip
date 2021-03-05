@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_04_174410) do
+ActiveRecord::Schema.define(version: 2021_03_05_155336) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2021_03_04_174410) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "photo"
     t.index ["user_id"], name: "index_top_artists_on_user_id"
   end
 
@@ -98,7 +99,6 @@ ActiveRecord::Schema.define(version: 2021_03_04_174410) do
     t.boolean "admin", default: false, null: false
     t.string "uid"
     t.string "username"
-    t.string "top_artists", default: [], array: true
     t.string "spotify_token"
     t.string "spotify_photo"
     t.index ["email"], name: "index_users_on_email", unique: true
