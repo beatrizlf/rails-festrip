@@ -5,6 +5,13 @@ class Festival < ApplicationRecord
   has_many :artists, through: :lineups
   has_one_attached :photo
 
+  #scopes to filter results from database.
+
+  # scope :by_category, -> { order()}
+
+  # scope :by_date, -> (date) { where('')}
+
+
   include PgSearch::Model
 
 
