@@ -8,7 +8,21 @@
         <p>Festivals. Artists. You. All Together</p>
       </div>
   </div>
+  
+  <%# se o current_user estiver logado com spotify, renderizar card de artistas %>
+    <div class="container">
+      <div class="contentindex">
+        <div class="textbox">
+          <h5>Based on your favotire spotify artists:</h5>
+          <p>We will find out the best festival options for you!</p>
+        </div>
 
+          <div class="w-100">
+            <%= render 'shared/artistscard' %>
+          </div>
+
+      </div>
+    </div>
 
     <div class="container">
       <div class="contentindex">
