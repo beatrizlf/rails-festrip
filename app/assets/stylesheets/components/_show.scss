@@ -1,14 +1,104 @@
-.fest-cards {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+.heart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  justify-content: flex-end;
+  align-items: center;
+  border-color: $tangerine;
+  border-width: thin;
+  width: 30px;
+  height: 30px;
+  padding-top: 12px;
+  right: 10px;
 }
 
 .first-card {
-  order: 1;
+  border-style: solid;
+  border-color: $tangerine;
+  border-width: thin;
+  position: absolute;
+  font-size: 15px;
+  left: 0;
+  bottom: -402px;
+  height: 397px;
+  width: 50%;
+}
+
+.first-card > p {
+  height: 257px;
+  font-size: 16px;
 }
 
 .second-card {
-  order: 2;
-  
+  border-style: solid;
+  border-color: $tangerine;
+  border-width: thin;
+  position: absolute;
+  font-size: 15px;
+  right:0;
+  bottom: -402px;
+  height: 397px;
+  width: 50%;
+}
+
+.fest-description {
+  position: absolute;
+  height: 69px;
+  width: 100%;
+  left: 0;
+  font-size: 12px;
+}
+
+
+.containershow {
+  border-style: solid;
+  border-color: $tangerine;
+  border-width: thin;
+  max-width: 500px;
+  max-height: 800px;
+  align-content: center;
+  justify-content: center;
+}
+
+.card-trip {
+  position: absolute;
+  width: 800px;
+  height: 647px;
+  overflow: hidden;
+  background: $black;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-size: 13px;
+  border-style: solid;
+  border-color: $tangerine;
+  border-width: thin;
+}
+
+.card-trip > img {
+  height: 275px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.heart > a {
+  font-size: 20px;
 }

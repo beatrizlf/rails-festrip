@@ -36,29 +36,3 @@
           </div>
         </div>
     </div>
-
-    <div class="p-1">
-      <main class="page-content">
-        <% if @festivals.present? %>
-        <% @festivals.each do |festival| %>
-          <div class="card">
-            <div class="content">
-              <% if current_user %>
-                <% if current_user.wishlists.where(festival:festival).empty? %>
-                  <%= link_to festival_wishlists_path(festival),method: :post do %>
-                    <i class="far fa-heart"></i>
-                  <% end %>
-                  <% else %>
-                  <%= link_to wishlist_path(Wishlist.where(user:current_user, festival: festival).first), method: :delete do %>
-                  <i class="fas fa-heart"></i>
-                  <% end %>
-                <% end %>
-              <% end %>
-              <h2 class="title"><%= festival.name %></h2>
-              <p class="copy"><%= festival.location %></p>
-              <button class="btn2">See details</button>
-            </div>
-            <% end %>
-          </div>
-      </main>
-    </div>
