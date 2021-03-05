@@ -1,13 +1,13 @@
 
 <div class="container m-4">
   <div class="text"><h1><strong>Find your flights to:</strong></h1>
-  <% @locations.each do |location| %>
-    <h3> <%= location %> </h3>
+  <% @wishlists.each do |wishlist| %>
+    <h3> <%= "'#{wishlist.festival.name}'' in #{wishlist.festival.location}" %> </h3>
   <% end %>
 
   <div>
     <div class="sky-widget" data-skyscanner-widget="FlightSearchWidget" data-locale="en-GB"
-    data-params="colour:solar;fontColour:#000;buttonColour:dawn;buttonFontColour:#fff;"
+    data-params="colour:#181616;fontColour:#f58b00;buttonColour:#f58b00;buttonFontColour:#fff;"
     data-market="BR"
     data-currency="USD"
     data-origin-geo-lookup="true"
@@ -16,6 +16,7 @@
     data-button-label="Start your FesTrip!"
     data-widget-padding="10"
     data-widget-border-radius="4"
+    data-powered-by-logo-colour="#ff6b6b"
     ></div>
     <script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script>
   </div>

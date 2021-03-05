@@ -7,6 +7,9 @@ class FestivalsController < ApplicationController
     @festivals = policy_scope(Festival).order(created_at: :desc)
     @festivals = @festivals.global_search(params[:query]) if params[:query].present?
     @festivals = @festivals.where(category: params[:category]) if params[:category].present?
+    @results = Artist.pluck(:name)
+    @results << Festival.pluck(:location)
+    @results.sort!
   end
 
   def show
