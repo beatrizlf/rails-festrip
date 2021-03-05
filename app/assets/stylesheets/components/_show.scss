@@ -6,8 +6,10 @@
   align-items: center;
   border-color: $tangerine;
   border-width: thin;
-  width: 50px;
+  width: 30px;
   height: 30px;
+  padding-top: 12px;
+  right: 10px;
 }
 
 .first-card {
@@ -17,9 +19,14 @@
   position: absolute;
   font-size: 15px;
   left: 0;
-  bottom: -268px;
-  height: 200px;
+  bottom: -402px;
+  height: 397px;
   width: 50%;
+}
+
+.first-card > p {
+  height: 257px;
+  font-size: 16px;
 }
 
 .second-card {
@@ -29,15 +36,12 @@
   position: absolute;
   font-size: 15px;
   right:0;
-  bottom: -268px;
-  height: 200px;
+  bottom: -402px;
+  height: 397px;
   width: 50%;
 }
 
 .fest-description {
-  border-style: solid;
-  border-color: $tangerine;
-  border-width: thin;
   position: absolute;
   height: 69px;
   width: 100%;
@@ -59,7 +63,7 @@
 .card-trip {
   position: absolute;
   width: 800px;
-  height: 500px;
+  height: 647px;
   overflow: hidden;
   background: $black;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -70,7 +74,7 @@
 }
 
 .card-trip > img {
-  height: 200px;
+  height: 275px;
   width: 100%;
   object-fit: cover;
 }
@@ -95,6 +99,6 @@
   position: relative;
 }
 
-.card-festival-name {
-  background-color: transparent;
+.heart > a {
+  font-size: 20px;
 }
