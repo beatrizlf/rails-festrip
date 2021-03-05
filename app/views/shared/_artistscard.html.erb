@@ -1,6 +1,6 @@
 <div class="containerindex d-flex flex-row">
   <div class="owl-carousel owl-theme">
-      <% current_user.top_artists.each do |artist| %>
+      <% @current_user.top_artists.each do |artist| %>
           <div class="p-4">
             <div class="d-flex flex-row">
               <div class="card-artist" style="background-image: url('<%= artist.photo %>'); background-size: cover;">
