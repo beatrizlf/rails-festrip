@@ -18,7 +18,13 @@ class FestivalsController < ApplicationController
   end
 
   def create
-    @festival.save
+    @festival = Festival.new(festival_params)
+    authorize @festival
+    if @festival.save
+      redirect_to festival_path(@festival)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -46,6 +52,6 @@ class FestivalsController < ApplicationController
   end
 
   def festival_params
-    params.require(:festival).permit(:name, :date, :location, :price, :category, :description)
+    params.require(:festival).permit(:name, :date, :location, :price, :category, :description, :photo)
   end
 end
