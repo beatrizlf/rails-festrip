@@ -13,19 +13,27 @@
 
   
   <%# se o current_user estiver logado com spotify, renderizar card de artistas %>
-    <div class="container">
-      <div class="contentindex">
-        <div class="textbox">
-          <h5>Based on your favotire spotify artists:</h5>
-          <p>We will find out the best festival options for you!</p>
-        </div>
-
-          <div class="w-100">
-            <%= render 'shared/artistscard' %>
+    <% if current_user %>
+      <div class="container">
+        <div class="contentindex">
+          <div class="textbox">
+          <% if current_user.top_artists.present? %>
+            <h5>Based on your favotire spotify artists:</h5>
+            <p>We will find out the best festival options for you!</p>
           </div>
 
+            <div class="w-100">
+              <%= render 'shared/artistscard' %>
+            </div>
+            <% else %>
+            <h5>Log in with Spotify to find out where your favorites artists will play:</h5>
+            <%= button_to "#", class: "btn btn-outline" do %>
+             <i class="fab fa-spotify"></i><%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path, method: :post %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
 
 <div class="container">
