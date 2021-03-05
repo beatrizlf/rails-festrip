@@ -1,11 +1,32 @@
 <%= render 'shared/navbar' %>
 
+
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/diarvpaib/image/upload/v1614808273/pexels-annam-w-1120162_jebmhu.jpg);">
     <div class="container">
       <h1><strong>Festrip</strong></h1>
       <p>Festivals. Artists. You. All Together</p>
     </div>
 </div>
+
+<div class="container">
+
+
+  
+  <%# se o current_user estiver logado com spotify, renderizar card de artistas %>
+    <div class="container">
+      <div class="contentindex">
+        <div class="textbox">
+          <h5>Based on your favotire spotify artists:</h5>
+          <p>We will find out the best festival options for you!</p>
+        </div>
+
+          <div class="w-100">
+            <%= render 'shared/artistscard' %>
+          </div>
+
+      </div>
+    </div>
+
 
 <div class="container">
     <div class="container">

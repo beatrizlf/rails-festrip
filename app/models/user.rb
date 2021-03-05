@@ -42,7 +42,7 @@ class User < ApplicationRecord
     artists = JSON.parse(artists)
     user.top_artists.destroy_all
     artists['items'].first(10).each do |item|
-      TopArtist.create(name: item['name'], photo: item['images'][2]['url'], user: user)
+      TopArtist.create(name: item['name'], photo: item['images'][0]['url'], user: user)
     end
   end
 end
