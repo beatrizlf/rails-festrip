@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2021_03_05_155336) do
     t.boolean "admin", default: false, null: false
     t.string "uid"
     t.string "username"
+    t.string "top_artists", default: [], array: true
     t.string "spotify_token"
     t.string "spotify_photo"
     t.index ["email"], name: "index_users_on_email", unique: true
