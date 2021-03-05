@@ -18,8 +18,12 @@ class FestivalsController < ApplicationController
         @festivals = Festival.where(category: params[:search][:category])
       end
 
-      if params[:search][:'date(2i)'].present?
-        @festivals = Festival.select { |festival| festival.date.month == params[:search][:'date(2i)'].to_i && festival.date.year == params[:search][:'date(1i)'].to_i}
+      if params[:search][:year].present?
+        @festivals = Festival.select { |festival| festival.date.year == params[:search][:year].to_i }
+      end
+
+      if params[:search][:month].present?
+        @festivals = Festival.select { |festival| festival.date.strftime("%b") == params[:search][:month] }
       end
 
       if params[:search][:location].present?
