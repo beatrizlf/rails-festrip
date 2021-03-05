@@ -1,44 +1,47 @@
 <%= render 'shared/navbar' %>
-<div class="container mt-3 p-4">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @festival.photo.key if @festival.photo.attached? %>');">
-  <div class="container">
-    <h1><%= @festival.name %></h1>
-    <p><%= @festival.location %>, <%= @festival.date %></p>
-    <a class="btn btn-flat" href="#"></a>
-  </div>
 
-  <%# add to wishlist logic %>
-    <% if current_user %>
-          <% if current_user.wishlists.where(festival:@festival).empty? %>
-            <%= link_to festival_wishlists_path(@festival),method: :post do %>
-              <i class="far fa-heart"></i>
+<div class="d-flex justify-content-center mt-5">
+  <div class="card-trip">
+      <div class="heart">
+      <% if current_user %>
+            <% if current_user.wishlists.where(festival:@festival).empty? %>
+              <%= link_to festival_wishlists_path(@festival),method: :post do %>
+                <i class="far fa-heart"></i>
+                <% end %>
+              <% else %>
+                <%= link_to wishlist_path(@festival.wishlists.where(user:current_user).first),method: :delete do %>
+                  <i class="fas fa-heart"></i>
               <% end %>
-            <% else %>
-              <%= link_to wishlist_path(@festival.wishlists.where(user:current_user).first),method: :delete do %>
-                <i class="fas fa-heart"></i>
             <% end %>
           <% end %>
-        <% end %>
-  
-  <div class='fest-description p-3'>
-    <%= @festival.description %>
-  </div>
+      </div>
 
-  <div class='fest-cards'>
-    <div class='first-card'>
-      <p>Line-Up:
-        <% @festival.artists.each do |artist| %>
-          <%= artist.name %> ---
-        <% end %>
-      </p>
+      <img src="https://res.cloudinary.com/diarvpaib/image/upload/v1614911241/pexels-wendy-wei-1540343_apmesj.jpg" />
+      <div class="card-trip-infos">
+
+      <div>
+
+      <div class="card-festival-name">
+        <h5><%= @festival.name %></h5>
+        <p><%= @festival.location %>, <%= @festival.date %></p>
+        <%= @festival.description %>
+      </div>
+        </div>
+
+
+      <div class='first-card'>
+        <p>Line-Up:
+          <br>
+          <% @festival.artists.each do |artist| %>
+          <%= artist.name %> |
+          <% end %>
+        </p>
+      </div>
+
+      <div class='second-card'>
+      <iframe width="397" height="256" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+      </div>
     </div>
-
-
-    <div class='second-card'>
-      <%#= aqui vai entrar o video do festival %>
-      <p>teste teste teste</p>
-    </div>
   </div>
-
-
 </div>
+
