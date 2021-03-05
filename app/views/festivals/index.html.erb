@@ -1,10 +1,14 @@
 <%= render 'shared/navbar' %>
+
+<div class="container">
+
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/diarvpaib/image/upload/v1614808273/pexels-annam-w-1120162_jebmhu.jpg);">
       <div class="container">
         <h1><strong>Festrip</strong></h1>
         <p>Festivals. Artists. You. All Together</p>
       </div>
   </div>
+
 
     <div class="container">
       <div class="contentindex">
@@ -25,16 +29,17 @@
           <div class="textbox">
             <h5>Browse by Countries</h5>
           </div>
+
+
+          <div class="w-100">
+            <%= render 'shared/cardcountries' %>
+          </div>
         </div>
-    </div>
-
-
-    <div class="w-100">
-      <%= render 'shared/cardcountries' %>
     </div>
 
     <div class="p-1">
       <main class="page-content">
+        <% if @festivals.present? %>
         <% @festivals.each do |festival| %>
           <div class="card">
             <div class="content">

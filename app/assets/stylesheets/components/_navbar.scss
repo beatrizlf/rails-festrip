@@ -41,7 +41,7 @@
 
 .navbar a {
   color: $tangerine;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "aviano-future", "sans-serif";
   font-size: 30px;
   margin-top: auto;
   text-align: center;
@@ -50,7 +50,7 @@
 }
 
 .navbar a:hover {
-  color: $tangerine;
+  color: $tangerine !important;
 }
 
 .nav-item li {
