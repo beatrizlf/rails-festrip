@@ -6,6 +6,14 @@
 
 <!--Para editar todas as informacoes sobre a sua wishlist campo
 ------------------- Mochilist-------------------------------->
+  <div class="text"><h1><strong>Here is your wishlist</strong></h1>
+    <div class="my_wishlist row py-4 my-4 bg-dark">
+      <div class="mb-3">
+      <div class='justify-content-center'>
+      <% current_user.top_artists.each do |artist| %>
+        <p><%= artist.name %></p>
+        <% end %>
+      </div>
   <div class="text"><h1><strong>Here is your Mochilist..</strong></h1>
     <div class="my_wishlist row py-4 my-4 bg-dark">
       <div class="mb-3">
@@ -23,4 +31,7 @@
       </div>
     </div>
   </div>
+
+
+<%= link_to "Checkout", trips_path(wishlist: @wishlists.to_a) %>
 

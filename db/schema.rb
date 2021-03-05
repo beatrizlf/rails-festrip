@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_181446) do
+ActiveRecord::Schema.define(version: 2021_03_04_174410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,14 @@ ActiveRecord::Schema.define(version: 2021_03_03_181446) do
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
+  create_table "top_artists", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_top_artists_on_user_id"
+  end
+
   create_table "trips", force: :cascade do |t|
     t.bigint "wishlist_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -109,6 +117,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_181446) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "lineups", "artists"
   add_foreign_key "lineups", "festivals"
+  add_foreign_key "top_artists", "users"
   add_foreign_key "trips", "wishlists"
   add_foreign_key "wishlists", "festivals"
   add_foreign_key "wishlists", "users"

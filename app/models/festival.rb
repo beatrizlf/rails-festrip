@@ -3,6 +3,7 @@ class Festival < ApplicationRecord
   has_many :users, through: :wishlists
   has_many :lineups
   has_many :artists, through: :lineups
+  has_one_attached :photo
 
   #scopes to filter results from database.
 
