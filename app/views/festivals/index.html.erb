@@ -1,4 +1,5 @@
 <%= render 'shared/navbar' %>
+<%= render 'shared/advanced_search' %>
 
 <div class="container">
 
@@ -9,7 +10,6 @@
       </div>
   </div>
 
-
     <div class="container">
       <div class="contentindex">
         <div class="textbox">
@@ -18,7 +18,31 @@
         </div>
 
           <div class="w-100">
-            <%= render 'shared/cardindex' %>
+
+              <div class="containerindex d-flex flex-row">
+                <div class="owl-carousel owl-theme">
+                    <% @festivals.limit(10).each do |festival| %>
+                    <p>Hello!!!</p>
+
+                        <div class="p-4">
+                          <div class="d-flex flex-row">
+                            <div class="card">
+                              <div class="content">
+                                <h2 class="title"><%= festival.name %></h2>
+                                  <p class="copy">
+                                    <p><%= festival.location %></p></p>
+                                    <button class="btn btn-outline-warning"><%= link_to "See Details", festival_path(festival) %></button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    <% end %>
+                  </div>
+              </div>
+
+
+
+
           </div>
 
       </div>

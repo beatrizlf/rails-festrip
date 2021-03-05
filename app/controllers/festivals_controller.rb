@@ -13,7 +13,6 @@ class FestivalsController < ApplicationController
 
     if params[:search].nil?
       @festivals = Festival.all
-
     else
       if params[:search][:category].present?
         @festivals = Festival.where(category: params[:search][:category])
