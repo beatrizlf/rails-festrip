@@ -18,12 +18,11 @@
         </div>
 
           <div class="w-100">
-
               <div class="containerindex d-flex flex-row">
-              <!-- <div class="owl-carousel owl-theme"> -->
-                <% if @festivals.empty? %>
-                  Oops! There is no festival avaiable
-                  <% end %>
+                <div class="owl-carousel owl-theme">
+                  <% if @festivals.empty? %>
+                  <h2>Oops! There is no festival available</h2>
+                    <% end %>
                   <% unless @festivals.empty? %>
                     <% @festivals.limit(10).each do |festival| %>
                         <div class="p-4">
@@ -40,12 +39,8 @@
                         </div>
                     <% end %>
                   <% end %>
-                  </div>
+                </div>
               </div>
-
-
-
-
           </div>
 
       </div>
@@ -63,4 +58,4 @@
           </div>
         </div>
     </div>
-
+</div>
