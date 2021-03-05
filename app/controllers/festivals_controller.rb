@@ -8,6 +8,10 @@ class FestivalsController < ApplicationController
     @festivals = policy_scope(Festival).order(created_at: :desc)
     @festivals = @festivals.global_search(params[:query]) if params[:query].present?
     @festivals = @festivals.where(category: params[:category]) if params[:category].present?
+    #@results = Artist.pluck(:name)
+    #@results << Festival.pluck(:location)
+    #@results.sort!
+
 
     # scopes criados para filtar na pagina de index como criterio
 
@@ -27,6 +31,7 @@ class FestivalsController < ApplicationController
         @festivals = Festival.where(location: params[:search][:location])
       end
     end
+
   end
 
   def show
@@ -38,7 +43,13 @@ class FestivalsController < ApplicationController
   end
 
   def create
-    @festival.save
+    @festival = Festival.new(festival_params)
+    authorize @festival
+    if @festival.save
+      redirect_to festival_path(@festival)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -70,6 +81,6 @@ class FestivalsController < ApplicationController
   end
 
   def festival_params
-   params.require(:festival).permit(:date, :location, :category)
+    params.require(:festival).permit(:name, :date, :location, :price, :category, :description, :photo)
   end
 end
