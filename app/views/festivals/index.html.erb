@@ -24,7 +24,7 @@
                   <h2>Oops! There is no festival available</h2>
                     <% end %>
                   <% unless @festivals.empty? %>
-                    <% @festivals.limit(10).each do |festival| %>
+                    <% @festivals.first(10).each do |festival| %>
                         <div class="p-4">
                           <div class="d-flex flex-row">
                             <div class="card">
