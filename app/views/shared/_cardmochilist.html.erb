@@ -1,0 +1,24 @@
+<div class="containerindex d-flex flex-row">
+  <div class="owl-carousel owl-theme">
+    <% @wishlists.each do |wishlist|  %>
+      <div class="p-4">
+        <div class="d-flex flex-row">
+          <div class="card">
+            <div class="content">
+              <%= link_to wishlist_path(wishlist),method: :delete do %>
+              <i class="fas fa-minus-circle"></i>
+              <% end %>
+              <h2 class="title"><%= wishlist.festival.name %></h2>
+              <p><%= wishlist.festival.date %></p>
+              <p><%= wishlist.festival.location %></p>
+              <p><%= wishlist.festival.category %></p>
+              <p><%= wishlist.festival.price %></p>
+              <p class="copy">
+              <p></p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
