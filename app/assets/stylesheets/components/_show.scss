@@ -1,31 +1,13 @@
-.container {
-  position: relative;
-  border-style: solid;
+.heart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  justify-content: flex-end;
+  align-items: center;
   border-color: $tangerine;
   border-width: thin;
-  padding-right: 0px;
-  padding-left: 0px;
-  background-color: $black;
-  height: 480px;
-}
-
-.banner {
-  display: block;
-  max-height: 100%;
-  max-width: 100%;
-  background-color: green;
-}
-
-.fest-cards {
-  border-style: solid;
-  border-color: red;
-}
-
-.fest-description {
-  border-style: solid;
-  border-color: red;
-  position: absolute;
-  top: 300px;
+  width: 50px;
+  height: 30px;
 }
 
 .first-card {
@@ -33,33 +15,86 @@
   border-color: $tangerine;
   border-width: thin;
   position: absolute;
-  top: 402px;
-  width: 50%;
   font-size: 15px;
+  left: 0;
+  bottom: -268px;
+  height: 200px;
+  width: 50%;
 }
 
 .second-card {
   border-style: solid;
-  border-color: red;
+  border-color: $tangerine;
+  border-width: thin;
   position: absolute;
+  font-size: 15px;
   right:0;
-  bottom: 0;
+  bottom: -268px;
+  height: 200px;
   width: 50%;
-  top: 360px;
 }
 
-.heart {
-  position: absolute;
-  top: 0;
-  right: 0;
-  justify-content: flex-end;
-  align-items: center;
+.fest-description {
   border-style: solid;
-  border-color: red;
-  width: 50px;
-  height: 30px;
+  border-color: $tangerine;
+  border-width: thin;
+  position: absolute;
+  height: 69px;
+  width: 100%;
+  left: 0;
+  font-size: 12px;
 }
 
-.heart-div {
 
+.containershow {
+  border-style: solid;
+  border-color: $tangerine;
+  border-width: thin;
+  max-width: 500px;
+  max-height: 800px;
+  align-content: center;
+  justify-content: center;
+}
+
+.card-trip {
+  position: absolute;
+  width: 800px;
+  height: 500px;
+  overflow: hidden;
+  background: $black;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  font-size: 13px;
+  border-style: solid;
+  border-color: $tangerine;
+  border-width: thin;
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-festival-name {
+  background-color: transparent;
 }
