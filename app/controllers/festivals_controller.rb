@@ -15,7 +15,7 @@ class FestivalsController < ApplicationController
       if params[:search][:category].present?
         @festivals = @festivals.where(category: params[:search][:category])
       end
-
+      
       if params[:search][:location].present?
         @festivals = @festivals.where(location: params[:search][:location])
       end
@@ -71,6 +71,6 @@ class FestivalsController < ApplicationController
   end
 
   def festival_params
-   params.require(:festival).permit(:date, :location, :category)
+    params.require(:festival).permit(:date, :location, :category)
   end
 end
