@@ -8,8 +8,8 @@ $bp-lg: 800px;
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
-  --font-sans: 'Rubik', sans-serif;
-  --font-serif: 'Cardo', serif;
+  --font-sans: "industry", "sans-serif";
+  --font-serif: "industry", "sans-serif";
 }
 
 * {
@@ -113,7 +113,7 @@ body {
     $i: index($imageIds, $id);
 
     &:nth-child(#{$i}):before {
-      background-image: url(https://images.unsplash.com/photo-#{$id}?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+      background-image: url(https://res.cloudinary.com/diarvpaib/image/upload/v1614911241/pexels-wendy-wei-1540343_apmesj.jpg );
     }
   }
 }
@@ -124,7 +124,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 1rem;
+  padding: 18px;
   transition: transform var(--d) var(--e);
   z-index: 1;
 
@@ -174,7 +174,7 @@ body {
   }
 
   .content {
-    transform: translateY(calc(100% - 4.5rem));
+    transform: translateY(calc(50% - 3rem));
 
     > *:not(.title) {
       opacity: 0;
