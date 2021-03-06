@@ -12,17 +12,20 @@ class FestivalsController < ApplicationController
     # scopes criados para filtar na pagina de index como criterio
 
     if params[:search].present?
-
       if params[:search][:category].present?
         @festivals = @festivals.where(category: params[:search][:category])
       end
-
-      if params[:search][:'date(2i)'].present?
-        @festivals = @festivals.select { |festival| festival.date.month == params[:search][:'date(2i)'].to_i && festival.date.year == params[:search][:'date(1i)'].to_i}
-      end
-
+      
       if params[:search][:location].present?
         @festivals = @festivals.where(location: params[:search][:location])
+      end
+
+      if params[:search][:year].present?
+        @festivals = @festivals.select { |festival| festival.date.strftime("%Y") == params[:search][:year] }
+      end
+
+      if params[:search][:month].present?
+        @festivals = @festivals.select { |festival| festival.date.strftime("%B") == params[:search][:month] }
       end
     end
   end
