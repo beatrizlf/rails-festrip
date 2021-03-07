@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 require 'json'
 
@@ -115,7 +108,6 @@ if Rails.env.development?
 # new_artist = Artist.create(name: 'Aurora Halal')
 # new_artist = Artist.create(name: 'Bad Bunny')
 # new_artist = Artist.create(name: 'Gorillaz')
-# new_artist = Artist.create(name: 'Bad Bunny')
 # new_artist = Artist.create(name: 'Dinosaur Jr.')
 # new_artist = Artist.create(name: 'Little Simz')
 # new_artist = Artist.create(name: 'Paloma Mami')
@@ -253,24 +245,26 @@ puts 'Artists created!'
 
 puts 'Creating 30 new festivals...'
 
-30.times do
-  new_festival = Festival.create!(
-    name: "#{Faker::Book.title}",
-    date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
-    location: "#{Faker::Address.country}",
-    price: Faker::Number.between(from: 150, to: 350),
-    category: "#{Faker::Music.genre}",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-  )
-  rand(10..30).times do
-    possible_artist = Artist.all.sample
-    possible_artist = Artist.all.sample while new_festival.artists.include?(possible_artist)
-    Lineup.create!(
-      festival: new_festival,
-      artist: possible_artist
-    )
-  end
-end
+# 30.times do
+#   new_festival = Festival.create!(
+#     name: "#{Faker::Book.title}",
+#     date: Faker::Date.between(from: Date.today, to: 1.year.from_now),
+#     location: "#{Faker::Address.country}",
+#     price: Faker::Number.between(from: 150, to: 350),
+#     category: "#{Faker::Music.genre}",
+#     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+#   )
+#   rand(10..30).times do
+#     possible_artist = Artist.all.sample
+#     possible_artist = Artist.all.sample while new_festival.artists.include?(possible_artist)
+#     Lineup.create!(
+#       festival: new_festival,
+#       artist: possible_artist
+#     )
+#   end
+# end
 
-puts 'Festivals created!'
+#new_festival = 
+
+#puts 'Festivals created!'
 
