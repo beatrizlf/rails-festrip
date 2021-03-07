@@ -217,21 +217,21 @@ if Rails.env.development?
 
 # puts 'Lineup created'
 
-my_user = User.create!(
-  email: "teste@teste.com",
-  password: "123456
-)
+# my_user = User.create!(
+#   email: "teste@teste.com",
+#   password: "123456"
+# )
 
-puts 'Creating 10 users...'
+# puts 'Creating 10 users...'
 
-10.times do
-  new_user = User.create!(
-    email: "#{Faker::Internet.email}",
-    password: "#{Faker::Internet.password}"
-  )
-end
+# 10.times do
+#   new_user = User.create!(
+#     email: "#{Faker::Internet.email}",
+#     password: "#{Faker::Internet.password}"
+#   )
+# end
 
-puts 'Users created!'
+# puts 'Users created!'
 
 puts 'Creating 50 new artists...'
 
@@ -264,7 +264,7 @@ puts 'Creating 30 new festivals...'
 #   end
 # end
 
-#new_festival = 
+#new_festival =
 
 #puts 'Festivals created!'
 
