@@ -240,7 +240,6 @@ Artist.create!(name: 'Videoclub')
 Artist.create!(name: 'Vintage Culture')
 Artist.create!(name: 'Drake')
 Artist.create!(name: 'The Weekend')
-Artist.create!(name: 'Ozuna')
     
 puts 'Creating some new festivals...'
     
@@ -588,4 +587,4 @@ hideout = Festival.create!(
 #    photo: 'https://res.cloudinary.com/diarvpaib/image/upload/v1615141669/forthelove_qfnwtt.webp'
 #  )
 
-#  puts 'Festivals created!'
+  puts 'Festivals created!'
