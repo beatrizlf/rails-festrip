@@ -16,7 +16,7 @@
           <% end %>
       </div>
 
-      <img src="https://res.cloudinary.com/diarvpaib/image/upload/v1614911241/pexels-wendy-wei-1540343_apmesj.jpg" />
+      <%= cl_image_tag @festival.photo.key %>
       <div class="card-trip-infos">
 
       <div>
@@ -39,7 +39,7 @@
       </div>
 
       <div class='second-card'>
-      <iframe width="397" height="256" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+      <iframe width="397" height="256" src=<%= @festival.video_url %> frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </div>

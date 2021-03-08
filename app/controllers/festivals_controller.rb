@@ -9,13 +9,21 @@
     @festivals = @festivals.global_search(params[:query]) if params[:query].present?
     @festivals = @festivals.where(category: params[:category]) if params[:category].present?
 
+    # logica para implementar o autocomplete
+
+    # @results = Artist.pluck(:name)
+    # @results << Festival.pluck(:location)
+    # @results.sort!
+
+   ## ---
+
     # scopes criados para filtar na pagina de index como criterio
 
     if params[:search].present?
       if params[:search][:category].present?
         @festivals = @festivals.where(category: params[:search][:category])
       end
-      
+
       if params[:search][:location].present?
         @festivals = @festivals.where(location: params[:search][:location])
       end
@@ -39,7 +47,13 @@
   end
 
   def create
-    @festival.save
+    @festival = Festival.new(festival_params)
+    authorize @festival
+    if @festival.save
+      redirect_to festival_path(@festival)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -71,6 +85,6 @@
   end
 
   def festival_params
-    params.require(:festival).permit(:date, :location, :category)
+    params.require(:festival).permit(:name, :date, :location, :price, :category, :description, :photo, :video_url)
   end
 end
