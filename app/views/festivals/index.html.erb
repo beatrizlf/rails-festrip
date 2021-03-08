@@ -1,5 +1,16 @@
 <%= render 'shared/navbar' %>
 
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/diarvpaib/image/upload/v1614808273/pexels-annam-w-1120162_jebmhu.jpg);">
+    <%# Renderizar o filtro dentro do banner %>
+
+    <div class="container">
+      <h1><strong>Festrip</strong></h1>
+      <p>Festivals. Artists. You. All Together</p>
+    </div>
+</div>
+
+
 <div id="banner-index">
 
   <div class="container" style="top:180px;">
@@ -9,8 +20,6 @@
 </div>
 
 <!-- <div class="container"> -->
-
-
 
   <%# se o current_user estiver logado com spotify, renderizar card de artistas %>
     <% if current_user %>

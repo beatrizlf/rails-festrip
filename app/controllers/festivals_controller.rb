@@ -1,4 +1,4 @@
-class FestivalsController < ApplicationController
+  class FestivalsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_festival, only: [:show, :edit, :update, :destroy, :favourite_festival]
