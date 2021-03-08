@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 2021_03_07_165954) do
 
   create_table "festivals", force: :cascade do |t|
     t.string "name"
-    t.datetime "begin_date"
-    t.datetime "end_date"
+    t.datetime "date"
     t.string "location"
+    t.integer "price"
     t.string "category"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false

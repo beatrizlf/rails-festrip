@@ -1,12 +1,28 @@
 
-<div class="container">
-  <%= simple_form_for :search, method: :get, :url => { action: "index" } do |f| %>
-       <%= f.input :category, collection: @festivals_category.map { |festival| festival.category }.uniq.sort %>
-       <%= f.input :month, as: :select, collection: month_list%>
-       <%= f.input :year, as: :select, collection: year_list %>
-       <%= f.input :location, collection: @festivals_category.map { |festival| festival.location }.uniq.sort %>
-     <div class="form-actions">
-         <%= f.button :submit, "Submit" %>
-     </div>
+<div class="container advanced_filter_input">
+  <%= simple_form_for :search, method: :get, :url => { action: "index" }, defaults: {label: false} do |f| %>
+    <div class="form-row d-flex justify-content-around">
+      <div class="col-12 col-sm-3">
+       <%= f.input :category, include_blank: "Choose a category",  collection: @festivals_category.map { |festival| festival.category }.uniq.sort %>
+      </div>
+
+      <div class="col-12 col-sm-3">
+       <%= f.input :location, include_blank: "Choose a location",collection: @festivals_category.map { |festival| festival.location }.uniq.sort %>
+      </div>
+
+      <div class="col-12 col-sm-2">
+        <%= f.input :month, include_blank: "Choose a month",as: :select, collection: month_list%>
+      </div>
+
+      <div class="col-12 col-sm-2">
+       <%= f.input :year, include_blank: "Choose a year",as: :select, collection: year_list %>
+      </div>
+
+      <div class="col-12 col-sm-2">
+         <%= f.button :submit, "Submit", class: "btn btn-outline-warning" %>
+      </div>
+    </div>
  <% end %>
 </div>
+
+
