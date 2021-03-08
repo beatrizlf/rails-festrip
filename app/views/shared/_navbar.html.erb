@@ -6,13 +6,14 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <form class="form-inline my-2 my-lg-0">
-        <%= form_tag festivals_path, method: :get do %>
-        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a festival by name" %>
-        &nbsp;&nbsp;<%= submit_tag "Search", class: "btn btn-outline-warning" %>
-        <% end %>
+        <div id="results-data" data-results="<%= @results.to_json %>">
+          <%= form_tag festivals_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find where your artist is playing" %>
+          &nbsp;&nbsp;<%= submit_tag "Search", class: "btn btn-outline-warning" %>
+        </div>
+      <% end %>
       </form>
     </div>
-
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -47,10 +48,12 @@
       </button>
 
       <form class="form-inline my-2 my-lg-0">
-        <%= form_tag festivals_path, method: :get do %>
-        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a festival by name" %>
-        &nbsp;&nbsp;<%= submit_tag "Search", class: "btn btn-outline-warning" %>
-        <% end %>
+        <div id="results-data" data-results="<%=@results.to_json %>">
+          <%= form_tag festivals_path, method: :get do %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find where your artist is playing" %>
+          &nbsp;&nbsp;<%= submit_tag "Search", class: "btn btn-outline-warning" %>
+        </div>
+      <% end %>
       </form>
     </div>
 

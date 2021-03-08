@@ -8,6 +8,7 @@ if Rails.env.development?
     Artist.destroy_all
  end
 
+
  puts 'Creating Artists'
 
 Artist.create!(name: 'Guns and Roses')
@@ -586,5 +587,6 @@ hideout = Festival.create!(
 #    video_url: 'https://player.vimeo.com/video/455129110',
 #    photo: 'https://res.cloudinary.com/diarvpaib/image/upload/v1615141669/forthelove_qfnwtt.webp'
 #  )
+
 
   puts 'Festivals created!'
