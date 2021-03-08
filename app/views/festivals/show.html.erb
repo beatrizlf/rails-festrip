@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
 
-<div class="d-flex justify-content-center mt-5">
+<div class="d-flex justify-content-center mt-5 mb-5">
   <div class="card-trip">
       <div class="heart">
       <% if current_user %>
@@ -16,30 +16,30 @@
           <% end %>
       </div>
 
-      <%= cl_image_tag @festival.photo.key %>
+      <%= cl_image_tag @festival.photo.key if @festival.photo.attached? %>
       <div class="card-trip-infos">
 
       <div>
 
       <div class="card-festival-name">
         <h5><%= @festival.name %></h5>
-        <p><%= @festival.location %>, <%= @festival.date %></p>
+        <p><%= @festival.location %>, <%= @festival.begin_date %></p>
         <%= @festival.description %>
       </div>
         </div>
 
 
       <div class='first-card'>
-        <p>Line-Up:
+        <p>Headliners:
           <br>
           <% @festival.artists.each do |artist| %>
           <%= artist.name %> |
-          <% end %>
+          <% end %> and many more...
         </p>
       </div>
 
       <div class='second-card'>
-      <iframe width="397" height="256" src=<%= @festival.video_url %> frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="598" height="394" src="https://www.youtube.com/embed/<%= @festival.video_url %>" frameborder="0" allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </div>

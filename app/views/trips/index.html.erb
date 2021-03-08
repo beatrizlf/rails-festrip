@@ -18,7 +18,7 @@
                         <h2 class="title"><%= wishlist.festival.name %></h2>
                           <p class="copy">
                             <p><%= wishlist.festival.location %></p></p>
-                            <p><%= wishlist.festival.date %></p></p>
+                            <p><%= wishlist.festival.begin_date %></p></p>
                       </div>
                     </div>
                   </div>
@@ -49,5 +49,10 @@
     <%= button_to "#", class: "btn btn-outline-warning mb-3" do %>
     <%= link_to "Back to Festivals", festivals_path %>
     <% end %>
+
+    <iframe id="closer2event-iframe" src="https://map2.closer2event.com?addr=<%= @wishlists.first.festival.location %>&event=festrip&check_in=2021-03-14&check_out=2021-03-17" width="100%" height="500px" frameborder="0"></iframe>
+
+    <script id="closer2event-1cb88d6c029019f793fe7e235917c42c" type="text/javascript" src="https://map.closer2event.com/assets/widget/map.js"></script>
+
 </div>
 

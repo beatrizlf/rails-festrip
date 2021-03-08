@@ -4,9 +4,10 @@ require 'json'
 if Rails.env.development?
     User.destroy_all
     Lineup.destroy_all
-    Festival.destroy_all
+    # Festival.destroy_all
     Artist.destroy_all
  end
+
 
  puts 'Creating Artists'
 
@@ -344,7 +345,7 @@ Artist.create!(name: 'Major Lazer')
 Artist.create!(name: 'blackbear')
 
 puts 'Creating some new festivals...'
-    
+
 tomorrowland = Festival.create!(
   name: 'Tomorrowland',
   begin_date: Date.new(2021,7,16),
@@ -368,6 +369,7 @@ Lineup.create(festival: tomorrowland, artist: Artist.find_by(name: 'Joris Voorn'
 Lineup.create(festival: tomorrowland, artist: Artist.find_by(name: 'Adriatique'))
 
   
+
 off_week = Festival.create!(
   name: 'Off Week Festival',
   begin_date: Date.new(2021,6,18),
@@ -384,7 +386,6 @@ Lineup.create(festival: off_week, artist: Artist.find_by(name: 'Adriatique'))
 Lineup.create(festival: off_week, artist: Artist.find_by(name: 'Omar-S'))
 Lineup.create(festival: off_week, artist: Artist.find_by(name: 'Andrea Oliva'))
 Lineup.create(festival: off_week, artist: Artist.find_by(name: 'Raresh'))
-
 
 hideout = Festival.create!(
   name: 'Hideout Festival',

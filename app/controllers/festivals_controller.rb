@@ -1,4 +1,4 @@
-class FestivalsController < ApplicationController
+  class FestivalsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_festival, only: [:show, :edit, :update, :destroy, :favourite_festival]
@@ -11,9 +11,9 @@ class FestivalsController < ApplicationController
 
     # logica para implementar o autocomplete
 
-    # @results = Artist.pluck(:name)
-    # @results << Festival.pluck(:location)
-    # @results.sort!
+     @results = Artist.order(:name).pluck(:name)
+     # @results << Festival.pluck(:location)
+
 
    ## ---
 
@@ -85,6 +85,6 @@ class FestivalsController < ApplicationController
   end
 
   def festival_params
-    params.require(:festival).permit(:name, :begin_date, :end_date, :location, :price, :category, :description, :photo, :video_url)
+    params.require(:festival).permit(:name, :begin_date, :end_date, :location, :category, :description, :photo, :video_url)
   end
 end
