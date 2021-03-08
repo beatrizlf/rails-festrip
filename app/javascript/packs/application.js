@@ -10,6 +10,7 @@ require("channels")
 require("owl.carousel")
 
 
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -33,8 +34,11 @@ import { inputForTrip } from '../components/insert_trip';
 
 import { owlCarousel } from '../components/carousel';
 
+import { autocompleteSearch } from '../components/autocomplete';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   owlCarousel();
+  autocompleteSearch();
 });
