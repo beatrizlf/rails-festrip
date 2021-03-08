@@ -1,5 +1,5 @@
 
-<div class="container advanced_filter_input">
+<div class="container advanced_filter_input mt-3">
   <%= simple_form_for :search, method: :get, :url => { action: "index" }, defaults: {label: false} do |f| %>
     <div class="form-row d-flex justify-content-around">
       <div class="col-12 col-sm-3">
@@ -18,7 +18,7 @@
        <%= f.input :year, include_blank: "Choose a year",as: :select, collection: year_list %>
       </div>
 
-      <div class="col-12 col-sm-2">
+      <div class="col-12 col-sm-2" style="height: 39px;width: 96px;">
          <%= f.button :submit, "Submit", class: "btn btn-outline-warning" %>
       </div>
     </div>
