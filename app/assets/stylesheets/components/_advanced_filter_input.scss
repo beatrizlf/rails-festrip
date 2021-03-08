@@ -1,13 +1,15 @@
 .advanced_filter_input {
 
   .form-control {
-      background-color: black;
-      color: #f58b00ff;
+      background-color: transparent;
+      color: $ivory;
+      display: flex;
+      align-items: center;
 
   }
 }
 
-.advanced_filter {
+.advanced_filter_input {
   border-style: solid;
   border-color: $tangerine;
   border-width: thin;
@@ -15,3 +17,12 @@
 
 }
 
+.form-row {
+  margin-bottom: -12px;
+  margin-top: 3px;
+  flex-wrap: wrap;
+  margin-right: -76px;
+  margin-left: -17px;
+  backdrop-filter: blur(1px) saturate(100%);                   /* Blur the background */
+  -webkit-backdrop-filter: blur(1px) saturate(100%);
+}
