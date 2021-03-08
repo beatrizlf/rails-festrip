@@ -19,7 +19,7 @@
   position: absolute;
   font-size: 15px;
   left: 0;
-  bottom: -402px;
+  bottom: -420px;
   height: 397px;
   width: 50%;
 }
@@ -36,7 +36,7 @@
   position: absolute;
   font-size: 15px;
   right:0;
-  bottom: -402px;
+  bottom: -420px;
   height: 397px;
   width: 50%;
 }
@@ -62,19 +62,19 @@
 
 .card-trip {
   position: absolute;
-  width: 800px;
-  height: 647px;
+  width: 1200px;
+  height: 1076px;
   overflow: hidden;
   background: $black;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  font-size: 13px;
+  font-size: 17px;
   border-style: solid;
   border-color: $tangerine;
   border-width: thin;
 }
 
 .card-trip > img {
-  height: 275px;
+  height: 530px;
   width: 100%;
   object-fit: cover;
 }
@@ -86,7 +86,7 @@
 }
 
 .card-trip p {
-  font-size: 12px;
+  font-size: 16px;
   opacity: .7;
   margin: 0;
 }
@@ -101,4 +101,8 @@
 
 .heart > a {
   font-size: 20px;
+}
+
+.card-festival-name {
+  padding: 12px 20px 0px 20px;
 }
