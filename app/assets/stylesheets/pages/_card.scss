@@ -120,6 +120,10 @@ body {
 
 
 .card-artist {
+  border-style: solid;
+  border-color: $tangerine;
+  border-width: thin;
+  border-radius: 50%;
   position: relative;
   display: flex;
   align-items: flex-end;
@@ -136,7 +140,7 @@ body {
     0 16px 16px rgba(0,0,0,0.1);
 
   @media (min-width: $bp-md) {
-    height: 350px;
+    height: 278px;
   }
 
   &:before {
