@@ -4,7 +4,7 @@ require 'json'
 if Rails.env.development?
     #User.destroy_all
     Lineup.destroy_all
-    Festival.destroy_all
+    # Festival.destroy_all
     Artist.destroy_all
  end
 
@@ -240,9 +240,9 @@ Artist.create!(name: 'Videoclub')
 Artist.create!(name: 'Vintage Culture')
 Artist.create!(name: 'Drake')
 Artist.create!(name: 'The Weekend')
-    
+
 puts 'Creating some new festivals...'
-    
+
 tomorrowland = Festival.create!(
   name: 'Tomorrowland',
   begin_date: Date.new(2021,7,16),
@@ -250,14 +250,14 @@ tomorrowland = Festival.create!(
   location: 'Belgium',
   category: 'Eletronic',
   description: "Tomorrowland is the world's largest dance music festival, each summer bringing electronic music's biggest stars to its magical wonderland in the Belgium town of Boom.",
-  video_url: "https://www.youtube.com/watch?v=lKQGIeaWG9c"
+  video_url: "lKQGIeaWG9c"
   #photo: "https://res.cloudinary.com/diarvpaib/image/upload/v1615137264/tomorrowland_gelel4.webp"
 )
 
 Lineup.create(festival: Festival.find_by(name: 'Tomorrowland'), artist: Artist.find_by(name: 'Bad Bunny'))
 Lineup.create(festival: Festival.find_by(name: 'Tomorrowland'), artist: Artist.find_by(name: 'J Balvin'))
 Lineup.create(festival: Festival.find_by(name: 'Tomorrowland'), artist: Artist.find_by(name: 'Ozuna'))
-  
+
 off_week = Festival.create!(
   name: 'Off Week Festival',
   begin_date: Date.new(2021,6,18),
@@ -265,13 +265,13 @@ off_week = Festival.create!(
   location: 'Spain',
   category: 'Eletronic',
   description: "Off Week Festival returns to Barcelona's Parc del Fòrum for three days of electronic music showcases, from some of the most respected names in the world of underground house and techno.",
-  video_url: "https://www.youtube.com/watch?v=4ygMBGj7g8g",
+  video_url: "4ygMBGj7g8g",
   #photo: "https://res.cloudinary.com/diarvpaib/image/upload/v1615137594/OffWeek2020_V4_o2pv6u.webp"
 )
 
 Lineup.create(festival: off_week, artist: Artist.find_by(name: 'Doro'))
 Lineup.create(festival: off_week, artist: Artist.find_by(name: 'Ozuna'))
-  
+
 
 hideout = Festival.create!(
   name: 'Hideout Festival',
@@ -280,7 +280,7 @@ hideout = Festival.create!(
   location: 'Croatia',
   category: 'Eletronic',
   description: "Hideout Festival returns to Croatia's Zrće beach in June 2021 after a year off, promising to return even better than before as it celebrates its 11th edition at the famous party spot. Hideout will once again showcase its incredible dance lineup across some of Novalja's most popular clubs, including Papaya, Kalypso, Aquarius and Noa.",
-  video_url: "https://www.youtube.com/watch?v=huHoVkMVLP0",
+  video_url: 'huHoVkMVLP0',
   #photo: 'https://res.cloudinary.com/diarvpaib/image/upload/v1615137877/Hideout1_qzd3yo.webp'
 )
 
@@ -291,8 +291,8 @@ hideout = Festival.create!(
    location: 'Belgium',
    category: 'Eletronic',
    description: "Rampage is one of the biggest drum & bass and dubstep music festivals in the world. Every year it transforms the Antwerps Sportpaleis into a massive high-octane and high BPM dance party.",
-   video_url: 'https://www.youtube.com/watch?v=CsycNMNDnPg&t=5s',
-   #photo: 'https://res.cloudinary.com/diarvpaib/image/upload/v1615138212/Rampage2020_V6_daz4ie.webp'
+   video_url: 'CsycNMNDnPg&t',
+   # photo: 'https://res.cloudinary.com/diarvpaib/image/upload/v1615138212/Rampage2020_V6_daz4ie.webp'
  )
 
 #  ultra_europe = Festival.create!(

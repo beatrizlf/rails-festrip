@@ -16,14 +16,14 @@
           <% end %>
       </div>
 
-      <%= cl_image_tag @festival.photo.key %>
+      <%= cl_image_tag @festival.photo.key if @festival.photo.attached? %>
       <div class="card-trip-infos">
 
       <div>
 
       <div class="card-festival-name">
         <h5><%= @festival.name %></h5>
-        <p><%= @festival.location %>, <%= @festival.date %></p>
+        <p><%= @festival.location %>, <%= @festival.begin_date %></p>
         <%= @festival.description %>
       </div>
         </div>
@@ -39,7 +39,7 @@
       </div>
 
       <div class='second-card'>
-      <iframe width="397" height="256" src=<%= @festival.video_url %> frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="397" height="256" src="https://www.youtube.com/embed/<%= @festival.video_url %>" frameborder="0" allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </div>
