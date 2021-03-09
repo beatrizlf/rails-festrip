@@ -19,7 +19,7 @@
 
       <div class="d-flex justify-content-center align-items-center flex-column" id="festival-title" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('<%= cl_image_path @festival.photo.key %>');">
           <h5><strong><%= @festival.name %></strong></h5>
-          <p><%= @festival.location %>, <%= @festival.begin_datef %></p>
+          <p><%= @festival.location %> <br> <%= @festival.begin_datef %></p>
       </div>
 
     <%# cl_image_tag @festival.photo.key if @festival.photo.attached? %>
@@ -40,7 +40,7 @@
       </div>
 
       <div class='second-card'>
-        <iframe width="598" height="380" src="https://www.youtube.com/embed/<%= @festival.video_url %>" frameborder="0" allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="598" height="395" src="https://www.youtube.com/embed/<%= @festival.video_url %>" frameborder="0" allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
   </div>
