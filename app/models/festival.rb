@@ -11,6 +11,15 @@ class Festival < ApplicationRecord
 
   # scope :by_date, -> (date) { where('')}
 
+  def begin_datef
+    self.begin_date.strftime("%d - %B - %Y")
+  end
+
+
+  def end_datef
+    self.end_date.strftime("%d - %B - %Y")
+  end
+
 
   include PgSearch::Model
 

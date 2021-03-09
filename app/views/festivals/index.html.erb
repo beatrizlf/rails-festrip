@@ -44,9 +44,8 @@
               <div class="containerindex d-flex flex-row">
                 <div class="owl-carousel owl-theme">
                   <% if @festivals.empty? %>
-                  <h2>Oops! There is no festival available</h2>
-                    <% end %>
-                  <% unless @festivals.empty? %>
+                    <h2>Oops! There is no festival available</h2>
+                  <% elsif @lineups.present? %>
                     <% @festivals.first(15).each_with_index do |festival, index| %>
                         <div class="p-4">
                           <div class="d-flex flex-row">
@@ -54,6 +53,21 @@
                               <div class="content">
                                 <h2 class="title"><%= festival.name %></h2>
                                 <span><%= @lineups[index].artist_name %></span>
+                                  <p class="copy">
+                                    <p><%= festival.location %></p></p>
+                                    <button class="btn btn-outline-warning"><%= link_to "See Details", festival_path(festival) %></button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    <% end %>
+                    <% else %>
+                    <% @festivals.first(20).each do |festival| %>
+                        <div class="p-4">
+                          <div class="d-flex flex-row">
+                            <div class="card">
+                              <div class="content">
+                                <h2 class="title"><%= festival.name %></h2>
                                   <p class="copy">
                                     <p><%= festival.location %></p></p>
                                     <button class="btn btn-outline-warning"><%= link_to "See Details", festival_path(festival) %></button>
