@@ -46,7 +46,7 @@
                   <% if @festivals.empty? %>
                     <h2>Oops! There is no festival available</h2>
                   <% elsif @lineups.present? %>
-                    <% @festivals.first(15).each_with_index do |festival, index| %>
+                    <% @festivals.each_with_index do |festival, index| %>
                         <div class="p-4">
                           <div class="d-flex flex-row">
                             <div class="card">
