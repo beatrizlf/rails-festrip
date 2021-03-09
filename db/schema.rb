@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_03_07_165954) do
   create_table "lineups", force: :cascade do |t|
     t.bigint "festival_id", null: false
     t.bigint "artist_id", null: false
+    t.string "artist_name", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["artist_id"], name: "index_lineups_on_artist_id"
