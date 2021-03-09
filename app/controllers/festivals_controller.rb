@@ -96,6 +96,6 @@
   end
 
   def festival_params
-    params.require(:festival).permit(:name, :begin_date, :end_date, :location, :category, :description, :photo, :video_url)
+    params.require(:festival).permit(:name, :begin_date, :end_date, :location, :category, :description, :photo, :video_url, :address)
   end
 end
