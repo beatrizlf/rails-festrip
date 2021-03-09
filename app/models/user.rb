@@ -8,11 +8,12 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:spotify]
 
   has_many :wishlists, dependent: :destroy
+  has_many :festivals, through: :wishlists
   has_many :top_artists, dependent: :destroy
 
   has_one_attached :photo
 
- 
+
   def self.from_omniauth(auth)
     user = where(uid: auth.uid).first_or_create do |user|
       user.uid = auth.uid
@@ -25,8 +26,8 @@ class User < ApplicationRecord
     get_top_artists(user)
     user
   end
-  
-  
+
+
   def self.get_top_artists(user)
     token = user.spotify_token
     options = {

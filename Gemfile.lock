@@ -103,7 +103,7 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     faraday-net_http (1.0.1)
-    ffi (1.14.2)
+    ffi (1.15.0)
     font-awesome-sass (5.15.1)
       sassc (>= 1.11)
     globalid (0.4.2)
@@ -139,7 +139,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     netrc (0.11.0)
-    nio4r (2.5.5)
+    nio4r (2.5.7)
     nokogiri (1.11.1-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.11.1-x86_64-linux)
