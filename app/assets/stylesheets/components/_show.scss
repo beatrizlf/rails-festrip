@@ -60,7 +60,7 @@
 .card-trip {
   position: absolute;
   width: 1200px;
-  height: 1076px;
+  height: 1020px;
   overflow: hidden;
   background: $black;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -68,12 +68,14 @@
   border-style: solid;
   border-color: $tangerine;
   border-width: thin;
+
 }
 
 .card-trip > img {
   height: 530px;
   width: 100%;
   object-fit: cover;
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)) !important;
 }
 
 .card-trip h2 {
@@ -88,10 +90,16 @@
   margin: 0;
 }
 
-.festival-title {
-  position: absolute;
-  padding-top: 237px;
-  padding-left: 440px;
+#festival-title {
+  height: 530px !important;
+  width: 1198px !important;
+  background-size: cover;
+  background-repeat: none;
+}
+
+#festival-title > h5 {
+  font-size: 40px;
+
 }
 
 .card-trip .card-trip-infos {
