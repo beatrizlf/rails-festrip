@@ -1,0 +1,15 @@
+.heart {
+  position: absolute;
+  justify-content: flex-end;
+  align-items: center;
+  border-color: $tangerine;
+  border-width: thin;
+  width:30px;
+  height: 30px;
+  padding-top:24px;
+  right: 40px;
+}
+
+.heart > a {
+  font-size: 30px !important;
+}
