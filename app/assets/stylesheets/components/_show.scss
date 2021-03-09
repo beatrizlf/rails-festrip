@@ -17,7 +17,7 @@
   border-color: $tangerine;
   border-width: thin;
   position: absolute;
-  font-size: 15px;
+  font-size: 30px;
   left: 0;
   bottom: -420px;
   height: 397px;
@@ -26,7 +26,11 @@
 
 .first-card > p {
   height: 257px;
-  font-size: 16px;
+  font-size: 30px;
+}
+
+.first-card > h5 {
+  font-size: 30px;
 }
 
 .second-card {
