@@ -1,0 +1,25 @@
+
+
+  <div class="modal-content">
+
+     <div class="container mb-5" style="border-style: solid; border-color: #F58B00; border-width: thin; ">
+      <div class="sky-widget" data-skyscanner-widget="FlightSearchWidget" data-locale="en-GB"
+      data-params="colour:#181616;fontColour:#f58b00;buttonColour:#f58b00;buttonFontColour:#fff;"
+      data-market="BR"
+      data-currency="USD"
+      data-origin-geo-lookup="true"
+      data-target="_self"
+      data-flights-max-children-number="0"
+      data-button-label="Start your FesTrip!"
+      data-widget-padding="10"
+      data-widget-border-radius="4"
+      data-powered-by-logo-colour="#ff6b6b"
+      ></div>
+      <script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script>
+    </div>
+
+    <iframe id="closer2event-iframe" src="https://map2.closer2event.com?addr=<%= @wishlists.first.festival.location %>&event=festrip&check_in=2021-03-14&check_out=2021-03-17" width="100%" height="500px" frameborder="0"></iframe>
+    <script id="closer2event-1cb88d6c029019f793fe7e235917c42c" type="text/javascript" src="https://map.closer2event.com/assets/widget/map.js"></script>
+
+  </div>
+

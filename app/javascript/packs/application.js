@@ -37,6 +37,7 @@ import { owlCarousel } from '../components/carousel';
 import { autocompleteSearch } from '../components/autocomplete';
 
 
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   owlCarousel();

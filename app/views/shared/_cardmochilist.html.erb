@@ -1,5 +1,5 @@
 <div class="containerindex d-flex flex-row">
-  <div class="owl-carousel owl-theme">
+  <div>
     <% @wishlists.each do |wishlist|  %>
       <div class="p-4">
         <%= link_to wishlist_path(wishlist),method: :delete do %>
@@ -9,12 +9,27 @@
           <div class="card">
             <div class="content">
               <h2 class="title"><%= wishlist.festival.name %></h2>
-              <p><%= wishlist.festival.date %></p>
+              <p><%= wishlist.festival.begin_date%></p>
               <p><%= wishlist.festival.location %></p>
               <p><%= wishlist.festival.category %></p>
-              <p><%= wishlist.festival.price %></p>
-              <p class="copy">
-              <p></p></p>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#festivalModal<%=wishlist.festival.id%>">
+                Flights & Accomodation
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="festivalModal<%=wishlist.festival.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><%= wishlist.festival.name %></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= render 'shared/modal_trip_details' %>
             </div>
           </div>
         </div>
@@ -22,3 +37,6 @@
     <% end %>
   </div>
 </div>
+
+
+
