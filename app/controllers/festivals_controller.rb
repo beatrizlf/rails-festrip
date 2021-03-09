@@ -6,16 +6,17 @@
 
   def index
     skip_policy_scope
-    # Lógica para mostrar em quais festivais os artistas favoritos irao tocar
-    if current_user && current_user.top_artists.positive?
+    if current_user && current_user.top_artists.empty?
+      @festivals = Festival.all
+    elsif current_user && current_user.top_artists.present?
       @artists = Artist.where(name: current_user.top_artists.map(&:name))
       #@festivals = Festival.joins(:artists).where(artists: {id: @artists}).uniq
       @lineups = Lineup.where(artist_id: @artists.map(&:id))
       @festivals = Festival.where(id: @lineups.map(&:festival_id))
       #@festival_artists = Artist.where(id: @lineups.map(&:artist_id)).map(&:name)
     else
-      # Pundit - para mostrar todos os festivais
-      @festivals = policy_scope(Festival).order(created_at: :desc)
+      @festivals = Festival.all
+      # @festivals = policy_scope(Festival).order(created_at: :desc)
     end
     
     # PG Search
