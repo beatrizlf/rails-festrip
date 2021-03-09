@@ -5,6 +5,7 @@
       color: $ivory;
       display: flex;
       align-items: center;
+      backdrop-filter: blur(1px) saturate(125%);
 
   }
 }
@@ -23,6 +24,9 @@
   flex-wrap: wrap;
   margin-right: -76px;
   margin-left: -17px;
-  backdrop-filter: blur(1px) saturate(125%);                   /* Blur the background */
-  -webkit-backdrop-filter: blur(1px) saturate(125%);
+}
+
+.btn-outline-button {
+  width: 110px;
+  margin-right: 38px !important;
 }
