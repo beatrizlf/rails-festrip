@@ -5,9 +5,9 @@
   before_action :search_festivals
 
   def index
+    skip_policy_scope
     # Lógica para mostrar em quais festivais os artistas favoritos irao tocar
-    if current_user.top_artists.present?
-      @festivals = policy_scope(Festival).order(created_at: :desc)
+    if current_user && current_user.top_artists.positive?
       @artists = Artist.where(name: current_user.top_artists.map(&:name))
       #@festivals = Festival.joins(:artists).where(artists: {id: @artists}).uniq
       @lineups = Lineup.where(artist_id: @artists.map(&:id))
