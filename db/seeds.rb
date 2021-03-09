@@ -4,7 +4,7 @@ require 'json'
 if Rails.env.development?
     User.destroy_all
     Lineup.destroy_all
-    # Festival.destroy_all
+    Festival.destroy_all
     Artist.destroy_all
  end
 
@@ -343,8 +343,12 @@ Artist.create!(name: 'Seu Jorge')
 Artist.create!(name: 'Pedro Sampaio')
 Artist.create!(name: 'Major Lazer')
 Artist.create!(name: 'blackbear')
+Artist.create!(name: 'Dua Lipa')
+Artist.create!(name: 'Lianne La Havas')
 
-puts 'Creating some new festivals...'
+puts 'Artists created!'
+
+puts 'Creating festivals...'
 
 tomorrowland = Festival.create!(
   name: 'Tomorrowland',
@@ -531,7 +535,7 @@ Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Cardi B'))
 Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Rae Sremmurd'))
 
 
-exit = Festival.create!(
+fest_exit = Festival.create!(
   name: 'Exit Festival',
   begin_date: Date.new(2021,7,8),
   end_date: Date.new(2021,7,11),
@@ -541,14 +545,14 @@ exit = Festival.create!(
   video_url: 'jMCeRnsNek8'
 )
 
-Lineup.create(festival: exit, artist: Artist.find_by(name: 'David Guetta'))
-Lineup.create(festival: exit, artist: Artist.find_by(name: 'Tyga'))
-Lineup.create(festival: exit, artist: Artist.find_by(name: 'DJ Snake'))
-Lineup.create(festival: exit, artist: Artist.find_by(name: 'Nina Kraviz'))
-Lineup.create(festival: exit, artist: Artist.find_by(name: 'Eric Prydz'))
-Lineup.create(festival: exit, artist: Artist.find_by(name: 'Solomun'))
-Lineup.create(festival: exit, artist: Artist.find_by(name: 'Boris Brejcha'))
-Lineup.create(festival: exit, artist: Artist.find_by(name: 'Metronomy'))
+Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'David Guetta'))
+Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Tyga'))
+Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'DJ Snake'))
+Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Nina Kraviz'))
+Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Eric Prydz'))
+Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Solomun'))
+Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Boris Brejcha'))
+Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Metronomy'))
 
 
 dour = Festival.create!(
@@ -872,5 +876,40 @@ Lineup.create(festival: villamix, artist: Artist.find_by(name: 'Luan Santana'))
 Lineup.create(festival: villamix, artist: Artist.find_by(name: 'Gusttavo Lima'))
 Lineup.create(festival: villamix, artist: Artist.find_by(name: 'Seu Jorge'))
 Lineup.create(festival: villamix, artist: Artist.find_by(name: 'Pedro Sampaio'))
+
+glastonburry = Festival.create!(
+  name: 'Glastonburry',
+  begin_date: Date.new(2022,6,22),
+  end_date: Date.new(2022,6,26),
+  location: 'United Kingdom',
+  category: 'Alternative',
+  description: "Glastonbury Festival is one of the world's most famous music and performing arts festivals. Embracing each and every genre across the spectrum, from rock and pop to minimal house, techno and full-throttle drum 'n' bass, music-lovers flock to its spiritual fields down in Somerset.",
+  video_url: 'elXXNiu2EBg'
+)
+
+Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Kendrick Lamar'))
+Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Paul McCartney'))
+Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Taylor Swift'))
+Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Diana Ross'))
+Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Dua Lipa'))
+Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'FKA twings'))
+Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Lana Del Rey'))
+Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Fatboy Slim'))
+Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Camila Cabello'))
+Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Lianne La Havas'))
+
+# pukkelpop = Festival.create!(
+#   name: 'Pukkelpop',
+#   begin_date: Date.new(2021,8,19),
+#   end_date: Date.new(2021,8,22)
+# )
+
+
+
+
+
+
+
+
 
 puts 'Festivals created!'

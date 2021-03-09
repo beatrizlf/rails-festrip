@@ -5,17 +5,27 @@
   before_action :search_festivals
 
   def index
-    @festivals = policy_scope(Festival).order(created_at: :desc)
+    # Lógica para mostrar em quais festivais os artistas favoritos irao tocar
+    if current_user.top_artists.present?
+      @festivals = policy_scope(Festival).order(created_at: :desc)
+      @artists = Artist.where(name: current_user.top_artists.map(&:name))
+      #@festivals = Festival.joins(:artists).where(artists: {id: @artists}).uniq
+      @lineups = Lineup.where(artist_id: @artists.map(&:id))
+      @festivals = Festival.where(id: @lineups.map(&:festival_id))
+      #@festival_artists = Artist.where(id: @lineups.map(&:artist_id)).map(&:name)
+    else
+      # Pundit - para mostrar todos os festivais
+      @festivals = policy_scope(Festival).order(created_at: :desc)
+    end
+    
+    # PG Search
     @festivals = @festivals.global_search(params[:query]) if params[:query].present?
     @festivals = @festivals.where(category: params[:category]) if params[:category].present?
+    
 
     # logica para implementar o autocomplete
-
-     @results = Artist.order(:name).pluck(:name)
-     # @results << Festival.pluck(:location)
-
-
-   ## ---
+    @results = Artist.order(:name).pluck(:name)
+    # @results << Festival.pluck(:location)
 
     # scopes criados para filtar na pagina de index como criterio
 
@@ -36,6 +46,7 @@
         @festivals = @festivals.select { |festival| festival.date.strftime("%B") == params[:search][:month] }
       end
     end
+
   end
 
   def show
