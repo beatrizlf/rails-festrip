@@ -8,7 +8,7 @@
       <form class="form-inline my-2 my-lg-0">
         <div id="results-data" data-results="<%= @results.to_json %>">
           <%= form_tag festivals_path, method: :get do %>
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find where your artist is playing" %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find your favourite artists" %>
           &nbsp;&nbsp;<%= submit_tag "Search", class: "btn btn-outline-warning" %>
         </div>
       <% end %>
@@ -50,7 +50,7 @@
       <form class="form-inline my-2 my-lg-0">
         <div id="results-data" data-results="<%=@results.to_json %>">
           <%= form_tag festivals_path, method: :get do %>
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find where your artist is playing" %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find your favourite artists" %>
           &nbsp;&nbsp;<%= submit_tag "Search", class: "btn btn-outline-warning" %>
         </div>
       <% end %>
