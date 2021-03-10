@@ -6,9 +6,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
   z-index: 1;
-  top: 350px;
+  // top: 350px;
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 a {

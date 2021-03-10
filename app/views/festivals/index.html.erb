@@ -1,6 +1,10 @@
 <%= render 'shared/navbar' %>
 <% if @search %>
-  <%= render 'shared/cardindex', festivals: @search %>
+<div class="container">
+  <div class="contentindex">
+    <%= render 'shared/cardindex', festivals: @search %>
+  </div>
+</div>
 <% else %>
   <!-- <Banner com barra de search> -->
   <%= render 'shared/advanced_search', festivals_category: @festivals_category, festivals_location: @festivals_location %>

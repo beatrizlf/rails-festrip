@@ -554,7 +554,7 @@ les_ardents = Festival.create!(
   category: 'Hip Hop',
   description: "Belgian festival Les Ardentes continuously boasts the biggest names in the French, European and global hip-hop scenes. For instance, past lineups have included the likes of Wiz Khalifa, Migos, Black Eyed Peas, and Mac Miller; while also hosting French artists such as OrelSan and Nekfeu.",
   video_url: 'gSIzp49jfG4',
-  address:
+  address: 'Rue Auguste Hock 21 4020 Liège Bélgium'
 )
 file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615385910/les_ardents_zezcbk.jpg')
 les_ardents.photo.attach(io: file, filename: 'les_ardents.jpg', content_type: 'image/jpg')

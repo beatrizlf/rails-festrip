@@ -4,12 +4,12 @@
       <h1>Festrip</h1>
       <p>Connect your Spotify and discover festivals where your favourite artists will play</p>
       <%= button_to "#", class: "btn btn-outline" do %>
-      <i class="fab fa-spotify"></i><%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path, method: :post %>
+        <i class="fab fa-spotify"></i><%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path, method: :post %>
       <% end %>
 
-    <div id="text">
-    <p class="mt-1"><%= link_to ">>> Skip to Festivals", festivals_path %></p>
-    </div>
+      <div id="text">
+        <p class="mt-1"><%= link_to ">>> Skip to Festivals", festivals_path %></p>
+      </div>
     </div>
   </div>
 </div>
