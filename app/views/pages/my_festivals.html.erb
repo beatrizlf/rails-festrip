@@ -1,0 +1,27 @@
+<%= render 'shared/navbar' %>
+
+<!-- Container principal da pagina de Wishlist
+  ------------------------------------------->
+
+<!-- Cards ----------------------->
+
+  <div class="contentindex">
+    <div class="textbox">
+      <h5><strong>Here is your Wishlist...</strong></h5>
+    </div>
+
+
+    <div class="w-100">
+      <%= render 'shared/cardmochilist', wishlists: @wishlists %>
+
+    </div>
+  </div>
+
+
+  <div class="contentindex">
+    <div class="textbox">
+      <h5><strong>Recommended for you....</strong></h5>
+    </div>
+  </div>
+
+<%#= render 'shared/suggestion', locals: {suggestions: @suggested_festivals} %>
