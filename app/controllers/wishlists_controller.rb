@@ -2,6 +2,7 @@ class WishlistsController < ApplicationController
   skip_before_action :authenticate_user!
 
 
+
   def create
     @festival = Festival.find(params[:festival_id])
     @wishlist = Wishlist.create(festival:@festival, user:current_user)

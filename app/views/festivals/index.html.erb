@@ -1,5 +1,5 @@
 <%= render 'shared/navbar' %>
-
+<!-- <Banner> -->
 <div id="banner-index">
   <div class="container" style="top:180px;">
     <h1><strong>Festrip</strong></h1>
@@ -8,96 +8,93 @@
   </div>
 </div>
 
-<!-- <div class="container"> -->
-
-  <%# se o current_user estiver logado com spotify, renderizar card de artistas %>
-  <% if current_user %>
-        <div class="textbox">
-        <% if current_user.top_artists.present? %>
-          <h5>Based on your favorite spotify artists:</h5>
-          <p>We will find out the best festival options for you!</p>
+<!-- <Lógicas de renderização dos cards para cada tipo de usuário> -->
+<% if current_user %> <!-- user logado -->
+  <div class="container">
+    <div class="contentindex">
+      <div class="textbox">
+        <% if current_user.top_artists.present? %> <!-- user logado com spotify -->
+        <h5>YOUR TOP 10 SPOTIFY ARTISTS</h5>
+      </div>
+        <div class="w-100">
+          <%= render 'shared/artistscard' %>
         </div>
-
-    <div class="container">
-      <div class="contentindex">
-          <div class="w-100">
-            <%= render 'shared/artistscard' %>
-          </div>
-          <% else %>
-          <h5>Log in with Spotify to find out where your favorites artists will play:</h5>
+        <% else %> <!-- user logado sem spotify -->
+          <p>Connect your Spotify and discover festivals where your favourite artists will play</p>
           <%= button_to "#", class: "btn btn-outline" do %>
-           <i class="fab fa-spotify"></i><%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path, method: :post %>
-          <% end %>
+            <i class="fab fa-spotify"></i><%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path, method: :post %>
+         <% end %>
         <% end %>
-      </div>
     </div>
-  <% end %>
+  </div>
+       <% else %> <!-- user deslogado -->
+          <p>Connect your Spotify and discover festivals where your favourite artists will play</p>
+          <%= button_to "#", class: "btn btn-outline" do %>
+            <i class="fab fa-spotify"></i><%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path, method: :post %>
+          <% end %>
+      </div>
+  </div>
+<% end %>
 
-    <div class="container">
-      <div class="contentindex">
-        <div class="textbox">
-          <h5>Top festivals close to you</h5>
-          <p>Check out this festivals</p>
-        </div>
-
-          <div class="w-100">
-              <div class="containerindex d-flex flex-row">
-                <div class="owl-carousel owl-theme">
-                  <% if @festivals.empty? %>
-                    <h2>Oops! There is no festival available</h2>
-                  <% elsif @lineups.present? %>
-                    <% @festivals.each_with_index do |festival, index| %>
-                        <div class="p-4">
-                          <div class="d-flex flex-row">
-                            <div class="card">
-                              <div class="content">
-                                <h2 class="title"><%= festival.name %></h2>
-                                <span><%= @lineups[index].artist_name %></span>
-                                  <p class="copy">
-                                    <p><%= festival.location %></p></p>
-                                    <button class="btn btn-outline-warning"><%= link_to "See Details", festival_path(festival) %></button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    <% end %>
-                    <% else %>
-                    <% @festivals.first(20).each do |festival| %>
-                        <div class="p-4">
-                          <div class="d-flex flex-row">
-                            <div class="card">
-                              <div class="content">
-                                <h2 class="title"><%= festival.name %></h2>
-                                  <p class="copy">
-                                    <p><%= festival.location %></p></p>
-                                    <button class="btn btn-outline-warning"><%= link_to "See Details", festival_path(festival) %></button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                    <% end %>
-                  <% end %>
+<div class="container">
+  <div class="contentindex">
+    <div class="textbox">
+      <div class="w-100">
+        <div class="containerindex d-flex flex-row">
+          <div class="owl-carousel owl-theme">
+            <% if @festivals.empty? %> <!-- se não tiver resultados na busca do search -->
+            <br>
+            <h2>Oops! There is no festival available</h2>
+            <% elsif @lineups.present? %> <!-- se tiver top artists presentes nos lineups do DB -->
+              <% @festivals.first(15).each_with_index do |festival, index| %>
+                <div class="p-4">
+                  <div class="d-flex flex-row">
+                    <div class="card">
+                      <div class="content">
+                        <h2 class="title"><%= festival.name %></h2>
+                        <span class="title">presents <%= @lineups[index].artist_name %></span>
+                        <p class="copy">
+                        <p><%= festival.location %></p></p>
+                        <button class="btn btn-outline-warning"><%= link_to "See Details", festival_path(festival) %></button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-          </div>
-
+              <% end %>
+            <% else %> <!-- se NÃO tiver top artists presentes nos lineups do DB = mostra todos os festivais -->
+              <% @festivals.first(20).each do |festival| %>
+                <div class="p-4">
+                  <div class="d-flex flex-row">
+                    <div class="card">
+                      <div class="content">
+                        <h2 class="title"><%= festival.name %></h2>
+                          <p class="copy">
+                          <p><%= festival.location %></p></p>
+                          <button class="btn btn-outline-warning"><%= link_to "See Details", festival_path(festival) %></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+        </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="container">
-        <div class="contentindex">
-          <div class="textbox">
-            <h5>Browse by Countries</h5>
-          </div>
-
-
-          <div class="w-100">
-            <%= render 'shared/cardcountries' %>
-          </div>
-        </div>
+<div class="container">
+    <div class="contentindex">
+      <div class="textbox">
+        <h5>Browse by Countries</h5>
+      </div>
+      <div class="w-100">
+        <%= render 'shared/cardcountries' %>
+      </div>
     </div>
-<!-- </div> -->
+</div>
 
+<!-- js banner -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.trunk.min.js"></script>
 
@@ -116,5 +113,4 @@
       spacing: 1.00,
       chaos: 4.50
     })
-
   </script>
