@@ -378,7 +378,6 @@ Lineup.create(festival: tomorrowland, artist: Artist.find_by(name: 'Joris Voorn'
 Lineup.create(festival: tomorrowland, artist: Artist.find_by(name: 'Adriatique'))
 
 
-
 off_week = Festival.create!(
   name: 'Off Week Festival',
   begin_date: Date.new(2021,6,18),
@@ -546,6 +545,7 @@ Lineup.create(festival: mysteryland, artist: Artist.find_by(name: 'Timmy Trumpet
 Lineup.create(festival: mysteryland, artist: Artist.find_by(name: 'Vini Vici'))
 Lineup.create(festival: mysteryland, artist: Artist.find_by(name: 'Brennan Heart'))
 
+
 les_ardents = Festival.create!(
   name: 'Les Ardentes',
   begin_date: Date.new(2021,7,8),
@@ -558,6 +558,7 @@ les_ardents = Festival.create!(
 )
 file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615385910/les_ardents_zezcbk.jpg')
 les_ardents.photo.attach(io: file, filename: 'les_ardents.jpg', content_type: 'image/jpg')
+
 
 Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Kendrick Lamar'))
 Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Future'))
@@ -588,7 +589,6 @@ Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Eric Prydz'))
 Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Solomun'))
 Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Boris Brejcha'))
 Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Metronomy'))
-
 
 dour = Festival.create!(
   name: 'Dour Festival',
@@ -995,13 +995,5 @@ Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Lianne La Hav
 #   begin_date: Date.new(2021,8,19),
 #   end_date: Date.new(2021,8,22)
 # )
-
-
-
-
-
-
-
-
 
 puts 'Festivals created!'
