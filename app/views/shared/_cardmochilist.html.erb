@@ -1,7 +1,8 @@
-<div class="containerindex d-flex flex-row">
-  <div>
+
+<div class="container">
+  <div class="row container-wishlist mt-3 d-flex flex-row">
     <% @wishlists.each do |wishlist|  %>
-      <div class="p-4">
+      <div class="p-4 col-12 col-sm-3">
         <%= link_to wishlist_path(wishlist),method: :delete do %>
         <i class="fas fa-minus-circle"></i>
         <% end %>
@@ -62,7 +63,7 @@
         </div>
       </div>
     <% end %>
-  </div>
+  <%#/div%>
 </div>
 
 

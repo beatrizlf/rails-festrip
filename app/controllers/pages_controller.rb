@@ -19,7 +19,7 @@ class PagesController < ApplicationController
         Festival.where(id: wishlist.festival_id).map(&:category)
       end
         user_fav_cat.flatten.each do |category|
-        festivals = Festival.where(category: category).first(3)
+        festivals = Festival.where(category: category).first(4)
         festivals.each do |festival|
           @suggested_festivals << festival unless @suggested_festivals.include?(festival)
           end
