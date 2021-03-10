@@ -1,6 +1,17 @@
 <%= render 'shared/navbar' %>
 <% if @search %>
-  <%= render 'shared/cardindex', festivals: @search %>
+  <div class="container pt-5 mt-5">
+    <div class="contentindex">
+      <% if @search.empty? %>
+        <h2>We couldn't find any results for your search =( </h2>
+        <%= link_to "Back to Festivals", festivals_path, class:'btn btn-outline-warning' %>
+      <% else %>
+        <h2>Your search results for: "<%= @query %>"</h2>
+        <%= render 'shared/cardindex', festivals: @search %>
+        <%= link_to "Back to Festivals", festivals_path, class:'btn btn-outline-warning' %>
+      <% end %>
+    </div>
+  </div>
 <% else %>
   <!-- <Banner com barra de search> -->
   <%= render 'shared/advanced_search', festivals_category: @festivals_category, festivals_location: @festivals_location %>
@@ -11,6 +22,7 @@
             <% if current_user.top_artists.present? %> <!-- user logado com spotify -->
               <%= render 'shared/artistscard' %>
               <% if @lineups.present? %> <!-- se tiver top artists presentes nos lineups do DB -->
+                <h2 class="pt-5">Find your favourite artists at:</h2>
                 <%= render 'shared/card_lineup', festivals: @my_festivals, lineups: @lineups %>
               <% else %>
                 <h2>No festival available (top artist is not on lineups)</h2>
@@ -21,7 +33,8 @@
             <% end %>
       <% else %> <!-- user deslogado -->
         <%= render 'shared/connect_spotify' %>
-      <% end %> 
+      <% end %>
+        <h2 class="pt-5">Festivals around the world:</h2> 
         <%= render 'shared/cardindex', festivals: @festivals %>
     </div>
   </div>
