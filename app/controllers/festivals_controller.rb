@@ -1,52 +1,54 @@
-  class FestivalsController < ApplicationController
+class FestivalsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_festival, only: [:show, :edit, :update, :destroy, :favourite_festival]
-  before_action :search_festivals
 
+   
   def index
     skip_policy_scope
-    if current_user && current_user.top_artists.empty?
-      @festivals = Festival.all
-    elsif current_user && current_user.top_artists.present?
-      @artists = Artist.where(name: current_user.top_artists.map(&:name))
-      #@festivals = Festival.joins(:artists).where(artists: {id: @artists}).uniq
-      @lineups = Lineup.where(artist_id: @artists.map(&:id))
-      @festivals = Festival.where(id: @lineups.map(&:festival_id))
-      #@festival_artists = Artist.where(id: @lineups.map(&:artist_id)).map(&:name)
+    if params[:query].present? # se tiver busca na navbar
+      # PG Search
+      @search = Festival.all.global_search(params[:query])
+      @search = @search.where(category: params[:category]) if params[:category].present?
+
+    elsif params[:search].present? # se tiver busca pelo search form
+      if params[:search][:category].present?
+        @search = Festival.where(category: params[:search][:category])
+      end
+
+      if params[:search][:location].present?
+        @search = Festival.where(location: params[:search][:location])
+      end
+
+      if params[:search][:year].present?
+        @search = Festival.select { |festival| festival.date.strftime("%Y") == params[:search][:year] }
+      end
+
+      if params[:search][:month].present?
+        @search = Festival.select { |festival| festival.date.strftime("%B") == params[:search][:month] }
+      end
     else
+      
+      if current_user && current_user.top_artists.present? # user logado com spotify
+        @artists = Artist.where(name: current_user.top_artists.map(&:name))
+        @lineups = Lineup.where(artist_id: @artists.map(&:id))
+        @my_festivals = Festival.where(id: @lineups.map(&:festival_id))
+      end
+
       @festivals = Festival.all
-      # @festivals = policy_scope(Festival).order(created_at: :desc)
-    end
+      
+      # scopes criados para filtar na pagina de index como criterio
     
-    # PG Search
-    @festivals = @festivals.global_search(params[:query]) if params[:query].present?
-    @festivals = @festivals.where(category: params[:category]) if params[:category].present?
+    end  
+    
+   
     
 
     # logica para implementar o autocomplete
     @results = Artist.order(:name).pluck(:name)
+    @festivals_category = Festival.pluck(:category).uniq.sort
+    @festivals_location = Festival.pluck(:location).uniq.sort
     # @results << Festival.pluck(:location)
-
-    # scopes criados para filtar na pagina de index como criterio
-
-    if params[:search].present?
-      if params[:search][:category].present?
-        @festivals = @festivals.where(category: params[:search][:category])
-      end
-
-      if params[:search][:location].present?
-        @festivals = @festivals.where(location: params[:search][:location])
-      end
-
-      if params[:search][:year].present?
-        @festivals = @festivals.select { |festival| festival.date.strftime("%Y") == params[:search][:year] }
-      end
-
-      if params[:search][:month].present?
-        @festivals = @festivals.select { |festival| festival.date.strftime("%B") == params[:search][:month] }
-      end
-    end
 
   end
 
@@ -90,10 +92,6 @@
   def set_festival
     @festival = Festival.find(params[:id])
     authorize @festival
-  end
-
-  def search_festivals
-    @festivals_category = Festival.all
   end
 
   def festival_params

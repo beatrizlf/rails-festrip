@@ -1,27 +1,54 @@
-<div class="container advanced_filter_input mt-3">
-  <%= simple_form_for :search, method: :get, :url => { action: "index" }, defaults: {label: false} do |f| %>
-    <div class="form-row d-flex justify-content-around">
-      <div class="col-12 col-sm-3">
-       <%= f.input :category, include_blank: "Choose a category",  collection: @festivals_category.map { |festival| festival.category }.uniq.sort %>
-      </div>
+<div id="banner-index">
+  <div class="container" style="top:180px;">
+    <h1><strong>Festrip</strong></h1>
+    <p>Festivals. Artists. You. All Together</p>
+    <div class="container advanced_filter_input mt-3">
+      <%= simple_form_for :search, method: :get, :url => { action: "index" }, defaults: {label: false} do |f| %>
+        <div class="form-row d-flex justify-content-around">
+          <div class="col-12 col-sm-3">
+          <%= f.input :category, include_blank: "Choose a category",  collection: festivals_category %>
+          </div>
 
-      <div class="col-12 col-sm-3">
-       <%= f.input :location, include_blank: "Choose a location",collection: @festivals_category.map { |festival| festival.location }.uniq.sort %>
-      </div>
+          <div class="col-12 col-sm-3">
+          <%= f.input :location, include_blank: "Choose a location",collection: festivals_location %>
+          </div>
 
-      <div class="col-12 col-sm-2">
-        <%= f.input :month, include_blank: "Choose a month",as: :select, collection: month_list%>
-      </div>
+          <div class="col-12 col-sm-2">
+            <%= f.input :month, include_blank: "Choose a month",as: :select, collection: month_list%>
+          </div>
 
-      <div class="col-12 col-sm-2">
-       <%= f.input :year, include_blank: "Choose a year",as: :select, collection: year_list %>
-      </div>
+          <div class="col-12 col-sm-2">
+          <%= f.input :year, include_blank: "Choose a year",as: :select, collection: year_list %>
+          </div>
 
-      <div class="col-12 col-sm-2" style="padding-left: 0px;">
-         <%= f.button :submit, "Submit", class: "btn btn-outline-button" %>
-      </div>
+          <div class="col-12 col-sm-2" style="padding-left: 0px;">
+            <%= f.button :submit, "Submit", class: "btn btn-outline-button" %>
+          </div>
+        </div>
+    <% end %>
     </div>
- <% end %>
+  </div>
 </div>
+
+<!-- js banner -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.trunk.min.js"></script>
+
+  <script>
+    VANTA.TRUNK({
+      el: "#banner-index",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0xde752c,
+      backgroundColor: 0x181616,
+      spacing: 1.00,
+      chaos: 4.50
+    })
+</script>
 
 
