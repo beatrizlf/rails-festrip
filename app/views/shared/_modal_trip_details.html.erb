@@ -1,8 +1,10 @@
+<div class="p-4">
+  <%= link_to wishlist_path(wishlist),method: :delete do %>
+  <i class="fas fa-minus-circle"></i>
+  <% end %>
+  
+  <!-- Modal Button - Might Need some CSS Stylization  -->
 
-  <div class="p-4">
-        <%= link_to wishlist_path(wishlist),method: :delete do %>
-        <i class="fas fa-minus-circle"></i>
-        <% end %>
         <div class="d-flex flex-row">
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path wishlist.festival.photo.key %>'); background-size: cover;">
             <div class="content">
@@ -17,50 +19,65 @@
               <p><%= wishlist.festival.location %></p>
               <p><%= wishlist.festival.category %></p>
 
-                            <!-- Modal Button - Might Need some CSS Stylization  -->
 
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#festivalModal<%=wishlist.festival.id%>">
-                Flights & Accomodation
-              </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#flights<%=wishlist.festival.id%>">
+          Flights
+        </button>
 
-            </div>
+
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accomodation<%=wishlist.festival.id%>">
+          Accomodation
+        </button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="flights<%=wishlist.festival.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= wishlist.festival.name %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-body">
+          <div class="container mb-5" style="border-style: solid; border-color: #F58B00; border-width: thin; ">
+            <div class="sky-widget" data-skyscanner-widget="FlightSearchWidget" data-locale="en-GB"
+            data-params="colour:#181616;fontColour:#f58b00;buttonColour:#f58b00;buttonFontColour:#fff;"
+            data-market="BR"
+            data-currency="USD"
+            data-origin-geo-lookup="true"
+            data-target="_self"
+            data-flights-max-children-number="0"
+            data-button-label="Start your FesTrip!"
+            data-widget-padding="10"
+            data-widget-border-radius="4"
+            data-powered-by-logo-colour="#ff6b6b"
+            ></div>
+            <script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script>
           </div>
         </div>
       </div>
-      <div class="modal fade" id="festivalModal<%=wishlist.festival.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"><%= wishlist.festival.name %></h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
+    </div>
+  </div>
+</div>
 
-                            <!-- Widget SkyScanner - Modal content starts here!  -->
 
-              <div class="container mb-5" style="border-style: solid; border-color: #F58B00; border-width: thin; ">
-              <div class="sky-widget" data-skyscanner-widget="FlightSearchWidget" data-locale="en-GB"
-              data-params="colour:#181616;fontColour:#f58b00;buttonColour:#f58b00;buttonFontColour:#fff;"
-              data-market="BR"
-              data-currency="USD"
-              data-origin-geo-lookup="true"
-              data-target="_self"
-              data-flights-max-children-number="0"
-              data-button-label="Start your FesTrip!"
-              data-widget-padding="10"
-              data-widget-border-radius="4"
-              data-powered-by-logo-colour="#ff6b6b"
-              ></div>
-              <script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script>
-
-                          <!-- Widget Closer2Event (Acommodation) -->
-
-              <iframe id="closer2event-iframe" src="https://map2.closer2event.com?addr=<%= wishlist.festival.address %>&event=festrip&check_in=<%= wishlist.festival.begin_date %>&check_out=<%= wishlist.festival.end_date %>" width="100%" height="500px" frameborder="1"></iframe>
-              <script id="closer2event-1cb88d6c029019f793fe7e235917c42c" type="text/javascript" src="https://map.closer2event.com/assets/widget/map.js"></script>
-              </div>
-            </div>
-          </div>
+<div class="modal fade" id="accomodation<%=wishlist.festival.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= wishlist.festival.name %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-body">
+          <iframe id="closer2event-iframe" src="https://map2.closer2event.com?addr=<%= wishlist.festival.address %>&event=festrip&check_in=<%= wishlist.festival.begin_date %>&check_out=<%= wishlist.festival.end_date %>" width="100%" height="500px" frameborder="1"></iframe>
+          <script id="closer2event-1cb88d6c029019f793fe7e235917c42c" type="text/javascript" src="https://map.closer2event.com/assets/widget/map.js"></script>
         </div>
       </div>
+    </div>
+  </div>
+</div>
