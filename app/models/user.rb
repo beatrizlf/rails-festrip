@@ -8,11 +8,12 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:spotify]
 
   has_many :wishlists, dependent: :destroy
+  has_many :festivals, through: :wishlists
   has_many :top_artists, dependent: :destroy
 
   has_one_attached :photo
 
- 
+
   def self.from_omniauth(auth)
     user = where(uid: auth.uid).first_or_create do |user|
       user.uid = auth.uid
@@ -25,8 +26,8 @@ class User < ApplicationRecord
     get_top_artists(user)
     user
   end
-  
-  
+
+
   def self.get_top_artists(user)
     token = user.spotify_token
     options = {
@@ -41,7 +42,7 @@ class User < ApplicationRecord
     artists = `curl -X "GET" "https://api.spotify.com/v1/me/top/artists" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer #{access_token}"`
     artists = JSON.parse(artists)
     user.top_artists.destroy_all
-    artists['items'].first(20).each do |item|
+    artists['items'].first(10).each do |item|
       TopArtist.create(name: item['name'], photo: item['images'][0]['url'], user: user)
     end
   end

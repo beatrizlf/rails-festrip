@@ -3,10 +3,10 @@ const owlCarousel = () => {
     $('.owl-carousel').owlCarousel();
   });
   $('.owl-carousel').owlCarousel({
-    loop:true,
-    margin:10,
+    loop:false,
+    margin:2,
     nav:true,
-    dots:true,
+    dots:false,
     responsive:{
         400: {
             items:1
