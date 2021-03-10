@@ -25,6 +25,8 @@
     <%# cl_image_tag @festival.photo.key if @festival.photo.attached? %>
     <div class="card-trip-infos">
       <div class="card-festival-name">
+        <h5><%= @festival.name %></h5>
+        <p><%= @festival.location %>, <%= @festival.begin_datef %></p>
         <%= @festival.description %>
       </div>
 

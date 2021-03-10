@@ -6,7 +6,7 @@ const owlCarousel = () => {
     loop:false,
     margin:2,
     nav:true,
-    dots:true,
+    dots:false,
     responsive:{
         400: {
             items:1
