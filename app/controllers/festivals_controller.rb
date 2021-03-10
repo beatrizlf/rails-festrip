@@ -21,11 +21,11 @@ class FestivalsController < ApplicationController
       end
 
       if params[:search][:year].present?
-        @search = Festival.select { |festival| festival.date.strftime("%Y") == params[:search][:year] }
+        @search = Festival.select { |festival| festival.begin_date.strftime("%Y") == params[:search][:year] }
       end
 
       if params[:search][:month].present?
-        @search = Festival.select { |festival| festival.date.strftime("%B") == params[:search][:month] }
+        @search = Festival.select { |festival| festival.begin_date.strftime("%B") == params[:search][:month] }
       end
     else
       
