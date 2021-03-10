@@ -1,10 +1,10 @@
 
 <%#Festivais sugeridos pelo site, uma vez que o usuario nao tem nenhum festival adicionado na sua lista
 ------------------------------------------------------------------------------------------------------%>
-<div>
+
+<% if @wishlists.empty? %>
   <div class="row container-wishlist mt-3 d-flex flex-row">
-      <% if @wishlists.empty? %>
-        <% @festivals.each do |festival| %>
+    <% @festivals.each do |festival| %>
       <div class="p-4 col-12 col-sm-3">
         <div class="d-flex flex-row">
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path festival.photo.key %>'); background-size: cover;">
@@ -17,15 +17,12 @@
           </div>
         </div>
       </div>
-      <% end %>
+    <% end %>
   </div>
-</div>
-
 <% else %>
 <%#Festivais sugeridos pela escolha de categoria do usuario
 ------------------------------------------------------------%>
 
-  <div>
     <div class="row container-wishlist mt-3 d-flex flex-row">
       <% @suggestions.each do |festival| %>
         <div class="p-4 col-12 col-sm-3">
@@ -41,8 +38,8 @@
             </div>
           </div>
         </div>
-          <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 <% end %>
 
