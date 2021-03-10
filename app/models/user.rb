@@ -42,7 +42,7 @@ class User < ApplicationRecord
     artists = `curl -X "GET" "https://api.spotify.com/v1/me/top/artists" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer #{access_token}"`
     artists = JSON.parse(artists)
     user.top_artists.destroy_all
-    artists['items'].first(20).each do |item|
+    artists['items'].first(10).each do |item|
       TopArtist.create(name: item['name'], photo: item['images'][0]['url'], user: user)
     end
   end
