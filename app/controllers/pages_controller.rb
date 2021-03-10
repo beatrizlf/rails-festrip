@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 
   def suggested_festival
     if current_user.wishlists.empty?
-      @festivals[-4..-1]
+      puts "You don't have any festivals in your wishlist. Go have another look!"
     else
       @suggested_festivals = []
       user_fav_cat = current_user.wishlists.map do |wishlist|
@@ -24,7 +24,7 @@ class PagesController < ApplicationController
           @suggested_festivals << festival unless @suggested_festivals.include?(festival)
           end
         end
+      @suggestions = @suggested_festivals.reject{|festival| current_user.festivals.include?(festival)}.shuffle
     end
-    @suggestions = @suggested_festivals.reject{|festival| current_user.festivals.include?(festival)}.shuffle
   end
 end

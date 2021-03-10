@@ -5,27 +5,31 @@
 
 <!-- Cards ----------------------->
 
+
 <div class="container">
   <div class="contentindex">
     <div class="textbox">
       <h3><strong>Here is your Wishlist...</strong></h3>
     </div>
 
-
-
     <div class="w-100">
-      <%= render 'shared/cardmochilist', wishlists: @wishlists %>
-
-    </div>
-  </div>
-
-
-<div class="container">
-  <div class="contentindex">
-    <div class="textbox">
-      <h3><strong>Recommended for you....</strong></h3>
+      <% if @wishlists.empty? %>
+        <h5> You don't have any festivals in your wishlist. Go have another look! </h5>
+      <% else %>
+        <%= render 'shared/cardmochilist', wishlists: @wishlists %>
     </div>
   </div>
 </div>
 
-<%= render 'shared/suggestion', locals: {suggestions: @suggested_festivals} %>
+  <div class="container">
+    <div class="contentindex">
+      <div class="textbox">
+        <h3><strong>Based on your choices, you also may like</strong></h3>
+      </div>
+    </div>
+  </div>
+
+  <%= render 'shared/suggestion', locals: {suggestions: @suggested_festivals} %>
+
+    <% end %>
+
