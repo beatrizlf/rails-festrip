@@ -5,11 +5,12 @@
 
 <!-- Cards ----------------------->
 
+
+<div class="container">
   <div class="contentindex">
     <div class="textbox">
-      <h5><strong>Here is your Wishlist...</strong></h5>
+      <h3><strong>Here is your Wishlist...</strong></h3>
     </div>
-
 
     <div class="w-100">
       <%= render 'shared/cardmochilist', wishlists: @wishlists %>
@@ -18,10 +19,13 @@
   </div>
 
 
+<div class="container">
   <div class="contentindex">
     <div class="textbox">
-      <h5><strong>Recommended for you....</strong></h5>
+      <h3><strong>Recommended for you....</strong></h3>
     </div>
   </div>
+</div>
 
-<%#= render 'shared/suggestion', locals: {suggestions: @suggested_festivals} %>
+<%= render 'shared/suggestion', locals: {suggestions: @suggested_festivals} %>
+
