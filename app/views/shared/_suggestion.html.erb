@@ -1,10 +1,9 @@
 
 <%#Festivais sugeridos pelo site, uma vez que o usuario nao tem nenhum festival adicionado na sua lista
 ------------------------------------------------------------------------------------------------------%>
-<div class="container">
+<% if @wishlists.empty? %>
   <div class="row container-wishlist mt-3 d-flex flex-row">
-      <% if @wishlists.empty? %>
-        <% @festivals.each do |festival| %>
+    <% @festivals.each do |festival| %>
       <div class="p-4 col-12 col-sm-3">
         <div class="d-flex flex-row">
           <div class="card">
@@ -17,32 +16,28 @@
           </div>
         </div>
       </div>
-      <% end %>
+    <% end %>
   </div>
-</div>
-
 <% else %>
 <%#Festivais sugeridos pela escolha de categoria do usuario
 ------------------------------------------------------------%>
 
-  <div class="container">
-    <div class="row container-wishlist mt-3 d-flex flex-row">
-      <% @suggestions.each do |festival| %>
-        <div class="p-4 col-12 col-sm-3">
-          <div class="d-flex flex-row">
-            <div class="card">
-              <div class="content">
-                <h2 class="title"><%= festival.name %></h2>
-                  <p class="copy">
-                    <p><%= festival.location %></p></p>
-                    <p><%= festival.category %></p>
-                    <button class="btn btn-outline-warning"><%= link_to "See Details", festival_path(festival) %></button>
-              </div>
+  <div class="row container-wishlist mt-3 d-flex flex-row">
+    <% @suggestions.each do |festival| %>
+      <div class="p-4 col-12 col-sm-3">
+        <div class="d-flex flex-row">
+          <div class="card">
+            <div class="content">
+              <h2 class="title"><%= festival.name %></h2>
+                <p class="copy">
+                  <p><%= festival.location %></p></p>
+                  <p><%= festival.category %></p>
+                  <button class="btn btn-outline-warning"><%= link_to "See Details", festival_path(festival) %></button>
             </div>
           </div>
         </div>
-          <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 <% end %>
 

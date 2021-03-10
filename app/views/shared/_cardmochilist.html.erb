@@ -1,11 +1,11 @@
 
 
 <div class="container">
-  <div class="row container-wishlist mt-3 d-flex flex-row">
-
+  <div class="row container-wishlist m-4 d-flex flex-row">
     <% wishlists.each do |wishlist|  %>
-    <%= render "shared/modal_trip_details", wishlist: wishlist %>
-    <% end %>
+      <%= render "shared/modal_trip_details", wishlist: wishlist %>
+      <% end %>
+    </div>
   </div>
 </div>
 

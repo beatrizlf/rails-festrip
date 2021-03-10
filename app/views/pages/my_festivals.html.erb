@@ -5,24 +5,22 @@
 
 <!-- Cards ----------------------->
 
-<div class="container">
-  <div class="contentindex">
-    <div class="textbox">
-      <h3><strong>Here is your Wishlist...</strong></h3>
+<%#div class="container"%>
+  <div class="container-list m-5">
+    <div class="textbox-wish m-5">
+      <h2><strong>Here is your Wishlist...</strong></h2>
     </div>
-
-
 
     <div class="w-100">
       <%= render 'shared/cardmochilist', wishlists: @wishlists %>
 
     </div>
   </div>
-
+<%#/div%>
 
 <div class="container">
   <div class="contentindex">
-    <div class="textbox">
+    <div class="textbox-wish">
       <h3><strong>Recommended for you....</strong></h3>
     </div>
   </div>
