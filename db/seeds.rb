@@ -372,7 +372,7 @@ Lineup.create(festival: tomorrowland, artist: Artist.find_by(name: 'NERVO'))
 Lineup.create(festival: tomorrowland, artist: Artist.find_by(name: 'Joris Voorn'))
 Lineup.create(festival: tomorrowland, artist: Artist.find_by(name: 'Adriatique'))
 
-  
+
 
 off_week = Festival.create!(
   name: 'Off Week Festival',
