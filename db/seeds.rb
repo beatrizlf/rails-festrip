@@ -1,7 +1,9 @@
 require 'faker'
 require 'json'
+require 'open-uri'
 
 if Rails.env.development?
+    puts 'Destroy everthing...'
     User.destroy_all
     Lineup.destroy_all
     Festival.destroy_all
@@ -357,8 +359,11 @@ tomorrowland = Festival.create!(
   location: 'Belgium',
   category: 'Eletronic',
   description: "Tomorrowland is the world's largest dance music festival, each summer bringing electronic music's biggest stars to its magical wonderland in the Belgium town of Boom.",
-  video_url: "lKQGIeaWG9c"
+  video_url: "lKQGIeaWG9c",
+  address: 'De Schorre Boom Belgium'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615137264/tomorrowland_gelel4.webp')
+tomorrowland.photo.attach(io: file, filename: 'tomorrowland.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: tomorrowland, artist: Artist.find_by(name: 'Afrojack'))
 Lineup.create(festival: tomorrowland, artist: Artist.find_by(name: 'Amelie Lens'))
@@ -372,7 +377,6 @@ Lineup.create(festival: tomorrowland, artist: Artist.find_by(name: 'NERVO'))
 Lineup.create(festival: tomorrowland, artist: Artist.find_by(name: 'Joris Voorn'))
 Lineup.create(festival: tomorrowland, artist: Artist.find_by(name: 'Adriatique'))
 
-  
 
 off_week = Festival.create!(
   name: 'Off Week Festival',
@@ -381,8 +385,11 @@ off_week = Festival.create!(
   location: 'Spain',
   category: 'Eletronic',
   description: "Off Week Festival returns to Barcelona's Parc del Fòrum for three days of electronic music showcases, from some of the most respected names in the world of underground house and techno.",
-  video_url: "4ygMBGj7g8g"
+  video_url: "4ygMBGj7g8g",
+  address: 'Parc del Forum Barcelona Spain'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615137594/OffWeek2020_V4_o2pv6u.webp')
+off_week.photo.attach(io: file, filename: 'off_week.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: off_week, artist: Artist.find_by(name: 'Tale of Us'))
 Lineup.create(festival: off_week, artist: Artist.find_by(name: 'Solomun'))
@@ -398,8 +405,11 @@ hideout = Festival.create!(
   location: 'Croatia',
   category: 'Eletronic',
   description: "Hideout Festival returns to Croatia's Zrće beach in June 2021 after a year off, promising to return even better than before as it celebrates its 11th edition at the famous party spot. Hideout will once again showcase its incredible dance lineup across some of Novalja's most popular clubs, including Papaya, Kalypso, Aquarius and Noa.",
-  video_url: "huHoVkMVLP0"
+  video_url: "huHoVkMVLP0",
+  address: 'Zrce Beach Croatia'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615137877/Hideout1_qzd3yo.webp')
+hideout.photo.attach(io: file, filename: 'hideout.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: hideout, artist: Artist.find_by(name: 'Andy C'))
 Lineup.create(festival: hideout, artist: Artist.find_by(name: 'FISHER'))
@@ -415,8 +425,11 @@ rampage = Festival.create!(
   location: 'Belgium',
   category: 'Eletronic',
   description: "Rampage is one of the biggest drum & bass and dubstep music festivals in the world. Every year it transforms the Antwerps Sportpaleis into a massive high-octane and high BPM dance party.",
-  video_url: 'CsycNMNDnPg&t=5s'
+  video_url: 'CsycNMNDnPg&t=5s',
+  address: 'Schijnpoortweg 119 2170 Merksem Belgium'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615138212/Rampage2020_V6_daz4ie.webp')
+rampage.photo.attach(io: file, filename: 'rampage.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: rampage, artist: Artist.find_by(name: 'Black Sun Empire'))
 Lineup.create(festival: rampage, artist: Artist.find_by(name: 'Camo & Krooked'))
@@ -432,8 +445,11 @@ ultra_europe = Festival.create!(
   location: 'Croatia',
   category: 'Eletronic',
   description: "Ultra Europe is a huge Croatian dance music festival and the European edition of the global event brand, held each summer in the Croatian city of Split.",
-  video_url: 'LaitKMDbxe8&t=24s'
+  video_url: 'LaitKMDbxe8&t=24s',
+  address: 'Hrvatske Mornarice 12 21000 Split Croatia'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615138673/Ultra1_ajr1sb.webp')
+ultra_europe.photo.attach(io:file, filename: 'ultra_europe.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: ultra_europe, artist: Artist.find_by(name: 'David Guetta'))
 Lineup.create(festival: ultra_europe, artist: Artist.find_by(name: 'Tale of Us'))
@@ -454,8 +470,11 @@ dgtl = Festival.create!(
   location: 'Netherlands',
   category: 'Eletronic',
   description: "DGTL Amsterdam is an underground electronic music festival held in the Dutch capital. The DGTL brand is a powerhouse for electronic music, hosting unbeatable events all over the world.",
-  video_url: 'sCBO1wqLi80'
+  video_url: 'sCBO1wqLi80',
+  address: ' NDSM Docklands Amsterdam Netherlands'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615138828/dgtl_bbsq1j.webp')
+dgtl.photo.attach(io: file, filename: 'dgtl.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: dgtl, artist: Artist.find_by(name: 'Honey Dijon'))
 Lineup.create(festival: dgtl, artist: Artist.find_by(name: 'Nina Kraviz'))
@@ -471,8 +490,11 @@ dekmantel = Festival.create!(
   location: 'Netherlands',
   category: 'Eletronic',
   description: "Dekmantel is an electronic music festival in Amsterdam. A cutting edge affair, this festival annually curates the most creative and influential acts in house, techno and more.",
-  video_url: 'kKALGzVOR-A'
+  video_url: 'kKALGzVOR-A',
+  address: 'Muziekgebouw Amsterdam Netherlands'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615139147/Dekmantel_V1_m9te7i.webp')
+dekmantel.photo.attach(io: file, filename: 'dekmantel.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: dekmantel, artist: Artist.find_by(name: 'Helena Hauff'))
 Lineup.create(festival: dekmantel, artist: Artist.find_by(name: 'DJ Harvey'))
@@ -488,8 +510,11 @@ awakenings = Festival.create!(
   location: 'Netherlands',
   category: 'Eletronic',
   description: "Awakenings Festival is an electronic music festival held in Spaarnwoude Houtrak, just outside of Amsterdam. Anchored in the techno scene, the festival brings in the biggest names to The Netherlands.",
-  video_url: '3WVQ9ugRdjI'
+  video_url: '3WVQ9ugRdjI',
+  address: 'Spaarnwoude Houtrak Netherlands'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615139609/Awakenings-Festival_zk34t0.jpg')
+awakenings.photo.attach(io: file, filename: 'awakenings.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: awakenings, artist: Artist.find_by(name: 'Carl Cox'))
 Lineup.create(festival: awakenings, artist: Artist.find_by(name: 'Charlotte de Witte'))
@@ -507,8 +532,11 @@ mysteryland = Festival.create!(
   location: 'Netherlands',
   category: 'Eletronic',
   description: "Debuting in 1993, Mysteryland claims the throne as the original exclusive electronic festival. Taking place on the outskirts of Amsterdam, for over 25 years, this festival has been here promoting the best in the electronic genre.",
-  video_url: 'oAnzeENTzkA'
+  video_url: 'oAnzeENTzkA',
+  address: 'Vijfhuizen Netherlands'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615139887/Mysteryland-2019_oy0a0a.jpg')
+mysteryland.photo.attach(io: file, filename: 'mysteryland.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: mysteryland, artist: Artist.find_by(name: 'DJ Snake'))
 Lineup.create(festival: mysteryland, artist: Artist.find_by(name: 'Armin Van Buuren'))
@@ -517,6 +545,7 @@ Lineup.create(festival: mysteryland, artist: Artist.find_by(name: 'Timmy Trumpet
 Lineup.create(festival: mysteryland, artist: Artist.find_by(name: 'Vini Vici'))
 Lineup.create(festival: mysteryland, artist: Artist.find_by(name: 'Brennan Heart'))
 
+
 les_ardents = Festival.create!(
   name: 'Les Ardentes',
   begin_date: Date.new(2021,7,8),
@@ -524,8 +553,12 @@ les_ardents = Festival.create!(
   location: 'Belgium',
   category: 'Hip Hop',
   description: "Belgian festival Les Ardentes continuously boasts the biggest names in the French, European and global hip-hop scenes. For instance, past lineups have included the likes of Wiz Khalifa, Migos, Black Eyed Peas, and Mac Miller; while also hosting French artists such as OrelSan and Nekfeu.",
-  video_url: 'gSIzp49jfG4'
+  video_url: 'gSIzp49jfG4',
+  address:
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615385910/les_ardents_zezcbk.jpg')
+les_ardents.photo.attach(io: file, filename: 'les_ardents.jpg', content_type: 'image/jpg')
+
 
 Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Kendrick Lamar'))
 Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Future'))
@@ -542,8 +575,11 @@ fest_exit = Festival.create!(
   location: 'Serbia',
   category: 'Eletronic',
   description: "EXIT Festival one of Europe's premier multi-genre music festivals, taking place in Novi Sad, Serbia. Founded in 2000 and having to postpone the 2020 edition, the festival is heading into its landmark 20th edition in 2021.",
-  video_url: 'jMCeRnsNek8'
+  video_url: 'jMCeRnsNek8',
+  address: 'Petrovaradin Fortress Novi Sad Serbia'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615140759/EXIT1_tm3i1z.webp')
+fest_exit.photo.attach(io: file, filename: 'exit_festival.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'David Guetta'))
 Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Tyga'))
@@ -554,7 +590,6 @@ Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Solomun'))
 Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Boris Brejcha'))
 Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Metronomy'))
 
-
 dour = Festival.create!(
   name: 'Dour Festival',
   begin_date: Date.new(2021,7,14),
@@ -562,8 +597,11 @@ dour = Festival.create!(
   location: 'Belgium',
   category: 'Eletronic',
   description: "Dour Festival is a multi-genre music festival in the city of Dour, Belgium. One of the most established in Europe, the festival has been going strong for over thirty years.",
-  video_url: '9vzwC4_lR3s'
+  video_url: '9vzwC4_lR3s',
+  address: "Rue d'Elouges 7370 Dour Belgium"
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615141018/Dour_Festival_2_c_Kmeron_gnlg1v.jpg')
+dour.photo.attach(io: file, filename: 'dour.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: dour, artist: Artist.find_by(name: 'A$AP Rocky'))
 Lineup.create(festival: dour, artist: Artist.find_by(name: 'Amelie Lens'))
@@ -579,8 +617,11 @@ sound_city = Festival.create!(
   location: 'United Kingdom',
   category: 'Indie',
   description: "Liverpool Sound City returns to the city's Baltic Triangle from 1st October - 3rd October 2021 for another weekend of rock, indie and more inside the area's creative hub of warehouses and quirky venues.",
-  video_url: '1wxgeQ4l9wQ'
+  video_url: '1wxgeQ4l9wQ',
+  address: 'Clarence Dock Liverpool L3 0AN'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615385913/liverpool_sound_city_gllhxk.jpg')
+sound_city.photo.attach(io: file, filename: 'soudcity.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: sound_city, artist: Artist.find_by(name: 'Rejjie Snow'))
 Lineup.create(festival: sound_city, artist: Artist.find_by(name: 'Red Rum Club'))
@@ -596,8 +637,11 @@ balaton = Festival.create!(
   location: 'Hungary',
   category: 'Eletronic',
   description: "Balaton Sound is a dance music festival in Zamárdi, Hungary. One of the biggest open air electronic music festivals in Europe, the festival was co-founded by the people behind Sziget.",
-  video_url: '_y3d1VpSAVQ'
+  video_url: '_y3d1VpSAVQ',
+  address: 'Zamardi Hungary'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615141852/Balaton_Sound_2018_courtesy_of_-1-of-23-22_lhjtzl.jpg')
+balaton.photo.attach(io: file, filename: 'balaton.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: balaton, artist: Artist.find_by(name: 'Martin Garrix'))
 Lineup.create(festival: balaton, artist: Artist.find_by(name: 'Dimitri Vegas & Like Mike'))
@@ -616,8 +660,11 @@ edc_portugal = Festival.create!(
   location: 'Portugal',
   category: 'Eletronic',
   description: "EDC Portugal sees the worldwide dance festival return to Europe in 2021 as they celebrate their 25 year journey with a mega European edition on the Praia da Rocha beach in Portimão. Joining them as they mark this momentous occasion will be the likes of Tiësto, Armin van Buuren, Marshmello, Eric Prydz, Amelie Lens, Andy C and Charlotte de Witte, who'll head up a lineup of over 140 artists across five stages.",
-  video_url: '2RP3lQA4hp0'
+  video_url: '2RP3lQA4hp0',
+  address: 'Praia da Rocha Portimao Portugal'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615137199/edc_portugal_v3dtov.webp')
+edc_portugal.photo.attach(io: file, filename: 'edc_portugal.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: edc_portugal, artist: Artist.find_by(name: 'Armin Van Buuren'))
 Lineup.create(festival: edc_portugal, artist: Artist.find_by(name: 'Eric Prydz'))
@@ -635,8 +682,11 @@ hyde_park = Festival.create!(
    location: 'United Kingdom',
    category: 'Rock',
    description: "American Express presents BST Hyde Park – or British Summer Time Hyde Park to some – brings a host of the world's biggest artists to the famous London Park for a series of events each summer.",
-   video_url: 'OaGT34IiGl4'
+   video_url: 'OaGT34IiGl4',
+   address: 'Hyde Park London'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615137989/BST_hyde_park_fl8foy.webp')
+hyde_park.photo.attach(io: file, filename: 'hydepark.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: hyde_park, artist: Artist.find_by(name: 'Pearl Jam'))
 Lineup.create(festival: hyde_park, artist: Artist.find_by(name: 'Duran Duran'))
@@ -653,8 +703,11 @@ wacken_open_air = Festival.create!(
   description: "Wacken Open Air is Germany's – and one of Europe's – biggest heavy metal music festivals,
                 having established itself right at the top of every metal fan's bucket list.
                 First held in 1990, Wacken Open Air has been consistently bringing the scene's very best and rising talent to the town of Wacken in the three decades that have followed.",
-  video_url: 'jR6umWwwFPk'
+  video_url: 'jR6umWwwFPk',
+  address: 'Wacken Germany'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615138005/Wacken_pmkzxr.webp')
+wacken_open_air.photo.attach(io: file, filename: 'wacken.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: wacken_open_air, artist: Artist.find_by(name: 'Slipknot'))
 Lineup.create(festival: wacken_open_air, artist: Artist.find_by(name: 'Dropkick Murphys'))
@@ -670,8 +723,11 @@ isle_of_wight = Festival.create!(
   location: 'United Kingdom',
   category: 'Indie',
   description: "Isle of Wight Festival returns in 2021 after a year off as it once again welcomes over 90,000 music fans to Seaclose Park for a weekend of rock, pop and dance music.",
-  video_url: '9RYjSP0mP4A'
+  video_url: '9RYjSP0mP4A',
+  address: 'Seaclose Park Newport Isle of Wight'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615138267/isleofwight_b7kcwu.webp')
+isle_of_wight.photo.attach(io: file, filename: 'isleofwight.jpg', content_type: 'image/jpg')
 
 
 Lineup.create(festival: isle_of_wight, artist: Artist.find_by(name: 'Duran Duran'))
@@ -689,8 +745,11 @@ mad_cool = Festival.create!(
   category: 'Alternative',
   description: "Mad Cool Festival is a huge Spanish rock, indie and pop music festival,
                 held each summer in the country's sunny capital Madrid. Now one of Europe's most popular music festivals, Mad Cool attracts thousands of music fans from far and wide thanks to its incredible lineups that have in the past featured the Arctic Monkeys, The Cure, Pearl Jam and Tame Impala.",
-  video_url: 'cZOQzGmhNZ8'
+  video_url: 'cZOQzGmhNZ8',
+  address: 'AvenidaAlejandro de la Sota 51 Madrid'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615138762/MadCool2020_wuitjd.webp')
+mad_cool.photo.attach(io: file, filename: 'madcool.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: mad_cool, artist: Artist.find_by(name: 'The Killers'))
 Lineup.create(festival: mad_cool, artist: Artist.find_by(name: 'Kings of Leon'))
@@ -709,8 +768,11 @@ trnsmt = Festival.create!(
   location: 'United Kingdom',
   category: 'Rock',
   description: "TRNSMT 2021 sees the Scottish rock and indie festival return to Glasgow Green on 9th - 11th July 2021 after a year off, one again showcasing an incredible weekend that'll feature some of music's biggest artists, including Lewis Capaldi, Liam Gallagher and Courteeners, who'll headline TRNSMT Festival's 2021 lineup. Now one of Scotland and the UK's most popular music festivals, TRNSMT is promising to celebrate like never before in July 2021 as it makes up for lost time.",
-  video_url: 'iPZirJAs-vM'
+  video_url: 'iPZirJAs-vM',
+  address: 'Glasgow Green Glasgow Scotland'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615138878/trnsmt_dbmcg4.webp')
+trnsmt.photo.attach(io: file, filename: 'trnsmt.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: trnsmt, artist: Artist.find_by(name: 'Liam Gallagher'))
 Lineup.create(festival: trnsmt, artist: Artist.find_by(name: 'Lewis Capaldi'))
@@ -729,8 +791,11 @@ we_love_green = Festival.create!(
   category: 'Hip Hop',
   description: "We Love Green, as the name suggests, is a music festival committed to the environment.
                 The festival has a strong identity that drives to make a change and address the environmental issues at hand. Taking place in the woods, the leafy backdrop creates a picturesque scene, perfect for an eco-friendly festival.",
-  video_url: '1wYzgzs3GNM'
+  video_url: '1wYzgzs3GNM',
+  address: '1 Route de la Pyramide 75012 Paris'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615139306/welovegreen_ggyqva.webp')
+we_love_green.photo.attach(io: file, filename: 'welovegreen.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: we_love_green, artist: Artist.find_by(name: 'Gorillaz'))
 Lineup.create(festival: we_love_green, artist: Artist.find_by(name: 'Massive Attack'))
@@ -746,8 +811,11 @@ y_not = Festival.create!(
   location: 'United Kingdom',
   category: 'Alternative',
   description: "Y Not Festival is an independent UK music festival, showcasing a lineup of rock, indie and alternative music in the heart of the Peak District in July 2021. 2021 will see Y Not celebrate its belated 15th anniversary in these beautiful surroundings, once again inviting festival-goers to dance and laugh their way through an unforgettable weekend at one of the UK's most intimate and personal festivals.",
-  video_url: 'HnI3wV-1YkM'
+  video_url: 'HnI3wV-1YkM',
+  address: 'Mouldridge Lane Pikehall Nr Matlock Derbyshire'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615139574/ynotfestival_masv9z.webp')
+y_not.photo.attach(io: file, filename: 'ynot.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: y_not, artist: Artist.find_by(name: 'Royal Blood'))
 Lineup.create(festival: y_not, artist: Artist.find_by(name: 'Richard Ashcroft'))
@@ -763,8 +831,11 @@ lollapalooza_paris = Festival.create!(
   location: 'France',
   category: 'Pop',
   description: "Lollapalooza Paris is the French edition of the worldwide music festival brand, each summer bringing an enviable lineup of rock and pop to Paris for one of they city's most anticipated weekends. After a year off, Lollapalooza Paris will return on 17th and 18th July 2021 as it invites music fans to join them as they come together to live the magic of the Lollapalooza experience.",
-  video_url: 'elggGwKSOA4'
+  video_url: 'elggGwKSOA4',
+  address: 'Hippodrome Paris'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615139795/lollapaloozaparis_qqguw4.webp')
+lollapalooza_paris.photo.attach(io: file, filename: 'lollapaloozaparis.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: lollapalooza_paris, artist: Artist.find_by(name: 'Billie Eilish'))
 Lineup.create(festival: lollapalooza_paris, artist: Artist.find_by(name: 'Pearl Jam'))
@@ -781,8 +852,11 @@ nos_alive = Festival.create!(
     location: 'Portugal',
     category: 'Eletronic',
     description: "NOS Alive is a Portuguese indie and alternative music festival, held each summer on the western outskirts of Lisbon.Now one of Portugal's biggest and most popular festivals, NOS Alive has been consistently curating forward-thinking lineups since 2007, mixing all-time greats with newfound talent in one of Europe's most vibrant cities.",
-    video_url: 'CxEiG3e3eJU'
+    video_url: 'CxEiG3e3eJU',
+    address: 'Passeio Maritimo de Alges Oeiras Portugal'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615139975/NOSAlive2020_V1_g96iyw.webp')
+nos_alive.photo.attach(io: file, filename: 'nosalive.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: nos_alive, artist: Artist.find_by(name: 'The Strokes'))
 Lineup.create(festival: nos_alive, artist: Artist.find_by(name: 'Red Hot Chili Peppers'))
@@ -798,8 +872,11 @@ big_sound = Festival.create!(
     location: 'Spain',
     category: 'Reggaeton',
     description: "Big Sound Festival is a brand new event for the city of Valencia. Originally intending to have their inaugural edition cover two days in 2020, having to postpone a year, the festival will expand to three days in 2021, bringing together a lineup of international stars with a cultural, artistic and gastronomical offering.",
-    video_url: 'N2OX4CckplU'
+    video_url: 'N2OX4CckplU',
+    address: 'Av del Professor Lopez Pinero 46013 Valencia Spain'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615140315/bigsoundfestival_esxw1k.webp')
+big_sound.photo.attach(io: file, filename: 'big_sound.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: big_sound, artist: Artist.find_by(name: 'Bad Bunny'))
 Lineup.create(festival: big_sound, artist: Artist.find_by(name: 'Nicky Jam'))
@@ -814,9 +891,12 @@ native_festival = Festival.create!(
     end_date: Date.new(2021,9,6),
     location: 'Mexico',
     category: 'Afrobeats',
-    description: "Big Sound Festival is a brand new event for the city of Valencia. Originally intending to have their inaugural edition cover two days in 2020, having to postpone a year, the festival will expand to three days in 2021, bringing together a lineup of international stars with a cultural, artistic and gastronomical offering.",
-    video_url: 'BXVAGCND--I'
+    description: "Native Festival is a brand new music, art and culture festival taking place in Cancun, Mexico. Taking over the luxurious Moon Palace resort for four days in September, festival-goers are invited to immerse themselves in this one-of-a-kind, multicultural celebration.",
+    video_url: 'BXVAGCND--I',
+    address: 'Moon Palace Cancun Mexico '
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615385912/native_festival_u6ajtg.png')
+native_festival.photo.attach(io: file, filename: 'native_festival.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: native_festival, artist: Artist.find_by(name: 'Burna Boy'))
 Lineup.create(festival: native_festival, artist: Artist.find_by(name: 'Spice'))
@@ -834,8 +914,11 @@ trapeton = Festival.create!(
     category: 'Reggaeton',
     description: "Tapeton Summer Bash is a Polish reggaeton and trap music festival, held in the city of Gdańsk each July.
                   Festival-goers are invited to join them as they enjoy live music, beach sports and incredible after-parties under the summer sunshine of this coastal city.",
-    video_url: 'C0xrJwbcuk4'
+    video_url: 'C0xrJwbcuk4',
+    address: 'Stogi Beach Gdansk Poland'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615140702/trapeton_vvpgog.webp')
+trapeton.photo.attach(io: file, filename: 'trapeton.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: trapeton, artist: Artist.find_by(name: 'Bad Bunny'))
 Lineup.create(festival: trapeton, artist: Artist.find_by(name: 'Maluma'))
@@ -852,8 +935,11 @@ meo_sudoeste = Festival.create!(
     location: 'Portugal',
     category: 'Eletronic',
     description: "MEO Sudoeste is a Portuguese dance and pop music festival, held each summer in the beautiful coastal town of Zambujeira do Mar in the south of the country. Spread over five days, MEO Sudoeste's expansive lineup extends from the worlds of EDM and big room house into hip-hop, pop and more, culminating in a star-studded summer party.",
-    video_url: 'xqfkV27PZ8w'
+    video_url: 'xqfkV27PZ8w',
+    address: 'Zambujeira do Mar Portugal'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615141034/sudoeste_afvqzk.webp')
+meo_sudoeste.photo.attach(io: file, filename: 'meo_sudoeste.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: meo_sudoeste, artist: Artist.find_by(name: 'Bad Bunny'))
 Lineup.create(festival: meo_sudoeste, artist: Artist.find_by(name: 'Major Lazer'))
@@ -869,47 +955,45 @@ villamix = Festival.create!(
   location: 'Portugal',
   category: 'Latin',
   description: "Brazilian festival giant VillaMix is back in Portugal for a third edition, heading to a new outdoor home in Seixal following two hugely successful editions in the capital. VillaMix Lisboa will once again welcome a lineup of beloved Brazilian performers spanning an array of musical styles, including sertanejo, samba, funk, soul, rock, pop, dance music, and more across the two days.",
-  video_url: '1mzS7NL_6eA'
+  video_url: '1mzS7NL_6eA',
+  address: 'Seixal Setubal Portugal'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615141325/villamix_c34si4.webp')
+villamix.photo.attach(io: file, filename: 'villamix.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: villamix, artist: Artist.find_by(name: 'Luan Santana'))
 Lineup.create(festival: villamix, artist: Artist.find_by(name: 'Gusttavo Lima'))
 Lineup.create(festival: villamix, artist: Artist.find_by(name: 'Seu Jorge'))
 Lineup.create(festival: villamix, artist: Artist.find_by(name: 'Pedro Sampaio'))
 
-glastonburry = Festival.create!(
-  name: 'Glastonburry',
+glastonbury = Festival.create!(
+  name: 'Glastonbury',
   begin_date: Date.new(2022,6,22),
   end_date: Date.new(2022,6,26),
   location: 'United Kingdom',
   category: 'Alternative',
   description: "Glastonbury Festival is one of the world's most famous music and performing arts festivals. Embracing each and every genre across the spectrum, from rock and pop to minimal house, techno and full-throttle drum 'n' bass, music-lovers flock to its spiritual fields down in Somerset.",
-  video_url: 'elXXNiu2EBg'
+  video_url: 'elXXNiu2EBg',
+  address: 'Worthy Farm Worthy Lane Pilton Shepton Mallet Somerset BA4 4BY'
 )
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615385910/glastonbury_fp4xin.jpg')
+glastonbury.photo.attach(io: file, filename: 'glastonbury.jpg', content_type: 'image/jpg')
 
-Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Kendrick Lamar'))
-Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Paul McCartney'))
-Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Taylor Swift'))
-Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Diana Ross'))
-Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Dua Lipa'))
-Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'FKA twings'))
-Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Lana Del Rey'))
-Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Fatboy Slim'))
-Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Camila Cabello'))
-Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Lianne La Havas'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Kendrick Lamar'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Paul McCartney'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Taylor Swift'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Diana Ross'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Dua Lipa'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'FKA twings'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Lana Del Rey'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Fatboy Slim'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Camila Cabello'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Lianne La Havas'))
 
 # pukkelpop = Festival.create!(
 #   name: 'Pukkelpop',
 #   begin_date: Date.new(2021,8,19),
 #   end_date: Date.new(2021,8,22)
 # )
-
-
-
-
-
-
-
-
 
 puts 'Festivals created!'

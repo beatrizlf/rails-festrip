@@ -1,12 +1,12 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
-  before_action :suggested_festival, only: [:mochilist]
+  before_action :suggested_festival, only: [:my_festivals]
 
   def home
     redirect_to festivals_path if user_signed_in?
   end
 
-  def mochilist
+  def my_festivals
     @wishlists = policy_scope(Wishlist).where(user: current_user).order(created_at: :asc)
   end
 
