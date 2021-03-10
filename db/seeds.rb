@@ -11,7 +11,7 @@ if Rails.env.development?
  end
 
 
-puts 'Creating Artists'
+ puts 'Creating Artists'
 
 Artist.create!(name: 'Guns and Roses')
 Artist.create!(name: 'Rage Against the Machine')
@@ -378,7 +378,6 @@ Lineup.create(festival: tomorrowland, artist: Artist.find_by(name: 'Joris Voorn'
 Lineup.create(festival: tomorrowland, artist: Artist.find_by(name: 'Adriatique'))
 
 
-
 off_week = Festival.create!(
   name: 'Off Week Festival',
   begin_date: Date.new(2021,6,18),
@@ -546,23 +545,27 @@ Lineup.create(festival: mysteryland, artist: Artist.find_by(name: 'Timmy Trumpet
 Lineup.create(festival: mysteryland, artist: Artist.find_by(name: 'Vini Vici'))
 Lineup.create(festival: mysteryland, artist: Artist.find_by(name: 'Brennan Heart'))
 
-# les_ardents = Festival.create!(
-#    name: 'Les Ardentes',
-#    begin_date: Date.new(2021,7,8),
-#    end_date: Date.new(2021,7,11),
-#    location: 'Belgium',
-#    category: 'Hip Hop',
-#    description: "Belgian festival Les Ardentes continuously boasts the biggest names in the French, European and global hip-hop scenes. For instance, past lineups have included the likes of Wiz Khalifa, Migos, Black Eyed Peas, and Mac Miller; while also hosting French artists such as OrelSan and Nekfeu.",
-#    video_url: 'gSIzp49jfG4',
-#    address:
-# )
 
-# Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Kendrick Lamar'))
-# Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Future'))
-# Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Bad Bunny'))
-# Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'DJ Snake'))
-# Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Cardi B'))
-# Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Rae Sremmurd'))
+les_ardents = Festival.create!(
+  name: 'Les Ardentes',
+  begin_date: Date.new(2021,7,8),
+  end_date: Date.new(2021,7,11),
+  location: 'Belgium',
+  category: 'Hip Hop',
+  description: "Belgian festival Les Ardentes continuously boasts the biggest names in the French, European and global hip-hop scenes. For instance, past lineups have included the likes of Wiz Khalifa, Migos, Black Eyed Peas, and Mac Miller; while also hosting French artists such as OrelSan and Nekfeu.",
+  video_url: 'gSIzp49jfG4',
+  address:
+)
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615385910/les_ardents_zezcbk.jpg')
+les_ardents.photo.attach(io: file, filename: 'les_ardents.jpg', content_type: 'image/jpg')
+
+
+Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Kendrick Lamar'))
+Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Future'))
+Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Bad Bunny'))
+Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'DJ Snake'))
+Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Cardi B'))
+Lineup.create(festival: les_ardents, artist: Artist.find_by(name: 'Rae Sremmurd'))
 
 
 fest_exit = Festival.create!(
@@ -587,7 +590,6 @@ Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Solomun'))
 Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Boris Brejcha'))
 Lineup.create(festival: fest_exit, artist: Artist.find_by(name: 'Metronomy'))
 
-
 dour = Festival.create!(
   name: 'Dour Festival',
   begin_date: Date.new(2021,7,14),
@@ -609,17 +611,17 @@ Lineup.create(festival: dour, artist: Artist.find_by(name: 'Angèle'))
 Lineup.create(festival: dour, artist: Artist.find_by(name: 'Palms Trax'))
 
 sound_city = Festival.create!(
-   name: 'Liverpool Sound City',
-   begin_date: Date.new(2021,10,1),
-   end_date: Date.new(2021,10,3),
-   location: 'United Kingdom',
-   category: 'Indie',
-   description: "Liverpool Sound City returns to the city's Baltic Triangle from 1st October - 3rd October 2021 for another weekend of rock, indie and more inside the area's creative hub of warehouses and quirky venues.",
-   video_url: '1wxgeQ4l9wQ',
-   address: "Clarence Dock Liverpool L3 0AN United Kingdom"
+  name: 'Liverpool Sound City',
+  begin_date: Date.new(2021,10,1),
+  end_date: Date.new(2021,10,3),
+  location: 'United Kingdom',
+  category: 'Indie',
+  description: "Liverpool Sound City returns to the city's Baltic Triangle from 1st October - 3rd October 2021 for another weekend of rock, indie and more inside the area's creative hub of warehouses and quirky venues.",
+  video_url: '1wxgeQ4l9wQ',
+  address: 'Clarence Dock Liverpool L3 0AN'
 )
-file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615382004/sound_city_g3fshk.jpg')
-sound_city.photo.attach(io: file, filename: 'sound_city.jpg', content_type: 'image/jpg')
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615385913/liverpool_sound_city_gllhxk.jpg')
+sound_city.photo.attach(io: file, filename: 'soudcity.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: sound_city, artist: Artist.find_by(name: 'Rejjie Snow'))
 Lineup.create(festival: sound_city, artist: Artist.find_by(name: 'Red Rum Club'))
@@ -883,24 +885,25 @@ Lineup.create(festival: big_sound, artist: Artist.find_by(name: 'Becky G'))
 Lineup.create(festival: big_sound, artist: Artist.find_by(name: 'Bad Gyal'))
 Lineup.create(festival: big_sound, artist: Artist.find_by(name: 'Chilax'))
 
-# native_festival = Festival.create! DESCRIPTION ERRADA - FESTIVAL NO MÉXICO?
-#    name: "Native Festival",
-#     begin_date: Date.new(2021,9,2),
-#     end_date: Date.new(2021,9,6),
-#     location: 'Mexico',
-#     category: 'Afrobeats',
-#     description: "Big Sound Festival is a brand new event for the city of Valencia. Originally intending to have their inaugural edition cover two days in 2020, having to postpone a year, the festival will expand to three days in 2021, bringing together a lineup of international stars with a cultural, artistic and gastronomical offering.",
-#     video_url: 'BXVAGCND--I'
-#     address:
-#     photo:
-# )
+native_festival = Festival.create!(
+   name: "Native Festival",
+    begin_date: Date.new(2021,9,2),
+    end_date: Date.new(2021,9,6),
+    location: 'Mexico',
+    category: 'Afrobeats',
+    description: "Native Festival is a brand new music, art and culture festival taking place in Cancun, Mexico. Taking over the luxurious Moon Palace resort for four days in September, festival-goers are invited to immerse themselves in this one-of-a-kind, multicultural celebration.",
+    video_url: 'BXVAGCND--I',
+    address: 'Moon Palace Cancun Mexico '
+)
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615385912/native_festival_u6ajtg.png')
+native_festival.photo.attach(io: file, filename: 'native_festival.jpg', content_type: 'image/jpg')
 
-# Lineup.create(festival: native_festival, artist: Artist.find_by(name: 'Burna Boy'))
-# Lineup.create(festival: native_festival, artist: Artist.find_by(name: 'Spice'))
-# Lineup.create(festival: native_festival, artist: Artist.find_by(name: 'Diamond Platnumz'))
-# Lineup.create(festival: native_festival, artist: Artist.find_by(name: 'King Promise'))
-# Lineup.create(festival: native_festival, artist: Artist.find_by(name: 'Mr. Killa'))
-# Lineup.create(festival: native_festival, artist: Artist.find_by(name: 'Dexta Daps'))
+Lineup.create(festival: native_festival, artist: Artist.find_by(name: 'Burna Boy'))
+Lineup.create(festival: native_festival, artist: Artist.find_by(name: 'Spice'))
+Lineup.create(festival: native_festival, artist: Artist.find_by(name: 'Diamond Platnumz'))
+Lineup.create(festival: native_festival, artist: Artist.find_by(name: 'King Promise'))
+Lineup.create(festival: native_festival, artist: Artist.find_by(name: 'Mr. Killa'))
+Lineup.create(festival: native_festival, artist: Artist.find_by(name: 'Dexta Daps'))
 
 
 trapeton = Festival.create!(
@@ -963,26 +966,29 @@ Lineup.create(festival: villamix, artist: Artist.find_by(name: 'Gusttavo Lima'))
 Lineup.create(festival: villamix, artist: Artist.find_by(name: 'Seu Jorge'))
 Lineup.create(festival: villamix, artist: Artist.find_by(name: 'Pedro Sampaio'))
 
-# glastonburry = Festival.create!(
-#   name: 'Glastonburry',
-#   begin_date: Date.new(2022,6,22),
-#   end_date: Date.new(2022,6,26),
-#   location: 'United Kingdom',
-#   category: 'Alternative',
-#   description: "Glastonbury Festival is one of the world's most famous music and performing arts festivals. Embracing each and every genre across the spectrum, from rock and pop to minimal house, techno and full-throttle drum 'n' bass, music-lovers flock to its spiritual fields down in Somerset.",
-#   video_url: 'elXXNiu2EBg'
-# )
+glastonbury = Festival.create!(
+  name: 'Glastonbury',
+  begin_date: Date.new(2022,6,22),
+  end_date: Date.new(2022,6,26),
+  location: 'United Kingdom',
+  category: 'Alternative',
+  description: "Glastonbury Festival is one of the world's most famous music and performing arts festivals. Embracing each and every genre across the spectrum, from rock and pop to minimal house, techno and full-throttle drum 'n' bass, music-lovers flock to its spiritual fields down in Somerset.",
+  video_url: 'elXXNiu2EBg',
+  address: 'Worthy Farm Worthy Lane Pilton Shepton Mallet Somerset BA4 4BY'
+)
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615385910/glastonbury_fp4xin.jpg')
+glastonbury.photo.attach(io: file, filename: 'glastonbury.jpg', content_type: 'image/jpg')
 
-# Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Kendrick Lamar'))
-# Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Paul McCartney'))
-# Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Taylor Swift'))
-# Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Diana Ross'))
-# Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Dua Lipa'))
-# Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'FKA twings'))
-# Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Lana Del Rey'))
-# Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Fatboy Slim'))
-# Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Camila Cabello'))
-# Lineup.create(festival: glastonburry, artist: Artist.find_by(name: 'Lianne La Havas'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Kendrick Lamar'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Paul McCartney'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Taylor Swift'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Diana Ross'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Dua Lipa'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'FKA twings'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Lana Del Rey'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Fatboy Slim'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Camila Cabello'))
+Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Lianne La Havas'))
 
 # pukkelpop = Festival.create!(
 #   name: 'Pukkelpop',
