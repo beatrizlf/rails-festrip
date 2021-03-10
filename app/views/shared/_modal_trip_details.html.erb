@@ -4,7 +4,7 @@
         <i class="fas fa-minus-circle"></i>
         <% end %>
         <div class="d-flex flex-row">
-          <div class="card">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path wishlist.festival.photo.key %>'); background-size: cover;">
             <div class="content">
               <h2 class="title"><%= wishlist.festival.name %></h2>
               <% if %>
