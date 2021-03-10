@@ -1,7 +1,7 @@
 
 <%#Festivais sugeridos pelo site, uma vez que o usuario nao tem nenhum festival adicionado na sua lista
 ------------------------------------------------------------------------------------------------------%>
-<div class="container">
+<div>
   <div class="row container-wishlist mt-3 d-flex flex-row">
       <% if @wishlists.empty? %>
         <% @festivals.each do |festival| %>
@@ -25,7 +25,7 @@
 <%#Festivais sugeridos pela escolha de categoria do usuario
 ------------------------------------------------------------%>
 
-  <div class="container">
+  <div>
     <div class="row container-wishlist mt-3 d-flex flex-row">
       <% @suggestions.each do |festival| %>
         <div class="p-4 col-12 col-sm-3">
