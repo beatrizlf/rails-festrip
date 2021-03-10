@@ -2,21 +2,23 @@
   <%= link_to wishlist_path(wishlist),method: :delete do %>
   <i class="fas fa-minus-circle"></i>
   <% end %>
-  <div class="d-flex flex-row">
-    <div class="card-modal">
-      <div class="content">
-        <h2 class="title"><%= wishlist.festival.name %></h2>
-        <% if %>
-        <% wishlist.festival.begin_datef == wishlist.festival.end_datef %>
-        <p> %= wishlist.festival.begin_datef%></p> %>
-        <% else %>
-        <p> <%= wishlist.festival.begin_datef%> until </p>
-        <p> <%= wishlist.festival.end_datef %></p>
-        <% end %>
-        <p><%= wishlist.festival.location %></p>
-        <p><%= wishlist.festival.category %></p>
+  
+  <!-- Modal Button - Might Need some CSS Stylization  -->
 
-        <!-- Modal Button - Might Need some CSS Stylization  -->
+        <div class="d-flex flex-row">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path wishlist.festival.photo.key %>'); background-size: cover;">
+            <div class="content">
+              <h2 class="title"><%= wishlist.festival.name %></h2>
+              <% if %>
+                <% wishlist.festival.begin_datef == wishlist.festival.end_datef %>
+                <p> %= wishlist.festival.begin_datef%></p> %>
+              <% else %>
+                <p> <%= wishlist.festival.begin_datef%> until </p>
+                <p> <%= wishlist.festival.end_datef %></p>
+              <% end %>
+              <p><%= wishlist.festival.location %></p>
+              <p><%= wishlist.festival.category %></p>
+
 
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#flights<%=wishlist.festival.id%>">
           Flights

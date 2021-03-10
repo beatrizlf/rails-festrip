@@ -54,6 +54,7 @@ body {
   text-align: center;
   color: $ivory;
   background-color: $ivory;
+  border: none !important;
   box-shadow: 0 1px 1px rgba(0,0,0,0.1),
     0 2px 2px rgba(0,0,0,0.1),
     0 4px 4px rgba(0,0,0,0.1),
@@ -75,6 +76,25 @@ body {
     background-position: 0 0;
     transition: transform calc(var(--d) * 1.5) var(--e);
     pointer-events: none;
+    background-image: linear-gradient(
+      to bottom,
+      hsla(0, 0%, 0%, 0) 0%,
+      hsla(0, 0%, 0%, 0.012) 11.7%,
+      hsla(0, 0%, 4%, 0.034) 22.1%,
+      hsla(0, 0%, 0%, 0.072) 31.2%,
+      hsla(0, 0%, 0%, 0.123) 39.4%,
+      hsla(0, 0%, 0%, 0.182) 46.6%,
+      hsla(0, 0%, 0%, 0.249) 53.1%,
+      hsla(0, 0%, 0%, 0.320) 58.9%,
+      hsla(0, 0%, 0%, 0.394) 64.3%,
+      hsla(0, 0%, 0%, 0.468) 69.3%,
+      hsla(0, 0%, 0%, 0.540) 74.1%,
+      hsla(0, 0%, 0%, 0.607) 78.8%,
+      hsla(0, 0%, 0%, 0.668) 83.6%,
+      hsla(0, 0%, 0%, 0.721) 88.7%,
+      hsla(0, 0%, 0%, 0.762) 94.1%,
+      hsla(0, 0%, 0%, 0.790) 100%
+    );
   }
 
   &:after {
@@ -108,15 +128,8 @@ body {
     transform: translateY(-50%);
     transition: transform calc(var(--d) * 2) var(--e);
   }
-
-  @each $id in $imageIds {
-    $i: index($imageIds, $id);
-
-    &:nth-child(#{$i}):before {
-      background-image: url(https://res.cloudinary.com/diarvpaib/image/upload/v1614911241/pexels-wendy-wei-1540343_apmesj.jpg );
-    }
-  }
 }
+
 
 
 .card-artist {
@@ -124,9 +137,9 @@ body {
   width: 180px;
   max-width: 180px !important;
   max-height: 180px !important;
-  border-style: solid;
-  border-color: $tangerine;
-  border-width: thin;
+  //border-style: solid;
+  //border-color: $tangerine;
+  //border-width: thin;
   border-radius: 50%;
   position: relative;
   display: flex;
@@ -191,7 +204,6 @@ body {
     transform: translateY(-50%);
     transition: transform calc(var(--d) * 2) var(--e);
   }
-
 }
 
 .content {
@@ -210,7 +222,7 @@ body {
 }
 
 .title {
-  font-size: 1.3rem;
+  font-size: 17px;
   font-weight: bold;
   line-height: 1.2;
 }
