@@ -20,5 +20,14 @@
 
 .close {
   color: $tangerine;
-  opacity: none;
+  opacity: 1;
+  text-shadow: none;
+}
+
+.close :hover {
+  color: $tangerine;
+}
+
+.btn-outline-primary {
+  background-color: $black;
 }
