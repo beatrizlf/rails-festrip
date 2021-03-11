@@ -3,36 +3,17 @@
 ------------------------------------------------------------------------------------------------------%>
 
 <% if @wishlists.empty? %>
+<div class="w-100">
   <div class="row container-wishlist mt-3 d-flex flex-row">
-    <% @festivals.each do |festival| %>
-      <div class="p-4 col-12 col-sm-3">
-        <div class="d-flex flex-row">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path festival.photo.key %>'); background-size: cover;">
-            <div class="content">
-              <h2 class="title"><%= festival.category %></h2>
-                <p class="copy">
-                  <p></p></p>
-                  <button class="btn btn-outline-warning"><%= link_to "See Details", festival_path(festival) %></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-<% else %>
-<%#Festivais sugeridos pela escolha de categoria do usuario
-------------------------------------------------------------%>
-
-    <div class="row container-wishlist mt-3 d-flex flex-row">
-      <% @suggestions.each do |festival| %>
-        <div class="p-4 col-12 col-sm-3">
+    <div class="owl-four owl-carousel owl-theme">
+      <% @festivals.each do |festival| %>
+        <div class="p-4">
           <div class="d-flex flex-row">
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path festival.photo.key %>'); background-size: cover;">
               <div class="content">
-                <h2 class="title"><%= festival.name %></h2>
+                <h2 class="title"><%= festival.category %></h2>
                   <p class="copy">
-                    <p><%= festival.location %></p></p>
-                    <p><%= festival.category %></p>
+                    <p></p></p>
                     <button class="btn btn-outline-warning"><%= link_to "See Details", festival_path(festival) %></button>
               </div>
             </div>
@@ -40,6 +21,32 @@
         </div>
       <% end %>
     </div>
+  </div>
+</div>
+<% else %>
+<%#Festivais sugeridos pela escolha de categoria do usuario
+------------------------------------------------------------%>
+  <div class="w-100">
+    <div class="row container-wishlist mt-3 d-flex flex-row">
+      <div class="owl-four owl-carousel owl-theme">
+        <% @suggestions.each do |festival| %>
+          <div class="p-4">
+            <div class="d-flex flex-row">
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path festival.photo.key %>'); background-size: cover;">
+                <div class="content">
+                  <h2 class="title"><%= festival.name %></h2>
+                    <p class="copy">
+                      <p><%= festival.location %></p></p>
+                      <p><%= festival.category %></p>
+                      <button class="btn btn-outline-warning"><%= link_to "See Details", festival_path(festival) %></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 
