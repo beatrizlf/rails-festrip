@@ -6,7 +6,8 @@
         <h2>We couldn't find any results for your search =( </h2>
         <%= link_to "Back to Festivals", festivals_path, class:'btn btn-outline-warning' %>
       <% else %>
-        <h2>Your search results for: "<%= @query %>"</h2>
+        <h2>Your search results for: </h2>
+        <p class="fs-2 text-warning"> <%= @query %> </p>
         <%= render 'shared/cardindex', festivals: @search %>
         <%= link_to "Back to Festivals", festivals_path, class:'btn btn-outline-warning' %>
       <% end %>
@@ -34,7 +35,7 @@
       <% else %> <!-- user deslogado -->
         <%= render 'shared/connect_spotify' %>
       <% end %>
-        <h2 class="pt-5">Festivals around the world:</h2> 
+        <h2 class="pt-5">Festivals around the world:</h2>
         <%= render 'shared/cardindex', festivals: @festivals %>
     </div>
   </div>
