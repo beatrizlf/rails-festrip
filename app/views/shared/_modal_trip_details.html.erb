@@ -1,4 +1,4 @@
-<div class="p-4">
+<div class="p-3 col-12 col-sm-4">
   <%= link_to wishlist_path(wishlist),method: :delete do %>
   <i class="fas fa-minus-circle"></i>
   <% end %>
@@ -6,8 +6,8 @@
   <!-- Modal Button - Might Need some CSS Stylization  -->
 
         <div class="d-flex flex-row">
-          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path wishlist.festival.photo.key %>'); background-size: cover;">
-            <div class="content">
+          <div class="modal-content" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path wishlist.festival.photo.key %>'); background-size: cover;">
+            <div>
               <h2 class="title"><%= wishlist.festival.name %></h2>
               <% if %>
                 <% wishlist.festival.begin_datef == wishlist.festival.end_datef %>

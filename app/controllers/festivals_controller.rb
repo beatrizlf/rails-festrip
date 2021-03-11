@@ -10,7 +10,7 @@ class FestivalsController < ApplicationController
       # PG Search
       @search = Festival.all.global_search(params[:query])
       @search = @search.where(category: params[:category]) if params[:category].present?
-      @query = params[:query]
+      @query = params[:query] || params[:search]
       
     elsif params[:search].present? # se tiver busca pelo search form
       if params[:search][:category].present?
