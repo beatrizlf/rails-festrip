@@ -11,8 +11,11 @@
     "jquery": "^3.6.0",
     "js-autocomplete": "^1.0.4",
     "owl.carousel": "^2.3.4",
+    "p5": "^1.3.0",
     "popper.js": "^1.16.1",
-    "turbolinks": "^5.2.0"
+    "three": "^0.126.1",
+    "turbolinks": "^5.2.0",
+    "vanta": "^0.5.21"
   },
   "version": "0.1.0",
   "devDependencies": {
