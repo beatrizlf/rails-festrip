@@ -6,26 +6,25 @@
   <!-- Modal Button - Might Need some CSS Stylization  -->
 
         <div class="d-flex flex-row">
-          <div class="modal-content" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path wishlist.festival.photo.key %>'); background-size: cover;">
-            <div>
-              <h2 class="title"><%= wishlist.festival.name %></h2>
+          <div class="modal-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path wishlist.festival.photo.key %>'); background-size: cover;">
+            <div style="height: 174px; width: 294px; margin-bottom: 55px; ">
+              <h2 class="title"><strong style="font-size: 20px;"><%= wishlist.festival.name %></strong></h2>
               <% if %>
                 <% wishlist.festival.begin_datef == wishlist.festival.end_datef %>
                 <p> %= wishlist.festival.begin_datef%></p> %>
               <% else %>
-                <p> <%= wishlist.festival.begin_datef%> until </p>
-                <p> <%= wishlist.festival.end_datef %></p>
+                <p> <%= wishlist.festival.begin_datef%> to <%= wishlist.festival.end_datef %></p>
               <% end %>
               <p><%= wishlist.festival.location %></p>
-              <p><%= wishlist.festival.category %></p>
 
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#flights<%=wishlist.festival.id%>">
+        <br>
+        <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#flights<%=wishlist.festival.id%>">
           Flights
         </button>
 
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#accomodation<%=wishlist.festival.id%>">
+        <button type="button" style="" class="btn btn-outline-warning" data-toggle="modal" data-target="#accomodation<%=wishlist.festival.id%>">
           Accomodation
         </button>
 
