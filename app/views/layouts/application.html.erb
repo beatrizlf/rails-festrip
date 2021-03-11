@@ -14,7 +14,11 @@
   </head>
 
   <body>
-     <div id="page-container">
+    <% if current_page?(root_path) %>
+      <%= yield %>
+      <%= render 'shared/flashes' %>
+    <% else %>
+      <div id="page-container">
         <div id="content-wrap">
           <!-- all other page content -->
           <%= render 'shared/flashes' %>
@@ -24,7 +28,8 @@
           <footer id="footer">
             <%= render 'shared/footer' %>
           </footer>
-        <% end %>
-    </div>
+          <% end %>
+      </div>
+    <% end %>
   </body>
 </html>
