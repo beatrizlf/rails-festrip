@@ -1,8 +1,29 @@
+.connect-box {
+  border: 3px solid;
+  border-width: thin;
+  border-color: $tangerine;
+  border-radius: 5px;
+}
+
 .textbox {
   display: flex;
   flex-direction: column;
   text-align: left;
   margin-left: 55px;
   margin-top: 50px;
+}
+
+.textbox-spotify {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.spotify-button a {
+  color: $ivory;
+  text-decoration: none;
+  font-size: 19px;
 }
 
