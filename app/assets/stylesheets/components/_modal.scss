@@ -1,0 +1,24 @@
+.modal-title {
+  color: $ivory;
+  background-color: $tangerine;
+}
+
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: none;
+}
+
+.modal-header {
+  border: none;
+}
+
+.close {
+  color: $tangerine;
+  opacity: none;
+}
