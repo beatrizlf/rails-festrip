@@ -3,33 +3,39 @@ class FestivalsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_festival, only: [:show, :edit, :update, :destroy, :favourite_festival]
 
-   
+
   def index
     skip_policy_scope
     if params[:query].present? # se tiver busca na navbar
       # PG Search
       @search = Festival.all.global_search(params[:query])
       @search = @search.where(category: params[:category]) if params[:category].present?
-      @query = params[:query] || params[:search]
-      
+      @query = params[:query]
+
     elsif params[:search].present? # se tiver busca pelo search form
+      @query = []
       if params[:search][:category].present?
         @search = Festival.where(category: params[:search][:category])
+        @query << params[:search][:category]
       end
 
       if params[:search][:location].present?
         @search = Festival.where(location: params[:search][:location])
+        @query << params[:search][:location]
       end
 
       if params[:search][:year].present?
         @search = Festival.select { |festival| festival.begin_date.strftime("%Y") == params[:search][:year] }
+        @query << params[:search][:year]
       end
 
       if params[:search][:month].present?
         @search = Festival.select { |festival| festival.begin_date.strftime("%B") == params[:search][:month] }
+        @query << params[:search][:month]
       end
+      @query = @query.join(' + ')
     else
-      
+
       if current_user && current_user.top_artists.present? # user logado com spotify
         @artists = Artist.where(name: current_user.top_artists.map(&:name))
         @lineups = Lineup.where(artist_id: @artists.map(&:id))
@@ -37,13 +43,13 @@ class FestivalsController < ApplicationController
       end
 
       @festivals = Festival.all
-      
+
       # scopes criados para filtar na pagina de index como criterio
-    
-    end  
-    
-   
-    
+
+    end
+
+
+
 
     # logica para implementar o autocomplete
     @results = Artist.order(:name).pluck(:name)

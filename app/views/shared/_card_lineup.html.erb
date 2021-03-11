@@ -7,7 +7,7 @@
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path festival.photo.key %>'); background-size: cover;">
               <div class="content">
                 <h2 class="title"><%= festival.name %></h2>
-                <span class="title">presents <%= lineups[index].artist_name %></span>
+                <span class="title">< <%= lineups[index].artist_name %> ></span>
                 <p class="copy">
                 <p><%= festival.location %></p></p>
                 <button class="btn btn-outline-warning"><%= link_to "See Details", festival_path(festival) %></button>

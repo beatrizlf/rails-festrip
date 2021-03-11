@@ -8,6 +8,9 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("owl.carousel")
+require("vanta")
+require("p5")
+require("three")
 
 
 
@@ -28,6 +31,8 @@ require("owl.carousel")
 import "bootstrap";
 
 // Internal imports, e.g:
+import { vantaJs } from '../components/vanta';
+
 
 // import { initSelect2 } from '../components/init_select2';
 import { inputForTrip } from '../components/insert_trip';
@@ -35,11 +40,12 @@ import { inputForTrip } from '../components/insert_trip';
 import { owlCarousel } from '../components/carousel';
 
 import { autocompleteSearch } from '../components/autocomplete';
-
+ 
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   owlCarousel();
   autocompleteSearch();
+  vantaJs();
 });
