@@ -25,6 +25,34 @@ body {
   place-items: center;
 }
 
+.modal-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    padding: 1rem;
+    padding-top: 2.5rem;
+    width: 100%;
+    text-align: center;
+    color: $ivory;
+    background-color: $ivory;
+    border: none !important;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1),
+    0 2px 2px rgba(0,0,0,0.1),
+    0 4px 4px rgba(0,0,0,0.1),
+    0 8px 8px rgba(0,0,0,0.1),
+    0 16px 16px rgba(0,0,0,0.1);
+
+    @media (min-width: $bp-md) {
+    height: 350px;
+  }
+}
+
 .page-content {
   display: grid;
   grid-gap: 1rem;
