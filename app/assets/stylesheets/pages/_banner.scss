@@ -9,7 +9,7 @@
 
 #banner-index h1 {
   margin: 0;
-  color: white;
+  color: $ivory;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 80px !important;
   font-weight: bold;
@@ -17,7 +17,6 @@
 
 #banner-index p {
   font-size: 20px;
-  color: white;
-  opacity: .7;
+  color: $ivory !important;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
