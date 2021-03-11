@@ -1,10 +1,14 @@
+
+
+
+
 <%= render 'shared/navbar' %>
 
 <!-- Container principal da pagina de Wishlist
   ------------------------------------------->
 
 <!-- Cards ----------------------->
-
+<div id="page-container" style="height: 80vh !important;">
   <div class="container-list m-5">
     <div class="textbox-wish m-5">
       <h2><strong>Here is your Wishlist...</strong></h2>
@@ -28,4 +32,4 @@
   <%= render 'shared/suggestion', locals: {suggestions: @suggested_festivals} %>
 
     <% end %>
-
+  </div>
