@@ -377,13 +377,20 @@ Artist.create!(name: 'Sam Smith')
 Artist.create!(name: 'Alicia Keys')
 Artist.create!(name: 'Rihanna')
 Artist.create!(name: 'Adele')
+Artist.create!(name: 'Lorde')
+Artist.create!(name: 'Coldplay')
+Artist.create!(name: 'The 1975')
+Artist.create!(name: 'The xx')
+Artist.create!(name: 'Imagine Dragons')
+Artist.create!(name: 'Jack Johnson')
+Artist.create!(name: 'Pharrell Williams')
+Artist.create!(name: 'Mumford & Sons')
+Artist.create!(name: 'Of Monsters and Men')
+Artist.create!(name: 'Interpol')
+Artist.create!(name: 'Foster The People')
+Artist.create!(name: 'Jake Bugg')
+Artist.create!(name: 'James Blake')
 Artist.create!(name: '')
-
-
-
-
-
-
 
 puts 'Artists created!'
 
@@ -1027,10 +1034,91 @@ Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Fatboy Slim')
 Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Camila Cabello'))
 Lineup.create(festival: glastonbury, artist: Artist.find_by(name: 'Lianne La Havas'))
 
-# pukkelpop = Festival.create!(
-#   name: 'Pukkelpop',
-#   begin_date: Date.new(2021,8,19),
-#   end_date: Date.new(2021,8,22)
-# )
+pukkelpop = Festival.create!(
+   name: 'Pukkelpop',
+   begin_date: Date.new(2021,8,19),
+   end_date: Date.new(2021,8,22),
+   location: 'Belgium',
+   category: 'Alternative',
+   description: "Pukkelpop is a massive multi-genre music festival in Hasselt, Belgium. The second largest in the country, the festival first took place as a one day affair in 1985. Growing into a multi-day behemoth over the years, Pukkelpop is known for offering one of the most wide-ranging and creative lineups in Europe.",
+   video_url: '-wCWH5WE64E',
+   address: 'Kempische Steenweg Hasselt Belgium'
+)
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615492532/pukkelpop_gvufvu.jpg')
+pukkelpop.photo.attach(io: file, filename: 'pukkelpop.jpg', content_type: 'image/jpg')
+
+Lineup.create(festival: pukkelpop, artist: Artist.find_by(name: 'Post Malone'))
+Lineup.create(festival: pukkelpop, artist: Artist.find_by(name: 'The National'))
+Lineup.create(festival: pukkelpop, artist: Artist.find_by(name: 'Tame Impala'))
+Lineup.create(festival: pukkelpop, artist: Artist.find_by(name: 'Twenty One Pilots'))
+Lineup.create(festival: pukkelpop, artist: Artist.find_by(name: 'Billie Eilish'))
+Lineup.create(festival: pukkelpop, artist: Artist.find_by(name: 'James Blake'))
+Lineup.create(festival: pukkelpop, artist: Artist.find_by(name: 'Jorja Smith'))
+
+rock_werchter = Festival.create!(
+  name: 'Rock Werchter',
+  begin_date: Date.new(2021,7,2),
+  end_date: Date.new(2021,7,5),
+  location: 'Belgium',
+  category: 'Alternative',
+  description: "Rock Werchter is a multi-genre music festival in Belgium. Begun in 1974 as a one day musical celebration, the festival has steadily grown over the years and now covers four days. Welcoming upwards of 150,000 fans each year, Rock Werchter is one of the biggest festivals not only in its home country, but in Europe as well.",
+  video_url: 'x4RIhwfEz1A',
+  address: 'Haachtsesteenweg 23 Werchter 3118 Belgium'
+)
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615501224/rock_werchter_unayl4.jpg')
+rock_werchter.photo.attach(io: file, filename: 'rock_werchter.jpg', content_type: 'image/jpg')
+
+Lineup.create(festival: rock_werchter, artist: Artist.find_by(name: 'Pearl Jam'))
+Lineup.create(festival: rock_werchter, artist: Artist.find_by(name: 'The Strokes'))
+Lineup.create(festival: rock_werchter, artist: Artist.find_by(name: 'Kendrick Lamar'))
+Lineup.create(festival: rock_werchter, artist: Artist.find_by(name: 'System of a Down'))
+Lineup.create(festival: rock_werchter, artist: Artist.find_by(name: 'Pixies'))
+Lineup.create(festival: rock_werchter, artist: Artist.find_by(name: 'Lewis Capaldi'))
+
+coachella = Festival.create!(
+  name: 'Coachella',
+  begin_date: Date.new(2021,4,9),
+  end_date: Date.new(2021,4,11),
+  location: 'United States',
+  category: 'Electronic',
+  description: "Coachella is North America's most famous music festival, held each April at its now iconic home at the Empire Polo Club in Indio, California. A festival on every true music fan's bucket list, Coachella will make its eagerly anticipated return in April 2021 after a year off, once again returning with a world-beating lineup of some of music's biggest stars, covering a range of genres, including rock, indie, hip-hop and dance.",
+  video_url: 'SQ8bqE1awiA',
+  address: '81800 Avenue 51 Empire Polo Club Indio Greater Palm Springs California United States'
+)
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615506307/coachella_glliqi.jpg')
+coachella.photo.attach(io: file, filename: 'coachella.jpg', content_type: 'image/jpg')
+
+Lineup.create(festival: coachella, artist: Artist.find_by(name: 'Travis Scott'))
+Lineup.create(festival: coachella, artist: Artist.find_by(name: 'Frank Ocean'))
+Lineup.create(festival: coachella, artist: Artist.find_by(name: 'Lana Del Rey'))
+Lineup.create(festival: coachella, artist: Artist.find_by(name: 'Disclosure'))
+Lineup.create(festival: coachella, artist: Artist.find_by(name: 'BROCKHAMPTON'))
+Lineup.create(festival: coachella, artist: Artist.find_by(name: 'Rex Orange Country'))
+Lineup.create(festival: coachella, artist: Artist.find_by(name: '21 Savage'))
+
+
+hellfest = Festival.create!(
+  name: 'Hellfest',
+  begin_date: Date.new(2022,6,18),
+  end_date: Date.new(2022,6,20),
+  location: 'France',
+  category: 'Metal',
+  description: "Hellfest Open Air, which takes place in Clisson, western France, is one of the biggest rock, metal and punk festivals in Europe. Across three days expect to see nothing less than the scene’s biggest and most exciting bands. Much like the colossal sounds that can be heard on the lineup, Hellfest Open Air is notorious for bringing incredible production including face-melting pyrotechnics, sonically powerful speakers, and gigantic staging.",
+  video_url: 'NVdMIJT_ae4',
+  address: 'Rue du Champ Louet Clisson 44190 France'
+)
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615493206/hellfest_jr7p3w.jpg')
+hellfest.photo.attach(io: file, filename: 'hellfest.jpg', content_type: 'image/jpg')
+
+Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Deftones'))
+Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Dropkick Murphys'))
+Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Volbeat'))
+Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Faith no More'))
+Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Puscifer'))
+Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Korn'))
+Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Judas Priest'))
+Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Running Wild'))
+Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Airbourne'))
+Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Sepultura'))
 
 puts 'Festivals created!'
