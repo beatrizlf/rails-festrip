@@ -1085,12 +1085,16 @@ coachella = Festival.create!(
   video_url: 'SQ8bqE1awiA',
   address: '81800 Avenue 51 Empire Polo Club Indio Greater Palm Springs California United States'
 )
-file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615501224/rock_werchter_unayl4.jpg')
-coachella.photo.attach(io: file, filename: 'rock_werchter.jpg', content_type: 'image/jpg')
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615506307/coachella_glliqi.jpg')
+coachella.photo.attach(io: file, filename: 'coachella.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: coachella, artist: Artist.find_by(name: 'Travis Scott'))
 Lineup.create(festival: coachella, artist: Artist.find_by(name: 'Frank Ocean'))
 Lineup.create(festival: coachella, artist: Artist.find_by(name: 'Lana Del Rey'))
+Lineup.create(festival: coachella, artist: Artist.find_by(name: 'Disclosure'))
+Lineup.create(festival: coachella, artist: Artist.find_by(name: 'BROCKHAMPTON'))
+Lineup.create(festival: coachella, artist: Artist.find_by(name: 'Rex Orange Country'))
+Lineup.create(festival: coachella, artist: Artist.find_by(name: '21 Savage'))
 
 
 hellfest = Festival.create!(
@@ -1116,20 +1120,5 @@ Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Judas Priest'))
 Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Running Wild'))
 Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Airbourne'))
 Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Sepultura'))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 puts 'Festivals created!'
