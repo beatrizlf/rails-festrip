@@ -390,7 +390,7 @@ Artist.create!(name: 'Interpol')
 Artist.create!(name: 'Foster The People')
 Artist.create!(name: 'Jake Bugg')
 Artist.create!(name: 'James Blake')
-Artist.create!(name: '')
+Artist.create!(name: 'Foo Fighters')
 
 puts 'Artists created!'
 
@@ -557,7 +557,7 @@ awakenings = Festival.create!(
   video_url: '3WVQ9ugRdjI',
   address: 'Spaarnwoude Houtrak Netherlands'
 )
-file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615139609/Awakenings-Festival_zk34t0.jpg')
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615557254/awakenings2_vojflj.jpg')
 awakenings.photo.attach(io: file, filename: 'awakenings.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: awakenings, artist: Artist.find_by(name: 'Carl Cox'))
@@ -982,7 +982,7 @@ meo_sudoeste = Festival.create!(
     video_url: 'xqfkV27PZ8w',
     address: 'Zambujeira do Mar Portugal'
 )
-file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615141034/sudoeste_afvqzk.webp')
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615557737/meo_sudoeste2_pnslec.jpg')
 meo_sudoeste.photo.attach(io: file, filename: 'meo_sudoeste.jpg', content_type: 'image/jpg')
 
 Lineup.create(festival: meo_sudoeste, artist: Artist.find_by(name: 'Bad Bunny'))
@@ -1121,4 +1121,80 @@ Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Running Wild'))
 Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Airbourne'))
 Lineup.create(festival: hellfest, artist: Artist.find_by(name: 'Sepultura'))
 
+time_warp = Festival.create!(
+  name: 'Time Warp Brasil',
+  begin_date: Date.new(2021,11,13),
+  end_date: Date.new(2021,11,14),
+  location: 'Brazil',
+  category: 'Eletronic',
+  description: "Time Warp returns to São Paulo for the third edition of the iconic brand’s Brazilian satellite, combining the visuals, sounds, and pure house and techno that has been part of the Time Warp DNA since 1994. With over 25 years entrenched as one of techno's leading lights, the musical celebration continues in São Paulo,  building off an energetic debut in 2018.",
+  video_url: 'Cpe9vOkOchA',
+  address: 'Av. Olavo Fontoura 1209 Santana São Paulo'
+)
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615558944/time_warp_ur8pei.jpg')
+time_warp.photo.attach(io: file, filename: 'time_warp.jpg', content_type: 'image/jpg')
+
+Lineup.create(festival: time_warp, artist: Artist.find_by(name: 'Amelie Lens'))
+Lineup.create(festival: time_warp, artist: Artist.find_by(name: 'ANNA'))
+Lineup.create(festival: time_warp, artist: Artist.find_by(name: 'Honey Dijon'))
+Lineup.create(festival: time_warp, artist: Artist.find_by(name: 'Nina Kraviz'))
+Lineup.create(festival: time_warp, artist: Artist.find_by(name: 'Jamie Jones'))
+
+rock_in_rio = Festival.create!(
+  name: 'Rock in Rio Brasil',
+  begin_date: Date.new(2021,9,24),
+  end_date: Date.new(2021,9,26),
+  location: 'Brazil',
+  category: 'Pop',
+  description: "Rock in Rio Brasil is the Brazilian edition of the huge music festival, which in 2021 will takes place across two weekends in late September and early October. Sister to Rock in Rio's European event in Lisbon, the Brazilian edition is the festival's original and flagship event, which takes over Rio's Cidade do Rock alongside some of rock, pop and hip-hop's biggest and best artists.",
+  video_url: 'O9KoUInI24g',
+  address: 'Av. Salvador Allende 6500 Barra da Tijuca Rio de Janeiro Brazil'
+)
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615559898/rock_rio_jycof2.jpg')
+rock_in_rio.photo.attach(io: file, filename: 'rock_rio.jpg', content_type: 'image/jpg')
+
+Lineup.create(festival: rock_in_rio, artist: Artist.find_by(name: 'Foo Fighters'))
+Lineup.create(festival: rock_in_rio, artist: Artist.find_by(name: 'The National'))
+Lineup.create(festival: rock_in_rio, artist: Artist.find_by(name: 'Liam Gallagher'))
+Lineup.create(festival: rock_in_rio, artist: Artist.find_by(name: 'Black Eyed Peas'))
+Lineup.create(festival: rock_in_rio, artist: Artist.find_by(name: 'Post Malone'))
+Lineup.create(festival: rock_in_rio, artist: Artist.find_by(name: 'Anitta'))
+Lineup.create(festival: rock_in_rio, artist: Artist.find_by(name: 'Duran Duran'))
+Lineup.create(festival: rock_in_rio, artist: Artist.find_by(name: 'Jason Derulo'))
+
+lolla_brazil = Festival.create!(
+  name: 'Lollapalooza Brasil',
+  begin_date: Date.new(2021,9,10),
+  end_date: Date.new(2021,9,12),
+  location: 'Brazil',
+  category: 'Alternative',
+  description: "Lollapalooza is one of the most iconic music festivals in the world, taking place in Chicago. A multi-genre, four day affair, each year the festival curates a lineup of the biggest acts in the world along with the hottest up-and-comers.",
+  video_url: 'Q5n_RolmSbo',
+  address: 'Autódromo de Interlagos São Paulo Brazil'
+)
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615560567/lollapalooza_iw2qil.jpg')
+lolla_brazil.photo.attach(io: file, filename: 'lollapalooza.jpg', content_type: 'image/jpg')
+
+Lineup.create(festival: lolla_brazil, artist: Artist.find_by(name: 'The Strokes'))
+Lineup.create(festival: lolla_brazil, artist: Artist.find_by(name: 'Alan Walker'))
+Lineup.create(festival: lolla_brazil, artist: Artist.find_by(name: 'Travis Scott'))
+Lineup.create(festival: lolla_brazil, artist: Artist.find_by(name: 'Lana Del Rey'))
+Lineup.create(festival: lolla_brazil, artist: Artist.find_by(name: 'BROCKHAMPTON'))
+Lineup.create(festival: lolla_brazil, artist: Artist.find_by(name: 'Armin Van Buuren'))
+Lineup.create(festival: lolla_brazil, artist: Artist.find_by(name: 'Cage The Elephant'))
+
+roskilde = Festival.create!(
+  name: 'Roskilde Festival',
+  begin_date: Date.new(2021,6,27),
+  end_date: Date.new(2021,7,4),
+  location: 'Denmark',
+  category: 'Indie',
+  description: "Roskilde Festival is a music festival held in Denmark. One of the biggest in Europe, the festival is diverse in its musical stylings, welcoming stars of rock, pop, urban and electronic for a week of phenomenal music",
+  video_url: 'ofutTpZ34ZU',
+  address: 'Darupvej 23 4000 Roskilde Denmark'
+)
+file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615561311/roskilde_eccnsj.jpg')
+roskilde.photo.attach(io: file, filename: 'roskilde.jpg', content_type: 'image/jpg')
+
 puts 'Festivals created!'
+
