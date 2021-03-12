@@ -1196,5 +1196,12 @@ roskilde = Festival.create!(
 file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615561311/roskilde_eccnsj.jpg')
 roskilde.photo.attach(io: file, filename: 'roskilde.jpg', content_type: 'image/jpg')
 
+Lineup.create(festival: roskilde, artist: Artist.find_by(name: 'Taylor Swift'))
+Lineup.create(festival: roskilde, artist: Artist.find_by(name: 'Kendrick Lamar'))
+Lineup.create(festival: roskilde, artist: Artist.find_by(name: 'The Strokes'))
+Lineup.create(festival: roskilde, artist: Artist.find_by(name: 'FKA Wings'))
+Lineup.create(festival: roskilde, artist: Artist.find_by(name: 'Cage The Elephant'))
+Lineup.create(festival: roskilde, artist: Artist.find_by(name: 'Charli XCX'))
+
 puts 'Festivals created!'
 
