@@ -469,7 +469,7 @@ rampage = Festival.create!(
   location: 'Belgium',
   category: 'Eletronic',
   description: "Rampage is one of the biggest drum & bass and dubstep music festivals in the world. Every year it transforms the Antwerps Sportpaleis into a massive high-octane and high BPM dance party.",
-  video_url: 'CsycNMNDnPg&t=5s',
+  video_url: 'h5eeX17S62w',
   address: 'Schijnpoortweg 119 2170 Merksem Belgium'
 )
 file = URI.open('https://res.cloudinary.com/diarvpaib/image/upload/v1615138212/Rampage2020_V6_daz4ie.webp')
